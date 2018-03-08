@@ -1,0 +1,11 @@
+C:\Users\kate\source\repos\Lesson1\if_statement\bin\Debug\netcoreapp2.0\if_statement.deps.json
+C:\Users\kate\source\repos\Lesson1\if_statement\bin\Debug\netcoreapp2.0\if_statement.runtimeconfig.json
+C:\Users\kate\source\repos\Lesson1\if_statement\bin\Debug\netcoreapp2.0\if_statement.runtimeconfig.dev.json
+C:\Users\kate\source\repos\Lesson1\if_statement\bin\Debug\netcoreapp2.0\if_statement.dll
+C:\Users\kate\source\repos\Lesson1\if_statement\bin\Debug\netcoreapp2.0\if_statement.pdb
+C:\Users\kate\source\repos\Lesson1\if_statement\obj\Debug\netcoreapp2.0\if_statement.csproj.CoreCompileInputs.cache
+C:\Users\kate\source\repos\Lesson1\if_statement\obj\Debug\netcoreapp2.0\if_statement.AssemblyInfoInputs.cache
+C:\Users\kate\source\repos\Lesson1\if_statement\obj\Debug\netcoreapp2.0\if_statement.AssemblyInfo.cs
+C:\Users\kate\source\repos\Lesson1\if_statement\obj\Debug\netcoreapp2.0\if_statement.dll
+C:\Users\kate\source\repos\Lesson1\if_statement\obj\Debug\netcoreapp2.0\if_statement.pdb
+C:\Users\kate\source\repos\Lesson1\if_statement\obj\Debug\netcoreapp2.0\If_Statement.csprojResolveAssemblyReference.cache
