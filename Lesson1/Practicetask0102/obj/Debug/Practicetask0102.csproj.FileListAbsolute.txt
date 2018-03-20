@@ -1,0 +1,7 @@
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\bin\Debug\Practicetask0102.exe.config
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\bin\Debug\Practicetask0102.exe
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\bin\Debug\Practicetask0102.pdb
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\obj\Debug\Practicetask0102.csproj.CoreCompileInputs.cache
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\obj\Debug\Practicetask0102.exe
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\obj\Debug\Practicetask0102.pdb
+C:\Users\kate\source\repos\Lesson1\Practicetask0102\obj\Debug\Practicetask0102.csprojResolveAssemblyReference.cache

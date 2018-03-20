@@ -1,0 +1,7 @@
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\bin\Debug\Practice0103Flowchart.exe.config
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\bin\Debug\Practice0103Flowchart.exe
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\bin\Debug\Practice0103Flowchart.pdb
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\obj\Debug\Practice0103Flowchart.csproj.CoreCompileInputs.cache
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\obj\Debug\Practice0103Flowchart.exe
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\obj\Debug\Practice0103Flowchart.pdb
+C:\Users\kate\source\repos\Lesson1\Practice0103Flowchart\obj\Debug\Practice0103Flowchart.csprojResolveAssemblyReference.cache
