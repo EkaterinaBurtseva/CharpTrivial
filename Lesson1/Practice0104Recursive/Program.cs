@@ -14,7 +14,7 @@ namespace Practice0104Recursive
     {
         static void Main(string[] args)
         {
-           int result= CountDigits(10230);
+           int result= CountDigits(999999);
             Console.WriteLine(result);
         }
         public static int CountDigits(int number)

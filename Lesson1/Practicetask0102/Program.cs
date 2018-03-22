@@ -15,12 +15,12 @@ namespace Practicetask0102
         public static int CalculteDiscount(int q)
         {
             int discount = 0;
-            if (q < 10 && q < 50 && q < 100)
+            if (q < 10 )
             {
                 discount = 5;
                 Console.WriteLine("Discount is " + discount);
             }
-            else if (q < 50 && q < 100)
+            else if (q < 50 )
             {
                 discount = 10;
                 Console.WriteLine("Discount is " + discount);

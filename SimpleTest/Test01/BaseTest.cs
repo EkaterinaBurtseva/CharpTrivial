@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using log4net.Config;
 using System.IO;
 using System.Configuration;
 using OpenQA.Selenium.Chrome;

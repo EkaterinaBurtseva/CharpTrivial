@@ -53,16 +53,16 @@
   <ItemGroup>
     <Compile Include="RegistrationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Basepage.cs" />
+    <Compile Include="BasePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dependencies\Dependencies.csproj">
+    <ProjectReference Include="..\Dependencies\Helpers.csproj">
       <Project>{49befe93-cb9e-4152-9994-d7d8189e5d37}</Project>
-      <Name>Dependencies</Name>
+      <Name>Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,3 +5,10 @@ C:\Users\kate\source\repos\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.csp
 C:\Users\kate\source\repos\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.csproj.CoreCompileInputs.cache
 C:\Users\kate\source\repos\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.exe
 C:\Users\kate\source\repos\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.pdb
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\bin\Debug\PracticeTasks01.exe.config
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\bin\Debug\PracticeTasks01.exe
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\bin\Debug\PracticeTasks01.pdb
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.csprojResolveAssemblyReference.cache
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.csproj.CoreCompileInputs.cache
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.exe
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\PracticeTasks01\obj\Debug\PracticeTasks01.pdb

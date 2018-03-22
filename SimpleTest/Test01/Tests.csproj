@@ -60,9 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dependencies\Dependencies.csproj">
+    <ProjectReference Include="..\Dependencies\Helpers.csproj">
       <Project>{49befe93-cb9e-4152-9994-d7d8189e5d37}</Project>
-      <Name>Dependencies</Name>
+      <Name>Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pages\Pages.csproj">
       <Project>{30a3982a-2773-43cd-8a87-1201691117ac}</Project>

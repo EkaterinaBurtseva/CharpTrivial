@@ -13,20 +13,23 @@ namespace Pages
     class RegistrationPage
     {
         public IWebDriver driver;
-       
-      
+             
         static void Main(string[] args)
         {
            
+        }
+        [FindsBy(How = How.Id, Using = "registerform")]
+        private IWebElement Registrationform;
+        [FindsBy(How = How.Id, Using = "user_login")]
+        private IWebElement UsernameField;
+        [FindsBy(How = How.Id, Using = "user_login")]
+        private IWebElement EmailField;
+
+        public static void isRegistrationFormDisplayed()
+        {
 
         }
-        [FindsBy(How = How.CssSelector, Using = "")]
-        private IWebElement Registrationform;
-        [FindsBy(How = How.CssSelector, Using = "")]
-        private IWebElement RegisterLink;
-        public static void clickMyAccountButton()
-        {           
-        }
+        
 
         public static void clickRegistrationLink()
         {

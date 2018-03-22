@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Pages
 {
-    class Basepage : Dependencies.BaseTest
+    class BasePage : Tests.BaseTest
     {
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
         private IWebElement MyAccountButton;
         [FindsBy(How = How.LinkText, Using = "Register")]
-        private IWebElement RegisterLink;
+        private WebElement RegisterLink;
         public static void isAccountButtonDisplayed()
         {
 
@@ -25,11 +25,13 @@ namespace Pages
         public static void clickMyAccountButton()
         {
             MyAccountButton.Click();
+            return;
         }
 
         public static void clickRegistrationLink()
         {
-
+            RegisterLink.Click();
+            return;
         }
     }
 }

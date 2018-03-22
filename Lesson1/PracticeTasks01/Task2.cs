@@ -21,14 +21,22 @@ namespace PracticeTasks01
             double result = 0;
             try
             {
-                result=x / y;
-                Console.WriteLine(result);
-            }
-                catch(ArithmeticException arife)
+                result = x / y;
+
+                if (Double.IsInfinity(result))
                 {
-                    Console.WriteLine(arife.Message);
+                    throw new DivideByZeroException("zero");
                 }
-            catch(Exception e)
+                else
+                {
+                    Console.WriteLine(result);
+                }
+            }
+            catch (ArithmeticException arife)
+            {
+                Console.WriteLine(arife.Message);
+            }
+            catch (Exception e)
             {
                 Console.WriteLine("Wrong type " + e.Message);
             }

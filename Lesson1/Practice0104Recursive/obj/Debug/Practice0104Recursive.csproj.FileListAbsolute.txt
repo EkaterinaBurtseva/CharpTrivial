@@ -5,3 +5,10 @@ C:\Users\kate\source\repos\Lesson1\Practice0104Recursive\obj\Debug\Practice0104R
 C:\Users\kate\source\repos\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.csproj.CoreCompileInputs.cache
 C:\Users\kate\source\repos\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.exe
 C:\Users\kate\source\repos\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.pdb
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\bin\Debug\Practice0104Recursive.exe.config
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\bin\Debug\Practice0104Recursive.exe
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\bin\Debug\Practice0104Recursive.pdb
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.csprojResolveAssemblyReference.cache
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.csproj.CoreCompileInputs.cache
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.exe
+C:\Users\kateryna.burtseva\source\New folder\csharptrivial\Lesson1\Practice0104Recursive\obj\Debug\Practice0104Recursive.pdb
