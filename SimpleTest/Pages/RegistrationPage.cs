@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace Pages
 {
-    class Registration
+    class RegistrationPage
     {
         public IWebDriver driver;
        
@@ -21,7 +21,7 @@ namespace Pages
 
         }
         [FindsBy(How = How.CssSelector, Using = "")]
-        private IWebElement MyAccountButton;
+        private IWebElement Registrationform;
         [FindsBy(How = How.CssSelector, Using = "")]
         private IWebElement RegisterLink;
         public static void clickMyAccountButton()

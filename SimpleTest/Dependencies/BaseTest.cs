@@ -9,23 +9,23 @@ using System.IO;
 using System.Configuration;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+
 namespace Dependencies
     
 {
     public class BaseTest
         {
-        
+
         [ClassInitialize]
         public static void Init()
         {
-            XmlConfigurator.Configure();
-            using (IWebDriver driver = new ChromeDriver())
-            {
+            IWebDriver driver = new ChromeDriver();
+                     
                 driver.Navigate().GoToUrl("http://store.demoqa.com");
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
                 driver.Url = "http://store.demoqa.com";
                // IWebElement myDynamicElement = driver.FindElement(By.Id("someDynamicElement"));
-            }
+            
            
         }
 

@@ -8,7 +8,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace Test01
 {
- class Program : Dependencies.BaseTest
+ class Registration : Dependencies.BaseTest
     {
         static void Main(string[] args)
         {

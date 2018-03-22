@@ -664,25 +664,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kate\\.nuget\\packages\\": {},
+    "C:\\Users\\kateryna.burtseva\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kate\\source\\repos\\Lesson1\\Ifelse_Statement\\Ifelse_Statement.csproj",
+      "projectUniqueName": "C:\\Users\\kateryna.burtseva\\source\\New folder\\csharptrivial\\Lesson1\\Ifelse_Statement\\Ifelse_Statement.csproj",
       "projectName": "Ifelse_Statement",
-      "projectPath": "C:\\Users\\kate\\source\\repos\\Lesson1\\Ifelse_Statement\\Ifelse_Statement.csproj",
-      "packagesPath": "C:\\Users\\kate\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kate\\source\\repos\\Lesson1\\Ifelse_Statement\\obj\\",
+      "projectPath": "C:\\Users\\kateryna.burtseva\\source\\New folder\\csharptrivial\\Lesson1\\Ifelse_Statement\\Ifelse_Statement.csproj",
+      "packagesPath": "C:\\Users\\kateryna.burtseva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kateryna.burtseva\\source\\New folder\\csharptrivial\\Lesson1\\Ifelse_Statement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\kate\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kateryna.burtseva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
