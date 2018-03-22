@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
-namespace Test01
+namespace Hw022._2
 {
- class Program : Dependencies.BaseTest
+    class Program
     {
         static void Main(string[] args)
         {
-          
         }
     }
 }

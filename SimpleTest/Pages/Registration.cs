@@ -6,14 +6,35 @@ using System.Threading.Tasks;
 using Dependencies;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace Pages
 {
     class Registration
     {
+        public IWebDriver driver;
+       
+      
         static void Main(string[] args)
         {
-            
+           
+
         }
+        [FindsBy(How = How.CssSelector, Using = "")]
+        private IWebElement MyAccountButton;
+        [FindsBy(How = How.CssSelector, Using = "")]
+        private IWebElement RegisterLink;
+        public static void clickMyAccountButton()
+        {           
+        }
+
+        public static void clickRegistrationLink()
+        {
+
+        }
+            
+
+
     }
-}
+    }
+

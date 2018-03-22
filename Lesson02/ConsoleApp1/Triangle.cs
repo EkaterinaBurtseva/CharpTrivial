@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Triangle
+    class Triangle : Polygon
     {
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing: Triangle");
+        }
     }
 }

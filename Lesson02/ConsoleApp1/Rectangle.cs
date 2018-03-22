@@ -6,38 +6,39 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Rectangle:Polygon
+    class Rectangle : Polygon,IComrable
     {
-
-        public Rectangle(double length, double width)
-        {
-            Length = length;
-            Width = width;
-        }
-        public override double GetArea()
-        {
-            return Width * Length;
-        }
-
-       
-        /*
-        public static string ShapeName
-        {
-            get { return "Rectangle"; }
-        }
         public double Length { get; set; }
         public double Width { get; set; }
+        public override void Draw()
+        {
+            Console.WriteLine(“Drawing: Rectangle”);
+        }
         public double GetArea()
         {
-            return this.Length * this.Width;
+            return Length * Width;
         }
-        
+        public int CompareTo(object obj)
+        {
+            if (obj == null)
+                return 1;
+            if (!(obj is Rectangle))
+                throw new ArgumentException();
+            Rectangle target = (Rectangle)obj;
+            double diff = this.GetArea() - target.GetArea();
+            if (diff == 0)
+                return 0;
+            else if (diff > 0)
+                return 1;
+            else return -1;
+        }
     }
     struct Point
     {
         public double X, Y;
     }
-    */
-    }
+}
+    
+    
 
    
