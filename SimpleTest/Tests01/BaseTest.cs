@@ -18,30 +18,27 @@ namespace Tests01
     {
        private  IWebDriver driver;
 
-       // [SetUp]
-      //  public void SetUp()
-       // {
-       //     driver = new ChromeDriver();
+       [SetUp]
+       public void SetUp()
+       {
+          driver = new ChromeDriver();
             
-      //  }
+       }
       
-      [SetUp]
-      public void Initialize()
-        {
-            driver = new ChromeDriver();
-        }
+     
 
         [Test]
         public void FirstTest()
         {
             BasePage basePage = new BasePage(driver);
             basePage.openBasePage();
-           
+            basePage.clickMyAccountButton();
+            basePage.clickRegistrationLink();
         }
-        [TearDown]
-        public void EndTest()
-        {
-            driver.Close();
-        }
+      //  [TearDown]
+       // public void EndTest()
+       // {
+       //     driver.Close();
+       // }
     }
 }

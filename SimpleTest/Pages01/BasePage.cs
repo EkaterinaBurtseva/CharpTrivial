@@ -21,21 +21,21 @@ namespace Pages01
             PageFactory.InitElements(driver, this);
         }
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
-        private static IWebElement MyAccountButton;
+        private  IWebElement MyAccountButton;
         [FindsBy(How = How.LinkText, Using = "Register")]
-        private static IWebElement RegisterLink;
+        private IWebElement RegisterLink;
 
         public void openBasePage()
         {
             driver.Navigate().GoToUrl(BaseUrl);
         }
-        public static void clickMyAccountButton()
+        public  void clickMyAccountButton()
         {
             MyAccountButton.Click();
            
         }
 
-        public static void clickRegistrationLink()
+        public  void clickRegistrationLink()
         {
             RegisterLink.Click();
            
