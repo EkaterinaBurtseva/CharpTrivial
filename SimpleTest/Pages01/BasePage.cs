@@ -1,42 +1,36 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.PageObjects;
 
-using NUnit.Framework;
-
-namespace Pages
+namespace Pages01
 {
-    class BasePage 
+    
+    public class BasePage
     {
+        // private IWebDriver driver;
+        private IWebDriver driver;
         String BaseUrl = "http://store.demoqa.com";
-        public void TestApp() {
-            IWebDriver driver = new ChromeDriver();
-            driver.Url = BaseUrl;
-                }
-
+        public BasePage(IWebDriver driver)
+        {
+            this.driver = driver;
+            PageFactory.InitElements(driver, this);
+        }
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
         private static IWebElement MyAccountButton;
         [FindsBy(How = How.LinkText, Using = "Register")]
         private static IWebElement RegisterLink;
-        
 
-        public static void openBaseUrl()
+        public void openBasePage()
         {
-            Driver.
+            driver.Navigate().GoToUrl(BaseUrl);
         }
-        public static void isAccountButtonDisplayed()
+        public static void clickMyAccountButton()
         {
-        }
-        public static void isRegisterLinkDisplayed()
-        {
-
-        }
-        public static void clickMyAccountButton(){
             MyAccountButton.Click();
            
         }
@@ -46,5 +40,6 @@ namespace Pages
             RegisterLink.Click();
            
         }
+
     }
 }

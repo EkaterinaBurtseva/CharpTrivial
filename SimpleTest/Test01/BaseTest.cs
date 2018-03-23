@@ -8,43 +8,33 @@ using System.IO;
 using System.Configuration;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using NUnit.Framework;
+using OpenQA.Selenium.Support.PageObjects;
+using Pages;
+using Simple.Selenium.Pages;
 
 namespace Dependencies
-    
-{
-    public class BaseTest
-        {
 
-        [ClassInitialize]
-        public static void Init()
+{
+    [TestFixture]
+    public class BaseTest 
         {
-            IWebDriver driver = new ChromeDriver();
-                     
-                driver.Navigate().GoToUrl("http://store.demoqa.com");
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-                driver.Url = "http://store.demoqa.com";
-               // IWebElement myDynamicElement = driver.FindElement(By.Id("someDynamicElement"));
-            
+        private IWebDriver driver;
+        [SetUp]
+        public void SetUp()
+        {
+            driver = new ChromeDriver();
+        }
+        
+        [Test]
+        public void FirstTest() {
+            BasePage basePage = new Pages.BasePage(driver);
+     
+          
            
         }
 
-        [ClassCleanup]
-        public static void Close()
-        {
-            Driver.Close();
-        }
-
-        [TestInitialize]
-        public void Open()
-        {
-            Driver.DriverInstance.Navigate().GoToUrl("http://store.demoqa.com");
-                }
-
-        [TestCleanup]
-        public void CleanUp()
-        {
-
-            Driver.DriverInstance.Manage().Cookies.DeleteAllCookies();
-        }
+       
+       
     }
 }
