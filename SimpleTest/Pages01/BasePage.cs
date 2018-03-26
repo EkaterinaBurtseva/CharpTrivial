@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.PageObjects;
-
+using OpenQA.Selenium.Support.UI;
 namespace Pages01
 {
     
@@ -34,11 +34,26 @@ namespace Pages01
             MyAccountButton.Click();
            
         }
+        public void isBasePageOpened()
+        {
 
+        }
         public  void clickRegistrationLink()
         {
             RegisterLink.Click();
            
+        }
+        public bool isRegistrationLinkDisplayed(IWebElement RegisterLink)
+        {
+            return RegisterLink.Displayed;
+
+        }
+
+      
+
+        public bool isAccountButtonDisplayed(IWebElement MyAccountButton )
+        {
+            return MyAccountButton.Displayed;
         }
 
     }
