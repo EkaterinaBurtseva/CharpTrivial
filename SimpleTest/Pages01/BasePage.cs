@@ -14,42 +14,51 @@ namespace Pages01
     {
         // private IWebDriver driver;
         private IWebDriver driver;
+
         String BaseUrl = "http://store.demoqa.com";
+
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
         }
+
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
         private  IWebElement MyAccountButton;
+
         [FindsBy(How = How.LinkText, Using = "Register")]
         private IWebElement RegisterLink;
+
+        [FindsBy(How = How.Id, Using = "logo")]
+        private IWebElement Logo;
 
         public void openBasePage()
         {
             driver.Navigate().GoToUrl(BaseUrl);
         }
+
         public  void clickMyAccountButton()
         {
             MyAccountButton.Click();
            
         }
-        public void isBasePageOpened()
-        {
 
+        public bool isBasePageOpened(IWebElement Logo)
+        {
+            return Logo.Displayed;
         }
+
         public  void clickRegistrationLink()
         {
             RegisterLink.Click();
            
         }
+
         public bool isRegistrationLinkDisplayed(IWebElement RegisterLink)
         {
             return RegisterLink.Displayed;
 
         }
-
-      
 
         public bool isAccountButtonDisplayed(IWebElement MyAccountButton )
         {
