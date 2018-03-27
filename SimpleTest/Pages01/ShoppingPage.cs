@@ -9,7 +9,7 @@ using OpenQA.Selenium.Firefox;
 
 namespace Pages01
 {
-    class ShoppingPage :LoginPageB
+    public class ShoppingPage :BasePage
     {
         [FindsBy(How = How.Id, Using = "main-nav")]
         private IWebElement Menu;
@@ -72,6 +72,8 @@ namespace Pages01
         private IWebElement FinalPage;
         
         String defaultText="test";
+        String email = "burcevakate@gmail.com";
+        private IWebDriver driver;
 
         public ShoppingPage(IWebDriver driver) : base(driver)
         {
@@ -117,7 +119,18 @@ namespace Pages01
         {
             return HeaderCart.Displayed;
         }
+
+        public bool isElementDisplayedCart(IWebElement ProductNameCart)
+        {
+            return ProductNameCart.Displayed;
+        }
+
+        public bool isStep3PageOpened(IWebElement Step3)
+        {
+            return Step3.Displayed;
+        }
+    }
              
 
     }
-}
+

@@ -15,7 +15,7 @@ namespace Pages01
         // private IWebDriver driver;
         private IWebDriver driver;
 
-        String BaseUrl = "http://store.demoqa.com";
+        public String BaseUrl = "http://store.demoqa.com";
 
         public BasePage(IWebDriver driver)
         {
@@ -30,40 +30,44 @@ namespace Pages01
         private IWebElement RegisterLink;
 
         [FindsBy(How = How.Id, Using = "logo")]
-        private IWebElement Logo;
+        public IWebElement Logo;
 
-        public void openBasePage()
+
+        public void OpenBasePage()
         {
             driver.Navigate().GoToUrl(BaseUrl);
         }
 
-        public  void clickMyAccountButton()
+        public  void ClickMyAccountButton()
         {
             MyAccountButton.Click();
            
         }
 
-        public bool isBasePageOpened(IWebElement Logo)
-        {
-            return Logo.Displayed;
-        }
+      //  public bool isBasePageOpened(IWebElement Logo)
+      //  {
+        //    return Logo.Displayed;
+       // }
 
-        public  void clickRegistrationLink()
+        public  void ClickRegistrationLink()
         {
             RegisterLink.Click();
            
         }
 
-        public bool isRegistrationLinkDisplayed(IWebElement RegisterLink)
-        {
-            return RegisterLink.Displayed;
+      //  public bool isRegistrationLinkDisplayed(IWebElement RegisterLink)
+      //  {
+      //      return RegisterLink.Displayed;
 
-        }
+       // }
 
-        public bool isAccountButtonDisplayed(IWebElement MyAccountButton )
-        {
-            return MyAccountButton.Displayed;
-        }
+      //  public bool isAccountButtonDisplayed(IWebElement MyAccountButton)
+      //  {
+       //    return MyAccountButton.Displayed;
 
+       // }
+
+
+      
     }
 }

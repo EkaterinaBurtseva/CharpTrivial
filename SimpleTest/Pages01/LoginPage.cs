@@ -8,7 +8,7 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace Pages01
 {
-    class LoginPageB : BasePage
+    public class LoginPageB : BasePage
     {
         public LoginPageB(IWebDriver driver) : base(driver)
         {
