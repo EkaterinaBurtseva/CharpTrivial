@@ -32,23 +32,24 @@ namespace Pages01
        public String email = "burcevakate@gmail.com";
         String password = "O1gFNagT@)3&(*KY";
 
-        public bool isLoginPageOpened(IWebElement LoginPageTitle)
+        public bool IsLoginFormDisplayed()
         {
-            return LoginPageTitle.Displayed;
+            Boolean isDisplayed = LoginForm.Displayed;
+            return isDisplayed;
+        }
+        public bool IsLoginButtonisplayed()
+        {
+            Boolean isDisplayed = LoginBtn.Displayed;
+            return isDisplayed;
         }
 
-        public bool isLoginFormDisplayed(IWebElement LoginForm)
-        {
-            return LoginForm.Displayed;
-        }
-
-        public void fillLoginForm()
+        public void FillLoginForm()
         {
             UserNameLogin.SendKeys(email);
             PasswordLogin.SendKeys(password);
         }
 
-        public void clickLoginButton()
+        public void ClickLoginButton()
         {
             LoginBtn.Click();
         }

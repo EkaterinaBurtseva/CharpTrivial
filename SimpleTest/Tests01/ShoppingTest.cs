@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using Pages01;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
+using System.Threading;
 
 namespace Tests01
 {
@@ -17,9 +17,6 @@ namespace Tests01
     {
         private IWebDriver driver;
 
-
-        [FindsBy(How = How.Id, Using = "menu-item-33")]
-        public IWebElement ProductCategory;
 
         [SetUp]
        public void SetUp()
@@ -29,7 +26,7 @@ namespace Tests01
         }
 
        
-        public void startTest()
+        public void StartTest()
         {
             BasePage basePage = new BasePage(driver);
             basePage.OpenBasePage();
@@ -37,29 +34,46 @@ namespace Tests01
         }
 
         [Test]
-        public void loginPageB()
+        public void LoginPageB()
         {
-            startTest();
+            StartTest();
             LoginPageB loginPage = new LoginPageB(driver);
-            
-            loginPage.fillLoginForm();
-            loginPage.clickLoginButton();
-        }
-        [Test]
-        public void buyIpadTest()
-        {
-            loginPageB();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(200);
-            ShoppingPage shopPage = new ShoppingPage(driver);
-            Actions action = new Actions(driver);
-            action.MoveToElement(ProductCategory).Perform();
-            shopPage.SelectIpadProduct();
-            shopPage.clcikAddtoCart();
-            shopPage.clickContinueBtn();
-            shopPage.fillFormWithData();
-            shopPage.clickPurchase();
+            Assert.IsTrue(loginPage.IsLoginFormDisplayed(),"Verification that Login form is displayed");
+            Assert.IsTrue(loginPage.IsLoginButtonisplayed(), "Verification that Login form is displayed");
+            loginPage.FillLoginForm();
+            loginPage.ClickLoginButton();         
+            Assert.AreEqual("/products-page/your-account/", new Uri(driver.Url).PathAndQuery,"Verification that user is logged");
+            //is it ok to use such type of wait here?
+            Thread.Sleep(5000);
         }
 
+        [Test]
+        public void BuyIpadTest()
+        {
+            LoginPageB();                     
+            ShoppingPage shopPage = new ShoppingPage(driver);
+            //is it posibly to use HoverOver inside method?
+            Actions action = new Actions(driver);
+            action.MoveToElement(driver.FindElement(By.Id("menu-item-33"))).Build().Perform();
+            shopPage.SelectIpadProduct();           
+            shopPage.ClcikAddtoCart();           
+            Assert.IsTrue(shopPage.IsCartDisplayed(), "Cart button should be visible");
+            shopPage.ClickGoToCart();
+            Assert.AreEqual("/products-page/checkout/", new Uri(driver.Url).PathAndQuery, "Verification that user redirected to Step2");
+            Assert.IsTrue(shopPage.IsElementDisplayedCart(), "Verification that element in cart");
+            shopPage.ClickContinueButton();
+            shopPage.FillFormWithData();
+            shopPage.ClickPurchase();
+            Assert.IsTrue(shopPage.IsFinalPageDisplayed(), "Success");
+        }
+        [TearDown]
+        public void ClearingTest()
+        {
+            LoginPageB();
+            ShoppingPage shopPage = new ShoppingPage(driver);
+            shopPage.ClickGoToCart();
+            shopPage.Remove();
+        }
 
 
     }

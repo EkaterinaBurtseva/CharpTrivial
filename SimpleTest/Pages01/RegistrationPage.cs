@@ -43,28 +43,16 @@ namespace Pages01
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
         }
-
-        public bool isRegistrationPageOpened(IWebElement RegisterTitle)
+        
+        public bool IsRegistrationFormDisplyed()
         {
-            return RegisterTitle.Displayed;
+            Boolean isDisplayed = RegisterForm.Displayed;
+            return  isDisplayed;
+           
         }
+              
 
-        public bool isRegistrationFormDisplyed(IWebElement RegisterForm)
-        {
-            return RegisterForm.Displayed;
-        }
-
-        public bool isUsernameFieldDisplayed(IWebElement Username)
-        {
-            return Username.Displayed;
-        }
-
-        public bool isEmailFieldDisplayed(IWebElement Email)
-        {
-            return Email.Displayed;
-        }
-
-        public bool isRegisterBtnDisplyed(IWebElement RegisterBtn)
+        public bool IsRegisterBtnDisplyed()
         {
             return RegisterBtn.Displayed;
         }
@@ -86,16 +74,16 @@ namespace Pages01
             RegisterBtn.Click();
         }
 
-        public bool isErrorDisplayed()
+        public bool IsErrorDisplayed()
         {
-            Boolean isEnabled = ErrorMessage.Enabled;
-            return isEnabled;
+            Boolean isDisplayed = ErrorMessage.Displayed;
+            return isDisplayed;
          }
 
-        public bool isSuccessDisplayed()
+        public bool IsSuccessDisplayed()
         {
-            Boolean isEnabled = SuccessMessage.Enabled;
-            return isEnabled;
+            Boolean isDisplayed = SuccessMessage.Displayed;
+            return isDisplayed;
         }
     }
     }

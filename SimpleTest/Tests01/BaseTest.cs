@@ -32,12 +32,13 @@ namespace Tests01
         public void FirstTest()
         {
             BasePage basePage = new BasePage(driver);
-            basePage.OpenBasePage();            
-            basePage.ClickMyAccountButton();
-           // Assert.assertTrue(basePage.isRegistrationLinkDisplayed);
-           // RegistrationPage registrationPage = new RegistrationPage(driver);
+            basePage.OpenBasePage();
+            Assert.IsTrue(basePage.IsAccountButtonDisplayed(),"Verification Account button is displayed");
+            basePage.ClickMyAccountButton();          
+            Assert.IsTrue(basePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
             basePage.ClickRegistrationLink();            
-                Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
+            Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
+          
         }
 
        [Test]
@@ -45,9 +46,11 @@ namespace Tests01
         {
             RegistrationPage registrationPage = new RegistrationPage(driver);
             FirstTest();
+            Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
+            Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormWrong();
             registrationPage.ClickRegisterBtn();
-           Assert.IsTrue(registrationPage.isErrorDisplayed(),"Error message should be displayed");
+            Assert.IsTrue(registrationPage.IsErrorDisplayed(),"Error message should be displayed");
 
         }
 
@@ -56,12 +59,15 @@ namespace Tests01
         {
             FirstTest();
             RegistrationPage registrationPage = new RegistrationPage(driver);
+            Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
+            Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormCorrect();
             registrationPage.ClickRegisterBtn();
-            Assert.IsTrue(registrationPage.isSuccessDisplayed(), "Success message should be displayed");
+            Assert.IsTrue(registrationPage.IsSuccessDisplayed(), "Success message should be displayed");
 
         }
-         [TearDown]
+
+        [TearDown]
         public void EndTest()
         {
             driver.Close();

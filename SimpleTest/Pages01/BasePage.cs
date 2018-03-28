@@ -43,11 +43,7 @@ namespace Pages01
             MyAccountButton.Click();
            
         }
-
-      //  public bool isBasePageOpened(IWebElement Logo)
-      //  {
-        //    return Logo.Displayed;
-       // }
+        
 
         public  void ClickRegistrationLink()
         {
@@ -55,17 +51,19 @@ namespace Pages01
            
         }
 
-      //  public bool isRegistrationLinkDisplayed(IWebElement RegisterLink)
-      //  {
-      //      return RegisterLink.Displayed;
+        public bool IsRegistrationLinkDisplayed()
+       {
+            Boolean isDisplayed = RegisterLink.Displayed;
+            return isDisplayed;
 
-       // }
+        }
 
-      //  public bool isAccountButtonDisplayed(IWebElement MyAccountButton)
-      //  {
-       //    return MyAccountButton.Displayed;
-
-       // }
+        public bool IsAccountButtonDisplayed()
+        {
+            Boolean isDisplayed = MyAccountButton.Displayed;
+            return isDisplayed;
+          
+        }
 
 
       

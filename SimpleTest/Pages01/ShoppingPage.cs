@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
+using System.Threading;
 
 namespace Pages01
 {
     public class ShoppingPage :BasePage
     {
-        [FindsBy(How = How.Id, Using = "main-nav")]
-        private IWebElement Menu;
+        
 
         [FindsBy(How = How.Id, Using = "menu-item-33")]
         public IWebElement ProductCategory;
@@ -24,20 +24,14 @@ namespace Pages01
         [FindsBy(How = How.CssSelector, Using = "div.product_view_93")]
         private IWebElement iPadProduct;
 
-        [FindsBy(How = How.CssSelector, Using = "div.product_view_93 div.input-button-buy input")]
-        private IWebElement iPadAddToCart;
-
-        [FindsBy(How = How.Id, Using = "header_cart")]
-        private IWebElement HeaderCart;
+        [FindsBy(How = How.CssSelector, Using = "div.product_view_40 div.input-button-buy input")]
+        private IWebElement iPadAddToCart;        
 
         [FindsBy(How = How.CssSelector, Using = "td.wpsc_product_name")]
         private IWebElement ProductNameCart;
 
         [FindsBy(How = How.CssSelector, Using = "a.step2")]
-        private IWebElement ContinueBtn;
-
-        [FindsBy(How = How.Id, Using = "wpsc_shopping_cart_container")]
-        private IWebElement Step3;
+        private IWebElement ContinueBtn;      
 
         [FindsBy(How = How.Id, Using = "wpsc_checkout_form_9")]
         private IWebElement EmailStep3;
@@ -69,9 +63,15 @@ namespace Pages01
         [FindsBy(How = How.CssSelector, Using = "input.make_purchase")]
         private IWebElement PurchaseBtn;
 
-        [FindsBy(How = How.CssSelector, Using = "div.wpsc-transaction-results-wrap")]
+        [FindsBy(How = How.CssSelector, Using = "h1.entry-title")]
         private IWebElement FinalPage;
-        
+    
+        [FindsBy(How = How.CssSelector, Using = "div#header_cart a")]
+       private IWebElement Cart;
+
+        [FindsBy(How = How.CssSelector, Using = "td.wpsc_product_remove input[name='submit']")]
+        private IWebElement RemoveBtn;
+
         String defaultText="test";
         String email = "burcevakate@gmail.com";
         private IWebDriver driver;
@@ -79,31 +79,44 @@ namespace Pages01
         public ShoppingPage(IWebDriver driver) : base(driver)
         {
         }
-
+        
         public void SelectIpadProduct()
         {
-           
-            iPadCategory.Click();
+           iPadCategory.Click();
+         
         }
-      
+     
 
-        public void clcikAddtoCart()
+        public void ClcikAddtoCart()
         {
             iPadAddToCart.Click();
+            Thread.Sleep(5000);
 
         }
 
-        public void clickPurchase()
+        public void ClickContinueButton()
+        {
+            ContinueBtn.Click();
+            Thread.Sleep(5000);
+        }
+
+        public void ClickPurchase()
         {
             PurchaseBtn.Click();
         }
 
-        public void clickContinueBtn()
+        public void ClickGoToCart()
         {
-            ContinueBtn.Click();
+            
+            Cart.Click();
+        }
+        public bool IsCartDisplayed()
+       {
+            Boolean isDisplayed = Cart.Displayed;
+           return isDisplayed;
         }
 
-        public void fillFormWithData()
+        public void FillFormWithData()
         {
             EmailStep3.SendKeys(email);
             FirstNameStep3.SendKeys(defaultText);
@@ -115,21 +128,28 @@ namespace Pages01
             PostalCodeStep3.SendKeys(defaultText);
             PhoneStep3.SendKeys(defaultText);
 
-        }
-        public bool isStep2PageOpened(IWebElement HeaderCart)
+        }       
+
+        public bool IsElementDisplayedCart()
         {
-            return HeaderCart.Displayed;
+            Boolean isDisplayed = ProductNameCart.Displayed;
+            return isDisplayed;
+          
+        }
+        public bool IsFinalPageDisplayed()
+        {
+            Boolean isDisplayed = FinalPage.Displayed;
+            return isDisplayed;
+            ;
+
         }
 
-        public bool isElementDisplayedCart(IWebElement ProductNameCart)
+        public void Remove()
         {
-            return ProductNameCart.Displayed;
+            RemoveBtn.Click();
         }
 
-        public bool isStep3PageOpened(IWebElement Step3)
-        {
-            return Step3.Displayed;
-        }
+        
     }
              
 
