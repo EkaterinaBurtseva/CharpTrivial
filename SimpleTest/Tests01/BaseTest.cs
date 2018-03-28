@@ -28,7 +28,7 @@ namespace Tests01
        }
          
 
-       // [Test]
+       [Test]
         public void FirstTest()
         {
             BasePage basePage = new BasePage(driver);

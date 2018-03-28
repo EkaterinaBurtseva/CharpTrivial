@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 
 namespace Pages01
 {
@@ -15,7 +16,7 @@ namespace Pages01
         private IWebElement Menu;
 
         [FindsBy(How = How.Id, Using = "menu-item-33")]
-        private IWebElement ProductCategory;
+        public IWebElement ProductCategory;
 
         [FindsBy(How = How.CssSelector, Using = "li.menu-item-36 a")]
         private IWebElement iPadCategory;
@@ -81,10 +82,10 @@ namespace Pages01
 
         public void SelectIpadProduct()
         {
-            ProductCategory.Click();
+           
             iPadCategory.Click();
         }
-        //  public event EventHandler MouseEventArgs;
+      
 
         public void clcikAddtoCart()
         {
