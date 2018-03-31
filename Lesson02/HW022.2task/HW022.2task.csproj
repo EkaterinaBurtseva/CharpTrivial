@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A203A191-47EC-4E7F-997F-8696884392E7}</ProjectGuid>
+    <ProjectGuid>{FEC03EDD-4E3D-46B3-B758-662793F1C3D0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Hw02._1</RootNamespace>
-    <AssemblyName>Hw02.1</AssemblyName>
+    <RootNamespace>HW022._2task</RootNamespace>
+    <AssemblyName>HW022.2task</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

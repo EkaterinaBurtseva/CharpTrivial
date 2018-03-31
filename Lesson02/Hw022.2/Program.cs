@@ -10,6 +10,13 @@ namespace Hw022._2
     {
         static void Main(string[] args)
         {
+            ISampleEvents se = new SampleTask();
+            se.SampleEvent += new SampleDelegate(TestHandler);
+            se.Invoke();
+        }
+        static private void TestHandler()
+        {
+            Console.WriteLine("TestHandler is called");
         }
     }
 }

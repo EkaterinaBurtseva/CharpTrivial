@@ -43,7 +43,7 @@ namespace ConsoleApp1
              //   polygons.Add(new Triangle());
               //  foreach (Polygon p in polygons)
                // {
-                    p.Draw();
+                    //p.Draw();
                // }
            // }
             {

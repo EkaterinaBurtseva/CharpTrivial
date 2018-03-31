@@ -10,6 +10,12 @@ namespace Hw022._1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter name");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter price");
+            double price= Double.Parse(Console.ReadLine());
+            Product p = new Product(name,price);
+            Console.WriteLine(p.ToString());
         }
     }
 }

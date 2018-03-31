@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Rectangle : Polygon,IComrable
+    class Rectangle : Polygon
     {
         public double Length { get; set; }
         public double Width { get; set; }
         public override void Draw()
         {
-            Console.WriteLine(“Drawing: Rectangle”);
+            Console.WriteLine("Drawing: Rectangle");
         }
         public double GetArea()
         {
