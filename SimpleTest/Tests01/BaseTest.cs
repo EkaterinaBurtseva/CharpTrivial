@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Edge;
 using Pages01;
 using NUnit.Compatibility;
 
@@ -13,22 +15,21 @@ using NUnit.Compatibility;
 
 namespace Tests01
 {
-       [TestFixture]
-      public  class BaseTest
-       {
+    [TestFixture(typeof(FirefoxDriver))]
+    [TestFixture(typeof(ChromeDriver))]
+    [TestFixture(typeof(EdgeDriver))]
+    public  class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
+    {
        private  IWebDriver driver;
 
-        
 
         [SetUp]
-       public void SetUp()
-       {
-          driver = new ChromeDriver();
-            
-       }
-         
+        public void SetUp()
+        {
+            this.driver = new TWebDriver();
+        }
 
-       [Test]
+        [Test]
         public void FirstTest()
         {
             BasePage basePage = new BasePage(driver);

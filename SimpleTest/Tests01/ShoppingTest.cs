@@ -10,10 +10,15 @@ using Pages01;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Threading;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Edge;
 
 namespace Tests01
 {
-    class ShoppingTest
+    [TestFixture(typeof(FirefoxDriver))]
+    [TestFixture(typeof(ChromeDriver))]
+    [TestFixture(typeof(EdgeDriver))]
+    class ShoppingTest<TWebDriver> where TWebDriver : IWebDriver, new()
     {
         private IWebDriver driver;
 
@@ -21,8 +26,8 @@ namespace Tests01
         [SetUp]
        public void SetUp()
         {
-           driver = new ChromeDriver();
-           
+            this.driver = new TWebDriver();
+
         }
 
        
