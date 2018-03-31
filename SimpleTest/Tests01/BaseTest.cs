@@ -7,7 +7,8 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.IE;
 using Pages01;
 using NUnit.Compatibility;
 
@@ -17,7 +18,7 @@ namespace Tests01
 {
     [TestFixture(typeof(FirefoxDriver))]
     [TestFixture(typeof(ChromeDriver))]
-    [TestFixture(typeof(EdgeDriver))]
+    [TestFixture(typeof(InternetExplorerDriver))]
     public  class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
     {
        private  IWebDriver driver;
