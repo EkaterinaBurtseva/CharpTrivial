@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2
 {
-    class Car2:Car
+    class Car2 : Car
     {
         String color2 = "blue";
 

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Polymor
 {
     class Hyundai:Car
-      {
+    {
      
         public Hyundai(int speed) : base(speed) { }
-        public void Drive()
+        public override void Drive(int speed)
         {
 
         }

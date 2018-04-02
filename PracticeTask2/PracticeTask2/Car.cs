@@ -10,7 +10,7 @@ namespace PracticeTask2
     {
         String color ="red";
         int speed;
-       public  int type;
+        public  int type;
         public virtual void PrintColor()
         {
             Console.WriteLine(color);

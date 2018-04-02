@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polymor
 {
-    class Car
+    public abstract class Car
     {
         public int speed;
         int code;
@@ -14,10 +14,8 @@ namespace Polymor
         {
             this.speed = speed;
         }
-        public void Drive(int speed)
-        {
+        public abstract void Drive(int speed);
 
-        }
         public void Drive(int speed, int code)
         {
 

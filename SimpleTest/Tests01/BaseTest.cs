@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using OpenQA.Selenium.IE;
 using Pages01;
-using NUnit.Compatibility;
+using System;
 
 
 
@@ -19,9 +13,9 @@ namespace Tests01
     [TestFixture(typeof(FirefoxDriver))]
     [TestFixture(typeof(ChromeDriver))]
     [TestFixture(typeof(InternetExplorerDriver))]
-    public  class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
+    public class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
     {
-       private  IWebDriver driver;
+        private IWebDriver driver;
 
 
         [SetUp]
@@ -35,15 +29,15 @@ namespace Tests01
         {
             BasePage basePage = new BasePage(driver);
             basePage.OpenBasePage();
-            Assert.IsTrue(basePage.IsAccountButtonDisplayed(),"Verification Account button is displayed");
-            basePage.ClickMyAccountButton();          
+            Assert.IsTrue(basePage.IsAccountButtonDisplayed(), "Verification Account button is displayed");
+            basePage.ClickMyAccountButton();
             Assert.IsTrue(basePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
-            basePage.ClickRegistrationLink();            
+            basePage.ClickRegistrationLink();
             Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
-          
+
         }
 
-       [Test]
+        [Test]
         public void RegistrationWrongTest()
         {
             RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -52,7 +46,7 @@ namespace Tests01
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormWrong();
             registrationPage.ClickRegisterBtn();
-            Assert.IsTrue(registrationPage.IsErrorDisplayed(),"Error message should be displayed");
+            Assert.IsTrue(registrationPage.IsErrorDisplayed(), "Error message should be displayed");
 
         }
 
@@ -73,6 +67,6 @@ namespace Tests01
         public void EndTest()
         {
             driver.Close();
-         }
+        }
     }
 }

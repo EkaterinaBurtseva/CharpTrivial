@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 namespace Pages01
 {
-    
+
     public class BasePage
     {
         // private IWebDriver driver;
@@ -24,7 +24,7 @@ namespace Pages01
         }
 
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
-        private  IWebElement MyAccountButton;
+        private IWebElement MyAccountButton;
 
         [FindsBy(How = How.LinkText, Using = "Register")]
         private IWebElement RegisterLink;
@@ -38,21 +38,21 @@ namespace Pages01
             driver.Navigate().GoToUrl(BaseUrl);
         }
 
-        public  void ClickMyAccountButton()
+        public void ClickMyAccountButton()
         {
             MyAccountButton.Click();
-           
-        }
-        
 
-        public  void ClickRegistrationLink()
+        }
+
+
+        public void ClickRegistrationLink()
         {
             RegisterLink.Click();
-           
+
         }
 
         public bool IsRegistrationLinkDisplayed()
-       {
+        {
             Boolean isDisplayed = RegisterLink.Displayed;
             return isDisplayed;
 
@@ -62,10 +62,10 @@ namespace Pages01
         {
             Boolean isDisplayed = MyAccountButton.Displayed;
             return isDisplayed;
-          
+
         }
 
 
-      
+
     }
 }
