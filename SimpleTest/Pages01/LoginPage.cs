@@ -29,7 +29,7 @@ namespace Pages01
         [FindsBy(How = How.Id, Using = "login_wrapper")]
         private IWebElement LoginForm;
 
-       public String email = "burcevakate@gmail.com";
+        public String email = "burcevakate@gmail.com";
         String password = "O1gFNagT@)3&(*KY";
 
         public bool IsLoginFormDisplayed()

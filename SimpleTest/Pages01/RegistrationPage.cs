@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Pages01
 {
-    public class RegistrationPage :BasePage
+    public class RegistrationPage : BasePage
     {
-       
+
         [FindsBy(How = How.CssSelector, Using = "p.message")]
         private IWebElement RegisterTitle;
 
@@ -33,7 +33,7 @@ namespace Pages01
 
         [FindsBy(How = How.Id, Using = "login_error")]
         private IWebElement ErrorMessage;
-        
+
         String usernameWrong = "***";
         String emailWrong = "1111";
         String usernameValid = "test";
@@ -43,23 +43,23 @@ namespace Pages01
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
         }
-        
+
         public bool IsRegistrationFormDisplyed()
         {
             Boolean isDisplayed = RegisterForm.Displayed;
-            return  isDisplayed;
-           
+            return isDisplayed;
+
         }
-              
+
 
         public bool IsRegisterBtnDisplyed()
         {
             return RegisterBtn.Displayed;
         }
 
-       public void FillFormCorrect()
+        public void FillFormCorrect()
         {
-             Username.SendKeys(usernameValid);      
+            Username.SendKeys(usernameValid);
             Email.SendKeys(emailValid);
         }
 
@@ -78,7 +78,7 @@ namespace Pages01
         {
             Boolean isDisplayed = ErrorMessage.Displayed;
             return isDisplayed;
-         }
+        }
 
         public bool IsSuccessDisplayed()
         {
@@ -86,5 +86,5 @@ namespace Pages01
             return isDisplayed;
         }
     }
-    }
+}
 

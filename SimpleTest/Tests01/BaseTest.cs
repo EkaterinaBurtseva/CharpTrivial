@@ -7,8 +7,6 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
-using OpenQA.Selenium.IE;
 using Pages01;
 using NUnit.Compatibility;
 
@@ -18,8 +16,9 @@ namespace Tests01
 {
     [TestFixture(typeof(FirefoxDriver))]
     [TestFixture(typeof(ChromeDriver))]
-    [TestFixture(typeof(InternetExplorerDriver))]
-    public  class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
+
+
+  abstract  public  class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
     {
        private  IWebDriver driver;
 
@@ -33,41 +32,15 @@ namespace Tests01
         [Test]
         public void FirstTest()
         {
-            BasePage basePage = new BasePage(driver);
-            basePage.OpenBasePage();
-            Assert.IsTrue(basePage.IsAccountButtonDisplayed(),"Verification Account button is displayed");
-            basePage.ClickMyAccountButton();          
-            Assert.IsTrue(basePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
-            basePage.ClickRegistrationLink();            
+            HomePage homePage = new Pages01.HomePage(driver);
+            homePage.OpenBasePage();
+            Assert.IsTrue(homePage.IsAccountButtonDisplayed(),"Verification Account button is displayed");
+            homePage.ClickMyAccountButton();          
+            Assert.IsTrue(homePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
+            homePage.ClickRegistrationLink();            
             Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
           
-        }
-
-       [Test]
-        public void RegistrationWrongTest()
-        {
-            RegistrationPage registrationPage = new RegistrationPage(driver);
-            FirstTest();
-            Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
-            Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
-            registrationPage.FillFormWrong();
-            registrationPage.ClickRegisterBtn();
-            Assert.IsTrue(registrationPage.IsErrorDisplayed(),"Error message should be displayed");
-
-        }
-
-        [Test]
-        public void RegistrationCorrectTest()
-        {
-            FirstTest();
-            RegistrationPage registrationPage = new RegistrationPage(driver);
-            Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
-            Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
-            registrationPage.FillFormCorrect();
-            registrationPage.ClickRegisterBtn();
-            Assert.IsTrue(registrationPage.IsSuccessDisplayed(), "Success message should be displayed");
-
-        }
+        }                
 
         [TearDown]
         public void EndTest()
