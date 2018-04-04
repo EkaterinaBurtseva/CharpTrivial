@@ -11,7 +11,7 @@ using Pages01;
 
 namespace Tests01
 {
-    internal class HomeTest :BaseTest
+    class HomeTest : BaseTest
     {
         [Test]
         public void RegistrationWrongTest()

@@ -9,7 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Pages01
 {
-   public class HomePage:BasePage
+    public class HomePage : BasePage
     {
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
         private IWebElement MyAccountButton;
@@ -22,10 +22,10 @@ namespace Pages01
 
         public HomePage(IWebDriver driver) : base(driver)
         {
-            
+
         }
 
-        public new void OpenBasePage()
+        public void OpenBasePage()
         {
             driver.Navigate().GoToUrl(BaseUrl);
         }
