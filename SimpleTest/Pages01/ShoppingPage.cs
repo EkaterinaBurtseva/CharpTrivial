@@ -83,9 +83,13 @@ namespace Pages01
         public void SelectIpadProduct()
         {
             iPadCategory.Click();
+<<<<<<< HEAD
 
         }
 
+=======
+        }
+>>>>>>> 6720739f051318205e0b2f05d1030bfe884b0cfc
 
         public void ClcikAddtoCart()
         {
