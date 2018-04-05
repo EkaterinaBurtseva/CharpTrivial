@@ -11,8 +11,10 @@ using Pages01;
 
 namespace Tests01
 {
-    class HomeTest : BaseTest
+    class HomeTest : BaseTest<>
     {
+
+        [SetUp]
         [Test]
         public void RegistrationWrongTest()
         {
@@ -38,3 +40,4 @@ namespace Tests01
 
         }
     }
+}

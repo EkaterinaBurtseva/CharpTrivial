@@ -83,38 +83,32 @@ namespace Pages01
         public void SelectIpadProduct()
         {
             iPadCategory.Click();
-<<<<<<< HEAD
 
-        }
 
-=======
-        }
->>>>>>> 6720739f051318205e0b2f05d1030bfe884b0cfc
-
-        public void ClcikAddtoCart()
+            void ClcikAddtoCart()
         {
             iPadAddToCart.Click();
             Thread.Sleep(5000);
 
         }
 
-        public void ClickContinueButton()
+       void ClickContinueButton()
         {
             ContinueBtn.Click();
             Thread.Sleep(5000);
         }
 
-        public void ClickPurchase()
+        void ClickPurchase()
         {
             PurchaseBtn.Click();
         }
 
-        public void ClickGoToCart()
+        void ClickGoToCart()
         {
 
             Cart.Click();
         }
-        public bool IsCartDisplayed()
+        bool IsCartDisplayed()
         {
             Boolean isDisplayed = Cart.Displayed;
             return isDisplayed;

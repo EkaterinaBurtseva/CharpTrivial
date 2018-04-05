@@ -29,17 +29,17 @@ namespace Pages01
         [FindsBy(How = How.Id, Using = "login_wrapper")]
         private IWebElement LoginForm;
 
-        public String email = "burcevakate@gmail.com";
-        String password = "O1gFNagT@)3&(*KY";
+        public string email = "burcevakate@gmail.com";
+        string password = "O1gFNagT@)3&(*KY";
 
         public bool IsLoginFormDisplayed()
         {
-            Boolean isDisplayed = LoginForm.Displayed;
+            bool isDisplayed = LoginForm.Displayed;
             return isDisplayed;
         }
         public bool IsLoginButtonisplayed()
         {
-            Boolean isDisplayed = LoginBtn.Displayed;
+            bool isDisplayed = LoginBtn.Displayed;
             return isDisplayed;
         }
 
