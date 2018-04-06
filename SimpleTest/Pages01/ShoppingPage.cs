@@ -86,70 +86,70 @@ namespace Pages01
 
 
             void ClcikAddtoCart()
-        {
-            iPadAddToCart.Click();
-            Thread.Sleep(5000);
+            {
+                iPadAddToCart.Click();
+                Thread.Sleep(5000);
 
-        }
+            }
 
-       void ClickContinueButton()
-        {
-            ContinueBtn.Click();
-            Thread.Sleep(5000);
-        }
+            void ClickContinueButton()
+            {
+                ContinueBtn.Click();
+                Thread.Sleep(5000);
+            }
 
-        void ClickPurchase()
-        {
-            PurchaseBtn.Click();
-        }
+            void ClickPurchase()
+            {
+                PurchaseBtn.Click();
+            }
 
-        void ClickGoToCart()
-        {
+            void ClickGoToCart()
+            {
 
-            Cart.Click();
-        }
-        bool IsCartDisplayed()
-        {
-            Boolean isDisplayed = Cart.Displayed;
-            return isDisplayed;
-        }
+                Cart.Click();
+            }
+            bool IsCartDisplayed()
+            {
+                Boolean isDisplayed = Cart.Displayed;
+                return isDisplayed;
+            }
 
-        public void FillFormWithData()
-        {
-            EmailStep3.SendKeys(email);
-            FirstNameStep3.SendKeys(defaultText);
-            LastNameStep3.SendKeys(defaultText);
-            AddressStep3.SendKeys(defaultText);
-            CityStep3.SendKeys(defaultText);
-            StateStep3.SendKeys(defaultText);
-            CountryStep3.Click();
-            PostalCodeStep3.SendKeys(defaultText);
-            PhoneStep3.SendKeys(defaultText);
+            public void FillFormWithData()
+            {
+                EmailStep3.SendKeys(email);
+                FirstNameStep3.SendKeys(defaultText);
+                LastNameStep3.SendKeys(defaultText);
+                AddressStep3.SendKeys(defaultText);
+                CityStep3.SendKeys(defaultText);
+                StateStep3.SendKeys(defaultText);
+                CountryStep3.Click();
+                PostalCodeStep3.SendKeys(defaultText);
+                PhoneStep3.SendKeys(defaultText);
 
-        }
+            }
 
-        public bool IsElementDisplayedCart()
-        {
-            Boolean isDisplayed = ProductNameCart.Displayed;
-            return isDisplayed;
+            public bool IsElementDisplayedCart()
+            {
+                Boolean isDisplayed = ProductNameCart.Displayed;
+                return isDisplayed;
 
-        }
-        public bool IsFinalPageDisplayed()
-        {
-            Boolean isDisplayed = FinalPage.Displayed;
-            return isDisplayed;
-            ;
+            }
+            public bool IsFinalPageDisplayed()
+            {
+                Boolean isDisplayed = FinalPage.Displayed;
+                return isDisplayed;
+                ;
 
-        }
+            }
 
-        public void Remove()
-        {
-            RemoveBtn.Click();
+            public void Remove()
+            {
+                RemoveBtn.Click();
+            }
+
+
         }
 
 
     }
-
-
-}
 

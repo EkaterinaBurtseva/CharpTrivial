@@ -11,23 +11,25 @@ namespace Tests01
 {
     [TestFixture(typeof(FirefoxDriver))]
     [TestFixture(typeof(ChromeDriver))]
-    public abstract class BaseTest
+
+    public abstract class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
     {
-        protected IWebDriver driver;
+        IWebDriver driver;
 
 
         [SetUp]
         public void SetUp()
         {
             this.driver = new TWebDriver();
+
         }
 
         [Test]
         public void FirstTest()
         {
-            HomePage homePage = new Pages01.HomePage(driver);
+            HomePage homePage = new HomePage(driver);
             homePage.OpenBasePage();
-            
+
         }
 
 

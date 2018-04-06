@@ -14,7 +14,7 @@ namespace Pages01
     public abstract class BasePage
 
     {
-        private IWebDriver driver;
+        protected IWebDriver driver;
 
         public string BaseUrl = "http://store.demoqa.com";
 
