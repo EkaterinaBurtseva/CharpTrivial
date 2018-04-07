@@ -1,42 +1,37 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using System;
+using System.Text;
+using System.Collections.Generic;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using Pages01;
-using System;
-
-
+using System.Threading;
+using OpenQA.Selenium;
+using System.Collections.Specialized;
+using Helpers;
+using NUnit.Framework;
 
 namespace Tests01
 {
-    [TestFixture(typeof(FirefoxDriver))]
-    [TestFixture(typeof(ChromeDriver))]
-
-    public abstract class BaseTest<TWebDriver> where TWebDriver : IWebDriver, new()
+    [TestFixture]
+    public abstract class BaseTest
     {
+        
         IWebDriver driver;
-
-
-        [SetUp]
-        public void SetUp()
-        {
-            this.driver = new TWebDriver();
-
-        }
-
         [Test]
-        public void FirstTest()
+
+
+        [OneTimeSetUp]
+        public void InitDriver()
         {
-            HomePage homePage = new HomePage(driver);
-            homePage.OpenBasePage();
-
+            Browsers.Init();
         }
+       
 
-
-        [TearDown]
+        [OneTimeTearDown]
         public virtual void EndTest()
         {
-            driver.Close();
+            Browsers.Close();
         }
+
     }
 }

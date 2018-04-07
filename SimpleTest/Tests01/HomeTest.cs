@@ -8,19 +8,25 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Pages01;
+using Helpers;
 
 namespace Tests01
 {
-    class HomeTest : BaseTest<TWebDriver>
+    [TestFixture]
+    class HomeTest : BaseTest
     {
-        protected HomeTest()
-        {
-        }
+
+        IWebDriver driver = Browsers.GetDriver;
+        string baseUrl = "http://store.demoqa.com";
+
+
+
+
         [Test]
         public void RegistrationTestStart()
         {
-
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(driver);
+            homePage.OpenHomePage(baseUrl);
             Assert.IsTrue(homePage.IsAccountButtonDisplayed(), "Verification Account button is displayed");
             homePage.ClickMyAccountButton();
             Assert.IsTrue(homePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");

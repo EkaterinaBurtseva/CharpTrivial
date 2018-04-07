@@ -10,7 +10,10 @@ namespace Tests01
 {
     class RegistrationTest : BaseTest
     {
-
+        string usernameWrong = "***";
+        string emailWrong = "1111";
+        string usernameValid = "test";
+        string emailValid = "merrychristmas946@gmail.com";
 
         [Test]
         public void RegistrationWrongTest()
@@ -19,7 +22,7 @@ namespace Tests01
             FirstTest();
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
-            registrationPage.FillFormWrong();
+            registrationPage.FillFormWrong(usernameWrong, emailWrong);
             registrationPage.ClickRegisterBtn();
             Assert.IsTrue(registrationPage.IsErrorDisplayed(), "Error message should be displayed");
         }
@@ -31,7 +34,7 @@ namespace Tests01
             RegistrationPage registrationPage = new RegistrationPage();
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
-            registrationPage.FillFormCorrect();
+            registrationPage.FillFormCorrect(usernameValid, emailValid);
             registrationPage.ClickRegisterBtn();
             Assert.IsTrue(registrationPage.IsSuccessDisplayed(), "Success message should be displayed");
 

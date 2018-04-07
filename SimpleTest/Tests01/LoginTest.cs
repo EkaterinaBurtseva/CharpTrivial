@@ -8,15 +8,20 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using Helpers;
 
 namespace Tests01
 {
+    [TestFixture]
     class LoginTest
     {
+        IWebDriver driver = Browsers.GetDriver;
+
+
         [Test]
-        public void LoginTest()
+        public void LoginTestB()
         {
-            StartTest();
+
             LoginPageB loginPage = new LoginPageB(driver);
             Assert.IsTrue(loginPage.IsLoginFormDisplayed(), "Verification that Login form is displayed");
             Assert.IsTrue(loginPage.IsLoginButtonisplayed(), "Verification that Login form is displayed");
@@ -24,7 +29,7 @@ namespace Tests01
             loginPage.ClickLoginButton();
             Assert.AreEqual("/products-page/your-account/", new Uri(driver.Url).PathAndQuery, "Verification that user is logged");
             //is it ok to use such type of wait here?
-            Thread.Sleep(5000);
+            // Thread.Sleep(5000);
         }
     }
 }

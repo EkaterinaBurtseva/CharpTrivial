@@ -9,21 +9,14 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Pages01
 {
-
-
     public abstract class BasePage
 
     {
-        protected IWebDriver driver;
-
-        public string BaseUrl = "http://store.demoqa.com";
+        private IWebDriver driver;
 
         protected BasePage(IWebDriver driver)
         {
             this.driver = driver;
-            PageFactory.InitElements(driver, this);
         }
-
-
     }
 }

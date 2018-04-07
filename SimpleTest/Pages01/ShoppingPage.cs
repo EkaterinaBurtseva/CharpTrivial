@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using System.Threading;
+using Helpers;
 
 namespace Pages01
 {
@@ -72,8 +73,6 @@ namespace Pages01
         [FindsBy(How = How.CssSelector, Using = "td.wpsc_product_remove input[name='submit']")]
         private IWebElement RemoveBtn;
 
-        String defaultText = "test";
-        String email = "burcevakate@gmail.com";
         private IWebDriver driver;
 
         public ShoppingPage(IWebDriver driver) : base(driver)
@@ -83,73 +82,73 @@ namespace Pages01
         public void SelectIpadProduct()
         {
             iPadCategory.Click();
+        }
 
 
-            void ClcikAddtoCart()
-            {
-                iPadAddToCart.Click();
-                Thread.Sleep(5000);
+        public void ClickAddtoCart()
+        {
+            iPadAddToCart.Click();
+            Thread.Sleep(5000);
+        }
 
-            }
+        public void ClickContinueButton()
+        {
+            ContinueBtn.Click();
+            Thread.Sleep(5000);
+        }
 
-            void ClickContinueButton()
-            {
-                ContinueBtn.Click();
-                Thread.Sleep(5000);
-            }
+        public void ClickPurchase()
+        {
+            PurchaseBtn.Click();
+        }
 
-            void ClickPurchase()
-            {
-                PurchaseBtn.Click();
-            }
+        public void ClickGoToCart()
+        {
+            Cart.Click();
+        }
+        public bool IsCartDisplayed()
+        {
+            Boolean isDisplayed = Cart.Displayed;
+            return isDisplayed;
+        }
 
-            void ClickGoToCart()
-            {
+        public void FillFormWithData(string email, string defaultText)
+        {
+            EmailStep3.SendKeys(email);
+            FirstNameStep3.SendKeys(defaultText);
+            LastNameStep3.SendKeys(defaultText);
+            AddressStep3.SendKeys(defaultText);
+            CityStep3.SendKeys(defaultText);
+            StateStep3.SendKeys(defaultText);
+            CountryStep3.Click();
+            PostalCodeStep3.SendKeys(defaultText);
+            PhoneStep3.SendKeys(defaultText);
 
-                Cart.Click();
-            }
-            bool IsCartDisplayed()
-            {
-                Boolean isDisplayed = Cart.Displayed;
-                return isDisplayed;
-            }
+        }
 
-            public void FillFormWithData()
-            {
-                EmailStep3.SendKeys(email);
-                FirstNameStep3.SendKeys(defaultText);
-                LastNameStep3.SendKeys(defaultText);
-                AddressStep3.SendKeys(defaultText);
-                CityStep3.SendKeys(defaultText);
-                StateStep3.SendKeys(defaultText);
-                CountryStep3.Click();
-                PostalCodeStep3.SendKeys(defaultText);
-                PhoneStep3.SendKeys(defaultText);
+        public bool IsElementDisplayedCart()
+        {
+            Boolean isDisplayed = ProductNameCart.Displayed;
+            return isDisplayed;
 
-            }
+        }
+        public bool IsFinalPageDisplayed()
+        {
+            Boolean isDisplayed = FinalPage.Displayed;
+            return isDisplayed;
+            ;
 
-            public bool IsElementDisplayedCart()
-            {
-                Boolean isDisplayed = ProductNameCart.Displayed;
-                return isDisplayed;
+        }
 
-            }
-            public bool IsFinalPageDisplayed()
-            {
-                Boolean isDisplayed = FinalPage.Displayed;
-                return isDisplayed;
-                ;
-
-            }
-
-            public void Remove()
-            {
-                RemoveBtn.Click();
-            }
-
-
+        public void Remove()
+        {
+            RemoveBtn.Click();
         }
 
 
     }
+
+}
+
+
 

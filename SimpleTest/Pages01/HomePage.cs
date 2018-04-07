@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using Helpers;
 
 namespace Pages01
 {
@@ -25,9 +26,10 @@ namespace Pages01
 
         }
 
-        public void OpenBasePage()
+
+        public void OpenHomePage(string baseUrl)
         {
-            driver.Navigate().GoToUrl(BaseUrl);
+            Browsers.Goto(baseUrl);
         }
 
         public void ClickMyAccountButton()

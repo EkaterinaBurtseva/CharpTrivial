@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using NUnit.Framework;
 
 namespace Pages01
 {
+
     public class LoginPageB : BasePage
     {
         public LoginPageB(IWebDriver driver) : base(driver)
         {
         }
+
 
         [FindsBy(How = How.CssSelector, Using = "h1.entry-title")]
         private IWebElement LoginPageTitle;

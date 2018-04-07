@@ -34,10 +34,6 @@ namespace Pages01
         [FindsBy(How = How.Id, Using = "login_error")]
         private IWebElement ErrorMessage;
 
-        string usernameWrong = "***";
-        string emailWrong = "1111";
-        string usernameValid = "test";
-        string emailValid = "merrychristmas946@gmail.com";
         private IWebDriver driver;
 
         public RegistrationPage(IWebDriver driver) : base(driver)
@@ -57,16 +53,18 @@ namespace Pages01
             return RegisterBtn.Displayed;
         }
 
-        public void FillFormCorrect()
+        public bool FillFormCorrect(string usernameValid, string emailValid)
         {
             Username.SendKeys(usernameValid);
             Email.SendKeys(emailValid);
+            return true;
         }
 
-        public void FillFormWrong()
+        public void FillFormWrong(string usernameWrong, string emailWrong)
         {
             Username.SendKeys(usernameWrong);
             Email.SendKeys(emailWrong);
+
         }
 
         public void ClickRegisterBtn()
