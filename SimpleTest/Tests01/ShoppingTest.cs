@@ -36,15 +36,15 @@ namespace Tests01
             shopPage.ClickPurchase();
             Assert.IsTrue(shopPage.IsFinalPageDisplayed(), "Success");
         }
-        [TearDown]
-        public override void EndTest()
-        {
+       // [TearDown]
+      //  public override void EndTest()
+       // {
             // LoginPageB();
-            ShoppingPage shopPage = new ShoppingPage(driver);
-            shopPage.ClickGoToCart();
-            shopPage.Remove();
-            Browsers.Close();
-        }
+           // ShoppingPage shopPage = new ShoppingPage(driver);
+          //  shopPage.ClickGoToCart();
+          //  shopPage.Remove();
+           // Browsers.Close();
+      //  }
 
 
     }

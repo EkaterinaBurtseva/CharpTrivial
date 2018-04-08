@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
@@ -9,15 +8,14 @@ using OpenQA.Selenium;
 using System.Collections.Specialized;
 using Helpers;
 using NUnit.Framework;
+using System.Security.Policy;
 
 namespace Tests01
 {
     [TestFixture]
     public abstract class BaseTest
-    {
-        
-        IWebDriver driver;
-        [Test]
+    {     
+        string url;
 
 
         [OneTimeSetUp]
@@ -25,10 +23,17 @@ namespace Tests01
         {
             Browsers.Init();
         }
-       
+
+        [Test]
+        public void OpenStartPage()
+        {
+            Browsers.Goto(url);
+           
+        }
+
 
         [OneTimeTearDown]
-        public virtual void EndTest()
+        public void EndTest()
         {
             Browsers.Close();
         }

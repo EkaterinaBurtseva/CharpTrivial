@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Helpers;
 
 
 namespace Pages01
@@ -15,6 +16,9 @@ namespace Pages01
 
         [FindsBy(How = How.CssSelector, Using = "p.message")]
         private IWebElement RegisterTitle;
+
+        [FindsBy(How = How.LinkText, Using = "Register")]
+        public IWebElement RegisterLink;
 
         [FindsBy(How = How.Id, Using = "registerform")]
         private IWebElement RegisterForm;
@@ -33,8 +37,14 @@ namespace Pages01
 
         [FindsBy(How = How.Id, Using = "login_error")]
         private IWebElement ErrorMessage;
+        private readonly string url;
 
-        private IWebDriver driver;
+        public bool IsRegistrationLinkDisplayed()
+        {
+            Boolean isDisplayed = RegisterLink.Displayed;
+            return isDisplayed;
+
+        }
 
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
@@ -82,6 +92,12 @@ namespace Pages01
         {
             Boolean isDisplayed = SuccessMessage.Displayed;
             return isDisplayed;
+        }
+
+        public void OpenAccountPage()
+        {
+            Browsers.Goto(url + " /products-page/your-account/");
+        }
         }
     }
 }

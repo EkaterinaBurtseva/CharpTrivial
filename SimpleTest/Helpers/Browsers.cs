@@ -41,7 +41,7 @@ namespace Helpers
         {
             webDriver.Navigate().GoToUrl(baseURL);
         }
-        public static string Title1
+        public static string Title
         {
             get { return webDriver.Title; }
         }

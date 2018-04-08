@@ -16,17 +16,15 @@ namespace Tests01
     class HomeTest : BaseTest
     {
 
-        IWebDriver driver = Browsers.GetDriver;
-        string baseUrl = "http://store.demoqa.com";
-
-
-
+        IWebDriver driver;       
 
         [Test]
-        public void RegistrationTestStart()
+        public void HomePageTestStart()
         {
-            HomePage homePage = new HomePage(driver);
-            homePage.OpenHomePage(baseUrl);
+            OpenStartPage();
+            driver = Browsers.GetDriver;
+            HomePage homePage = new HomePage(driver);          
+            Assert.AreEqual("ONLINE STORE | Toolsqa Dummy Test site", driver.Title);
             Assert.IsTrue(homePage.IsAccountButtonDisplayed(), "Verification Account button is displayed");
             homePage.ClickMyAccountButton();
             Assert.IsTrue(homePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");

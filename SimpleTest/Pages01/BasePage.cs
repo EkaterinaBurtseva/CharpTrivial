@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using Helpers;
 
 namespace Pages01
 {
@@ -14,9 +15,13 @@ namespace Pages01
     {
         private IWebDriver driver;
 
-        protected BasePage(IWebDriver driver)
+        public BasePage(IWebDriver driver)
         {
-            this.driver = driver;
+           this.driver = Browsers.GetDriver;
+            PageFactory.InitElements(driver, this);
         }
+       
+       
+
     }
 }

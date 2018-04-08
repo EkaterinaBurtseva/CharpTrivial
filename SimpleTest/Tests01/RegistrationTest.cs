@@ -4,16 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using Pages01;
+using Helpers;
+
 
 namespace Tests01
 {
-    class RegistrationTest : BaseTest
+    [TestFixture]
+    class RegistrationTest :BaseTest
     {
         string usernameWrong = "***";
         string emailWrong = "1111";
         string usernameValid = "test";
         string emailValid = "merrychristmas946@gmail.com";
+
+        [Test]
+        public void RegistrationPageTest()
+        {
+            RegistrationPage registrationPage = new RegistrationPage(driver);
+            Assert.IsTrue(homePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
+            homePage.ClickRegistrationLink();
+            Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
+        }
 
         [Test]
         public void RegistrationWrongTest()

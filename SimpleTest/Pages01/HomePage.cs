@@ -12,29 +12,30 @@ namespace Pages01
 {
     public class HomePage : BasePage
     {
-        [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
+
+      
+        // driver = Browsers.GetDriver;
+
+       [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
         private IWebElement MyAccountButton;
 
         [FindsBy(How = How.LinkText, Using = "Register")]
-        private IWebElement RegisterLink;
+        public IWebElement RegisterLink;
 
         [FindsBy(How = How.Id, Using = "logo")]
-        public IWebElement Logo;
+        private IWebElement Logo;
+
+            
 
         public HomePage(IWebDriver driver) : base(driver)
         {
+         
+        }         
 
-        }
 
-
-        public void OpenHomePage(string baseUrl)
+       public void ClickMyAccountButton()
         {
-            Browsers.Goto(baseUrl);
-        }
-
-        public void ClickMyAccountButton()
-        {
-            MyAccountButton.Click();
+           MyAccountButton.Click();
 
         }
 
@@ -53,7 +54,7 @@ namespace Pages01
         }
 
         public bool IsAccountButtonDisplayed()
-        {
+        {            
             Boolean isDisplayed = MyAccountButton.Displayed;
             return isDisplayed;
 
