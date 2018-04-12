@@ -14,27 +14,34 @@ using Helpers;
 namespace Tests01
 {
     [TestFixture]
-    class RegistrationTest :BaseTest
+    class RegistrationTest : BaseTest
     {
         string usernameWrong = "***";
         string emailWrong = "1111";
         string usernameValid = "test";
         string emailValid = "merrychristmas946@gmail.com";
 
+
+        IWebDriver driver = Browsers.GetDriver;
+
+
         [Test]
         public void RegistrationPageTest()
         {
+
             RegistrationPage registrationPage = new RegistrationPage(driver);
-            Assert.IsTrue(homePage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
-            homePage.ClickRegistrationLink();
+            registrationPage.OpenAccountPage();
+            Assert.IsTrue(registrationPage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
+            registrationPage.ClickRegistrationLink();
             Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
         }
 
         [Test]
         public void RegistrationWrongTest()
         {
-            RegistrationPage registrationPage = new RegistrationPage();
-            FirstTest();
+
+            RegistrationPage registrationPage = new RegistrationPage(driver);
+            registrationPage.OpenRegistrationPage();
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormWrong(usernameWrong, emailWrong);
@@ -45,8 +52,9 @@ namespace Tests01
         [Test]
         public void RegistrationCorrectTest()
         {
-            FirstTest();
-            RegistrationPage registrationPage = new RegistrationPage();
+
+            RegistrationPage registrationPage = new RegistrationPage(driver);
+            registrationPage.OpenRegistrationPage();
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormCorrect(usernameValid, emailValid);

@@ -14,7 +14,7 @@ namespace Tests01
 {
     [TestFixture]
     public abstract class BaseTest
-    {     
+    {
         string url;
 
 
@@ -28,7 +28,7 @@ namespace Tests01
         public void OpenStartPage()
         {
             Browsers.Goto(url);
-           
+
         }
 
 

@@ -17,11 +17,11 @@ namespace Pages01
 
         public BasePage(IWebDriver driver)
         {
-           this.driver = Browsers.GetDriver;
+            this.driver = Browsers.GetDriver;
             PageFactory.InitElements(driver, this);
         }
-       
-       
+
+
 
     }
 }

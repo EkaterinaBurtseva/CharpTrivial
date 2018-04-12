@@ -39,6 +39,7 @@ namespace Pages01
         private IWebElement ErrorMessage;
         private readonly string url;
 
+
         public bool IsRegistrationLinkDisplayed()
         {
             Boolean isDisplayed = RegisterLink.Displayed;
@@ -48,6 +49,11 @@ namespace Pages01
 
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
+        }
+
+        public void ClickRegistrationLink()
+        {
+            RegisterLink.Click();
         }
 
         public bool IsRegistrationFormDisplyed()
@@ -98,7 +104,12 @@ namespace Pages01
         {
             Browsers.Goto(url + " /products-page/your-account/");
         }
+        public void OpenRegistrationPage()
+        {
+            Browsers.Goto(url + "/wp-login.php?action=register");
         }
     }
+
 }
+
 
