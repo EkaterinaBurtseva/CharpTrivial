@@ -14,19 +14,19 @@ namespace Tests01
 {
     [TestFixture]
     class HomeTest : BaseTest
-    {
-
-        IWebDriver driver;
+    {       
+        string homePageTitle = "ONLINE STORE | Toolsqa Dummy Test site";
 
         [Test]
         public void HomePageTestStart()
-        {
-            OpenStartPage();
-            driver = Browsers.GetDriver;
+        {           
             HomePage homePage = new HomePage(driver);
-            Assert.AreEqual("ONLINE STORE | Toolsqa Dummy Test site", driver.Title);
-            Assert.IsTrue(homePage.IsAccountButtonDisplayed(), "Verification Account button is displayed");
+            homePage.OpenStartPage(url);             
+            Assert.AreEqual(homePageTitle, driver.Title);
+            Assert.IsTrue(homePage.IsHomePageOpened());
+            Assert.IsTrue(homePage.IsAccountButtonDisplayed());
             homePage.ClickMyAccountButton();
+            Assert.IsTrue(homePage.IsAccountPageDisplayed());
 
         }
 

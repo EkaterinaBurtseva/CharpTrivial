@@ -12,20 +12,13 @@ namespace Pages01
 {
     public class HomePage : BasePage
     {
-        //TODO: add elements for account page and homepage to check if the page opened
-
-        // driver = Browsers.GetDriver;
-
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
-        private IWebElement MyAccountButton;
+        public IWebElement MyAccountButton;
 
-        [FindsBy(How = How.LinkText, Using = "")]
+        [FindsBy(How = How.ClassName, Using = "caroufredsel_wrapper")]
         public IWebElement HomepageLogo;
 
-        [FindsBy(How = How.Id, Using = "logo")]
-        private IWebElement Logo;
-
-        [FindsBy(How = How.LinkText, Using = "")]
+        [FindsBy(How = How.Id, Using = "post-31")]
         public IWebElement AccountLogo;
 
         public HomePage(IWebDriver driver) : base(driver)
@@ -54,6 +47,10 @@ namespace Pages01
         {
             Boolean isDisplayed = AccountLogo.Displayed;
             return isDisplayed;
+        }
+        public void OpenStartPage(string url)
+        {
+            Browsers.Goto(url);
         }
     }
 }

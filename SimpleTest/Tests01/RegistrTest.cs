@@ -9,6 +9,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Pages01;
 using Helpers;
+using Tests01;
 
 
 namespace Tests01
@@ -18,30 +19,27 @@ namespace Tests01
     {
         string usernameWrong = "***";
         string emailWrong = "1111";
-        string usernameValid = "test";
+        string usernameValid = "testdd25ds";
         string emailValid = "merrychristmas946@gmail.com";
-
-
-        IWebDriver driver = Browsers.GetDriver;
+        string urlRegistration = "/wp-login.php?action=register";
 
 
         [Test]
         public void RegistrationPageTest()
-        {
-
+        {            
+            LoginPageB loginPageB = new LoginPageB(driver);
+            loginPageB.OpenLoginPage(loginPageUrl);
             RegistrationPage registrationPage = new RegistrationPage(driver);
-            registrationPage.OpenAccountPage();
             Assert.IsTrue(registrationPage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
-            registrationPage.ClickRegistrationLink();
-            Assert.AreEqual("/wp-login.php?action=register", new Uri(driver.Url).PathAndQuery);
+            registrationPage.ClickRegistrationLink();            
+            Assert.AreEqual(urlRegistration, new Uri(driver.Url).PathAndQuery);
         }
 
         [Test]
         public void RegistrationWrongTest()
-        {
-
+        {           
             RegistrationPage registrationPage = new RegistrationPage(driver);
-            registrationPage.OpenRegistrationPage();
+            registrationPage.OpenRegistrationPage(registrPageUrl);
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormWrong(usernameWrong, emailWrong);
@@ -51,16 +49,15 @@ namespace Tests01
 
         [Test]
         public void RegistrationCorrectTest()
-        {
-
+        {            
             RegistrationPage registrationPage = new RegistrationPage(driver);
-            registrationPage.OpenRegistrationPage();
+            registrationPage.OpenRegistrationPage(registrPageUrl);
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
             registrationPage.FillFormCorrect(usernameValid, emailValid);
             registrationPage.ClickRegisterBtn();
             Assert.IsTrue(registrationPage.IsSuccessDisplayed(), "Success message should be displayed");
-
+            
         }
     }
 }

@@ -15,22 +15,20 @@ namespace Tests01
     [TestFixture]
     public abstract class BaseTest
     {
-        string url;
-
+        public IWebDriver driver;
+        public string url;
+        public string loginPageUrl= "http://store.demoqa.com/products-page/your-account/";
+        public string registrPageUrl = "http://store.demoqa.com/wp-login.php?action=register";
+        public string email= "burcevakate@gmail.com";
+        public string password = "fC5m$I!(xO!5k^Aa";
 
         [OneTimeSetUp]
         public void InitDriver()
         {
             Browsers.Init();
+            driver = Browsers.GetDriver;
         }
-
-        [Test]
-        public void OpenStartPage()
-        {
-            Browsers.Goto(url);
-
-        }
-
+         
 
         [OneTimeTearDown]
         public void EndTest()

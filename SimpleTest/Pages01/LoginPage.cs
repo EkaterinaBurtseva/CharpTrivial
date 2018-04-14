@@ -5,21 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using NUnit.Framework;
+using OpenQA.Selenium.Support.UI;
+using Helpers;
 
 namespace Pages01
 {
 
-    public class LoginPageB : BasePage
-    {
-        public LoginPageB(IWebDriver driver) : base(driver)
-        {
-        }
+    public class LoginPageB : BasePage   {      
+       
+        
 
-
-        [FindsBy(How = How.CssSelector, Using = "h1.entry-title")]
-        private IWebElement LoginPageTitle;
-
+        [FindsBy(How = How.Id, Using = "post-31")]
+        public IWebElement LoginLogo;
+     
         [FindsBy(How = How.Id, Using = "log")]
         private IWebElement UserNameLogin;
 
@@ -30,10 +28,19 @@ namespace Pages01
         private IWebElement LoginBtn;
 
         [FindsBy(How = How.Id, Using = "login_wrapper")]
-        private IWebElement LoginForm;
+        public IWebElement LoginForm;
 
-        public string email = "burcevakate@gmail.com";
-        string password = "O1gFNagT@)3&(*KY";
+        [FindsBy(How = How.Id, Using = "wpadminbar")]
+        private IWebElement LoggedBar;
+        [FindsBy(How = How.CssSelector, Using = "#wp-admin-bar-my-account a")]
+        private IWebElement ProfileName;
+
+        [FindsBy(How = How.CssSelector, Using = "input#email")]
+        private IWebElement ProfileEmail;
+
+        public LoginPageB(IWebDriver driver) : base(driver)
+        {
+        }
 
         public bool IsLoginFormDisplayed()
         {
@@ -46,7 +53,7 @@ namespace Pages01
             return isDisplayed;
         }
 
-        public void FillLoginForm()
+        public void FillLoginForm(string email, string password)
         {
             UserNameLogin.SendKeys(email);
             PasswordLogin.SendKeys(password);
@@ -55,6 +62,41 @@ namespace Pages01
         public void ClickLoginButton()
         {
             LoginBtn.Click();
+            driver.FindElement(By.Id("wpadminbar"), 3);
+        }
+        public void OpenLoginPage(string loginPageUrl)
+        {
+            driver = Browsers.GetDriver;
+            driver.Navigate().GoToUrl(loginPageUrl);
+        }
+        public bool IsLoginPageDisplayed()
+        {
+           // driver.FindElement(By.Id("post - 31"),2);
+            bool isDisplayed = LoginLogo.Displayed;
+            return isDisplayed;
+        }
+
+        public bool IsProfileLogoDisplayed()
+        {
+            bool isDisplayed = ProfileName.Displayed;
+            return isDisplayed;
+        }
+        public bool IsLoggedBarDisplayed()
+        {
+           bool isDisplayed = LoggedBar.Displayed;
+            return isDisplayed;
+
+        }
+        public void ClickProfileLogo()
+        {
+            ProfileName.Click();
+            driver.FindElement(By.Id("wpbody-content"),3);
+            driver.FindElement(By.Id("email"), 3);
+        }
+        public string GetEmail()
+        {
+        return ProfileEmail.GetAttribute("value");
+            
         }
 
     }

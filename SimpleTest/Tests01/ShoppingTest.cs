@@ -6,31 +6,46 @@ using Pages01;
 using System;
 using System.Threading;
 using Helpers;
+using Tests01;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium.Firefox;
+
 
 namespace Tests01
 {
     [TestFixture]
-    class ShoppingTest : BaseTest
+   public class ShoppingTest : BaseTest
     {
-        IWebDriver driver = Browsers.GetDriver;
+        
+        string defaultText = "test";
+        string purchaseUrl = "/products-page/checkout/";
+
+
         [Test]
         public void BuyIpadTest()
-        {
-
-            //  Browsers browsers;
-            string defaultText = "test";
-            string email = "burcevakate@gmail.com";
+        {            
+            LoginPageB loginPage = new LoginPageB(driver);
+            loginPage.OpenLoginPage(loginPageUrl);
+            loginPage.FillLoginForm(email, password);
+            loginPage.ClickLoginButton();
 
             ShoppingPage shopPage = new ShoppingPage(driver);
-
-            Actions action = new Actions(driver);
-            action.MoveToElement(driver.FindElement(By.Id("menu-item-33"))).Build().Perform();
+            shopPage.HoverProductCategory();          
             shopPage.SelectIpadProduct();
+            string ActualTitle = shopPage.GetTitleOfProduct();
+            string ActualPrice = shopPage.GetPriceOfProduct();
             shopPage.ClickAddtoCart();
             Assert.IsTrue(shopPage.IsCartDisplayed(), "Cart button should be visible");
             shopPage.ClickGoToCart();
-            Assert.AreEqual("/products-page/checkout/", new Uri(driver.Url).PathAndQuery, "Verification that user redirected to Step2");
+            Assert.AreEqual(purchaseUrl, new Uri(driver.Url).PathAndQuery, "Verification that user redirected to Step2");
             Assert.IsTrue(shopPage.IsElementDisplayedCart(), "Verification that element in cart");
+            string ActualTitleStep2 = shopPage.GetTitleProductStep2();
+            Assert.AreEqual(ActualTitle, ActualTitleStep2);
+            string ActualPriceStep2 = shopPage.GetPriceProductStep2();
+            Assert.AreEqual(ActualPrice, ActualPriceStep2);
             shopPage.ClickContinueButton();
             shopPage.FillFormWithData(email, defaultText);
             shopPage.ClickPurchase();

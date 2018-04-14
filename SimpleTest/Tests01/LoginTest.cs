@@ -13,23 +13,28 @@ using Helpers;
 namespace Tests01
 {
     [TestFixture]
-    class LoginTest
-    {
-        IWebDriver driver = Browsers.GetDriver;
-
+    public class LoginTest :BaseTest
+    {             
+        string loggedPage = "/products-page/your-account/?login=1";
 
         [Test]
-        public void LoginTestB()
-        {
-
-            LoginPageB loginPage = new LoginPageB(driver);
-            Assert.IsTrue(loginPage.IsLoginFormDisplayed(), "Verification that Login form is displayed");
-            Assert.IsTrue(loginPage.IsLoginButtonisplayed(), "Verification that Login form is displayed");
-            loginPage.FillLoginForm();
+        public void LoginTestB()        {
+            
+            LoginPageB loginPage = new LoginPageB(driver);            
+            loginPage.OpenLoginPage(loginPageUrl);
+            Assert.IsTrue(loginPage.IsLoginPageDisplayed());            
+            Assert.IsTrue(loginPage.IsLoginFormDisplayed());
+            Assert.IsTrue(loginPage.IsLoginButtonisplayed());
+            loginPage.FillLoginForm(email,password);
             loginPage.ClickLoginButton();
-            Assert.AreEqual("/products-page/your-account/", new Uri(driver.Url).PathAndQuery, "Verification that user is logged");
-            //is it ok to use such type of wait here?
-            // Thread.Sleep(5000);
+            Assert.AreEqual(loggedPage, new Uri(driver.Url).PathAndQuery);           
+            loginPage.IsLoggedBarDisplayed();
+            loginPage.IsProfileLogoDisplayed();
+            loginPage.ClickProfileLogo();
+            string actualEmail =loginPage.GetEmail();
+            Assert.AreEqual(email, actualEmail);
+           
         }
+
     }
 }

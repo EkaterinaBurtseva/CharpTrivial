@@ -13,8 +13,8 @@ namespace Pages01
 {
     public class RegistrationPage : BasePage
     {
-
-        [FindsBy(How = How.CssSelector, Using = "p.message")]
+       
+        [FindsBy(How = How.CssSelector, Using = "p.message.register")]
         private IWebElement RegisterTitle;
 
         [FindsBy(How = How.LinkText, Using = "Register")]
@@ -36,8 +36,7 @@ namespace Pages01
         private IWebElement SuccessMessage;
 
         [FindsBy(How = How.Id, Using = "login_error")]
-        private IWebElement ErrorMessage;
-        private readonly string url;
+        private IWebElement ErrorMessage;      
 
 
         public bool IsRegistrationLinkDisplayed()
@@ -52,8 +51,9 @@ namespace Pages01
         }
 
         public void ClickRegistrationLink()
-        {
+        {      
             RegisterLink.Click();
+            driver.FindElement(By.CssSelector("p.message.register"), 5);
         }
 
         public bool IsRegistrationFormDisplyed()
@@ -96,17 +96,16 @@ namespace Pages01
 
         public bool IsSuccessDisplayed()
         {
+            driver.FindElement(By.Id("login"), 3);
             Boolean isDisplayed = SuccessMessage.Displayed;
             return isDisplayed;
         }
 
-        public void OpenAccountPage()
+      
+        public void OpenRegistrationPage(string registrPageUrl)
         {
-            Browsers.Goto(url + " /products-page/your-account/");
-        }
-        public void OpenRegistrationPage()
-        {
-            Browsers.Goto(url + "/wp-login.php?action=register");
+            driver=Browsers.GetDriver;
+            driver.Navigate().GoToUrl(registrPageUrl);
         }
     }
 
