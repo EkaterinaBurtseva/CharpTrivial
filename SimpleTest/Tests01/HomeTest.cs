@@ -14,14 +14,14 @@ namespace Tests01
 {
     [TestFixture]
     class HomeTest : BaseTest
-    {       
+    {
         string homePageTitle = "ONLINE STORE | Toolsqa Dummy Test site";
 
         [Test]
         public void HomePageTestStart()
-        {           
+        {
             HomePage homePage = new HomePage(driver);
-            homePage.OpenStartPage(url);             
+            homePage.OpenStartPage(url);
             Assert.AreEqual(homePageTitle, driver.Title);
             Assert.IsTrue(homePage.IsHomePageOpened());
             Assert.IsTrue(homePage.IsAccountButtonDisplayed());

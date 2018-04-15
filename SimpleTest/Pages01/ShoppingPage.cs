@@ -40,7 +40,7 @@ namespace Pages01
 
         //Page 2
 
-        [FindsBy(How = How.CssSelector, Using = "td.wpsc_product_name")]
+        [FindsBy(How = How.ClassName, Using = "wpsc_product_name")]
         private IWebElement ProductNameCart;
 
         [FindsBy(How = How.CssSelector, Using = "a.step2")]
@@ -51,6 +51,9 @@ namespace Pages01
 
         [FindsBy(How = How.CssSelector, Using = "tr.product_row td:nth-last-of-type(3) span")]
         private IWebElement ProductPriceStep2;
+
+        [FindsBy(How = How.ClassName, Using = "entry-content")]
+        private IWebElement Step2Page;
 
         //Page 3
 
@@ -84,14 +87,19 @@ namespace Pages01
         [FindsBy(How = How.CssSelector, Using = "input.make_purchase")]
         private IWebElement PurchaseBtn;
 
+        [FindsBy(How = How.CssSelector, Using = "div.slide2")]
+        private IWebElement PurchasePage;
         //Page 4
 
         [FindsBy(How = How.CssSelector, Using = "h1.entry-title")]
         private IWebElement FinalPage;
 
+        [FindsBy(How = How.CssSelector, Using = "tr.total_item span.checkout-shipping span")]
+        private IWebElement FinalPrice;
+
         [FindsBy(How = How.CssSelector, Using = "td.wpsc_product_remove input[name='submit']")]
         private IWebElement RemoveBtn;
-           
+
         public ShoppingPage(IWebDriver driver) : base(driver)
         {
         }
@@ -102,7 +110,7 @@ namespace Pages01
         }
         public string GetTitleOfProduct()
         {
-         string actualTitle = iPadProductTitle.Text;
+            string actualTitle = iPadProductTitle.Text;
             return actualTitle;
         }
 
@@ -114,13 +122,16 @@ namespace Pages01
 
         public void ClickAddtoCart()
         {
-            iPadAddToCart.Click();          
+            iPadAddToCart.Click();
+            driver.FindElement(By.CssSelector("[style*='display: block']"), 3);
         }
 
         public void ClickContinueButton()
         {
+
             ContinueBtn.Click();
-           
+            driver.FindElement(By.CssSelector("[style='display: block;']"), 3);
+
         }
 
         public void ClickPurchase()
@@ -131,6 +142,7 @@ namespace Pages01
         public void ClickGoToCart()
         {
             Cart.Click();
+
         }
         public bool IsCartDisplayed()
         {
@@ -140,7 +152,6 @@ namespace Pages01
 
         public void FillFormWithData(string email, string defaultText)
         {
-            driver.FindElement(By.CssSelector("div.slide2"), 5);
             EmailStep3.SendKeys(email);
             FirstNameStep3.SendKeys(defaultText);
             LastNameStep3.SendKeys(defaultText);
@@ -155,7 +166,7 @@ namespace Pages01
 
         public bool IsElementDisplayedCart()
         {
-            driver.FindElement(By.CssSelector("td.wpsc_product_name"), 3);
+            driver.FindElement(By.ClassName("wpsc_product_name"), 2);
             Boolean isDisplayed = ProductNameCart.Displayed;
             return isDisplayed;
 
@@ -173,22 +184,48 @@ namespace Pages01
             RemoveBtn.Click();
         }
 
-         public void HoverProductCategory()
+        public void HoverProductCategory()
         {
             driver.FindElement(By.Id("menu-item-33"), 3);
-            driver.HoverOvers(ProductCategory);           
+            driver.HoverOvers(ProductCategory);
         }
 
         public string GetTitleProductStep2()
         {
+
+            driver.FindElement(By.CssSelector("td.wpsc_product_name a"), 5);
             string actualTitleStep2 = ProductNameTitleStep2.Text;
             return actualTitleStep2;
         }
 
         public string GetPriceProductStep2()
         {
+            driver.FindElement(By.CssSelector("tr.product_row td:nth-last-of-type(3) span"), 5);
             string actualPriceStep2 = ProductPriceStep2.Text;
             return actualPriceStep2;
+        }
+
+        public bool IsPurchasePageDisplayed()
+        {
+
+            driver.FindElement(By.CssSelector("div.slide2"), 10);
+            bool isDisplayed = PurchasePage.Displayed;
+            return isDisplayed;
+        }
+        public bool IsStep2PageDisplayed()
+        {
+            driver.FindElement(By.ClassName(classNameToFind: "entry-content"), 5);
+            bool isDisplayed = Step2Page.Displayed;
+            return isDisplayed;
+        }
+
+
+        public string GetFinalPrice()
+        {
+            driver.FindElement(By.CssSelector("tr.total_item span.checkout-shipping span"), 3);
+
+            string finalPrice = FinalPrice.Text;
+            return finalPrice;
         }
     }
 

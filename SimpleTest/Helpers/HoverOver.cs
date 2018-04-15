@@ -11,15 +11,15 @@ namespace Helpers
 {
     public static class HoverOver
     {
-        public static void HoverOvers(this IWebDriver driver,IWebElement elementToHover)
+        public static void HoverOvers(this IWebDriver driver, IWebElement elementToHover)
         {
-          //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-           // var element = driver.FindElement(by);
-           // element = wait.Until(ExpectedConditions.ElementIsVisible(by));
-           
-            Actions action = new Actions(driver);         
+            //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            // var element = driver.FindElement(by);
+            // element = wait.Until(ExpectedConditions.ElementIsVisible(by));
+
+            Actions action = new Actions(driver);
             action.MoveToElement(elementToHover).Perform();
-            
+
         }
     }
 }

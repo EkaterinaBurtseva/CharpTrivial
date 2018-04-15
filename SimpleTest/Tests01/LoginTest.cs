@@ -13,27 +13,28 @@ using Helpers;
 namespace Tests01
 {
     [TestFixture]
-    public class LoginTest :BaseTest
-    {             
+    public class LoginTest : BaseTest
+    {
         string loggedPage = "/products-page/your-account/?login=1";
 
         [Test]
-        public void LoginTestB()        {
-            
-            LoginPageB loginPage = new LoginPageB(driver);            
+        public void LoginTestB()
+        {
+
+            LoginPageB loginPage = new LoginPageB(driver);
             loginPage.OpenLoginPage(loginPageUrl);
-            Assert.IsTrue(loginPage.IsLoginPageDisplayed());            
+            Assert.IsTrue(loginPage.IsLoginPageDisplayed());
             Assert.IsTrue(loginPage.IsLoginFormDisplayed());
             Assert.IsTrue(loginPage.IsLoginButtonisplayed());
-            loginPage.FillLoginForm(email,password);
+            loginPage.FillLoginForm(email, password);
             loginPage.ClickLoginButton();
-            Assert.AreEqual(loggedPage, new Uri(driver.Url).PathAndQuery);           
+            Assert.AreEqual(loggedPage, new Uri(driver.Url).PathAndQuery);
             loginPage.IsLoggedBarDisplayed();
             loginPage.IsProfileLogoDisplayed();
             loginPage.ClickProfileLogo();
-            string actualEmail =loginPage.GetEmail();
+            var actualEmail = loginPage.GetEmail();
             Assert.AreEqual(email, actualEmail);
-           
+
         }
 
     }

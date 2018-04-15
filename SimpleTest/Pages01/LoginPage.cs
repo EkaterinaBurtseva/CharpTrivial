@@ -11,13 +11,14 @@ using Helpers;
 namespace Pages01
 {
 
-    public class LoginPageB : BasePage   {      
-       
-        
+    public class LoginPageB : BasePage
+    {
+
+
 
         [FindsBy(How = How.Id, Using = "post-31")]
         public IWebElement LoginLogo;
-     
+
         [FindsBy(How = How.Id, Using = "log")]
         private IWebElement UserNameLogin;
 
@@ -71,7 +72,7 @@ namespace Pages01
         }
         public bool IsLoginPageDisplayed()
         {
-           // driver.FindElement(By.Id("post - 31"),2);
+            // driver.FindElement(By.Id("post - 31"),2);
             bool isDisplayed = LoginLogo.Displayed;
             return isDisplayed;
         }
@@ -83,20 +84,20 @@ namespace Pages01
         }
         public bool IsLoggedBarDisplayed()
         {
-           bool isDisplayed = LoggedBar.Displayed;
+            bool isDisplayed = LoggedBar.Displayed;
             return isDisplayed;
 
         }
         public void ClickProfileLogo()
         {
             ProfileName.Click();
-            driver.FindElement(By.Id("wpbody-content"),3);
+            driver.FindElement(By.Id("wpbody-content"), 3);
             driver.FindElement(By.Id("email"), 3);
         }
         public string GetEmail()
         {
-        return ProfileEmail.GetAttribute("value");
-            
+            return ProfileEmail.GetAttribute("value");
+
         }
 
     }

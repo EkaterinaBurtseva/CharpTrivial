@@ -17,9 +17,9 @@ namespace Tests01
     {
         public IWebDriver driver;
         public string url;
-        public string loginPageUrl= "http://store.demoqa.com/products-page/your-account/";
+        public string loginPageUrl = "http://store.demoqa.com/products-page/your-account/";
         public string registrPageUrl = "http://store.demoqa.com/wp-login.php?action=register";
-        public string email= "burcevakate@gmail.com";
+        public string email = "burcevakate@gmail.com";
         public string password = "fC5m$I!(xO!5k^Aa";
 
         [OneTimeSetUp]
@@ -28,7 +28,7 @@ namespace Tests01
             Browsers.Init();
             driver = Browsers.GetDriver;
         }
-         
+
 
         [OneTimeTearDown]
         public void EndTest()

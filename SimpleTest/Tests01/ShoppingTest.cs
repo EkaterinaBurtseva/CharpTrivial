@@ -17,50 +17,52 @@ using OpenQA.Selenium.Firefox;
 namespace Tests01
 {
     [TestFixture]
-   public class ShoppingTest : BaseTest
+    public class ShoppingTest : BaseTest
     {
-        
+
         string defaultText = "test";
         string purchaseUrl = "/products-page/checkout/";
 
 
         [Test]
         public void BuyIpadTest()
-        {            
+        {
             LoginPageB loginPage = new LoginPageB(driver);
             loginPage.OpenLoginPage(loginPageUrl);
             loginPage.FillLoginForm(email, password);
             loginPage.ClickLoginButton();
 
             ShoppingPage shopPage = new ShoppingPage(driver);
-            shopPage.HoverProductCategory();          
+            shopPage.HoverProductCategory();
             shopPage.SelectIpadProduct();
-            string ActualTitle = shopPage.GetTitleOfProduct();
-            string ActualPrice = shopPage.GetPriceOfProduct();
+            var actualTitle = shopPage.GetTitleOfProduct();
+            var actualPrice = shopPage.GetPriceOfProduct();
             shopPage.ClickAddtoCart();
             Assert.IsTrue(shopPage.IsCartDisplayed(), "Cart button should be visible");
+
             shopPage.ClickGoToCart();
+            Assert.IsTrue(shopPage.IsStep2PageDisplayed());
             Assert.AreEqual(purchaseUrl, new Uri(driver.Url).PathAndQuery, "Verification that user redirected to Step2");
             Assert.IsTrue(shopPage.IsElementDisplayedCart(), "Verification that element in cart");
-            string ActualTitleStep2 = shopPage.GetTitleProductStep2();
-            Assert.AreEqual(ActualTitle, ActualTitleStep2);
-            string ActualPriceStep2 = shopPage.GetPriceProductStep2();
-            Assert.AreEqual(ActualPrice, ActualPriceStep2);
+            var actualTitleStep2 = shopPage.GetTitleProductStep2();
+            Assert.AreEqual(actualTitle, actualTitleStep2);
+            var actualPriceStep2 = shopPage.GetPriceProductStep2();
+            Assert.AreEqual(actualPrice, actualPriceStep2);
             shopPage.ClickContinueButton();
+
+            Assert.IsTrue(shopPage.IsPurchasePageDisplayed());
             shopPage.FillFormWithData(email, defaultText);
+            var finalPrice = shopPage.GetFinalPrice();
+            Assert.AreEqual(actualPrice, finalPrice);
             shopPage.ClickPurchase();
             Assert.IsTrue(shopPage.IsFinalPageDisplayed(), "Success");
+
+            shopPage.ClickGoToCart();
+            shopPage.Remove();
+
         }
-        // [TearDown]
-        //  public override void EndTest()
-        // {
-        // LoginPageB();
-        // ShoppingPage shopPage = new ShoppingPage(driver);
-        //  shopPage.ClickGoToCart();
-        //  shopPage.Remove();
-        // Browsers.Close();
-        //  }
 
 
     }
 }
+
