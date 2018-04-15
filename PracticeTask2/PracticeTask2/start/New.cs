@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
 /*
@@ -12,17 +13,22 @@ namespace PracticeTask2
     class New
     {
         private IWebDriver driver;
-        public void Test(IWebElement element, string item)
 
-
-        
+        public string Test(List<IWebElement> iList, string requiredClassName)
+        {
             List<IWebElement> elements = new List<IWebElement>();
-            elements.Contains(IWebElement text);
-            elements.Contains(IWebElement xpath);
-            elements.Contains(IWebElement name);
-            elements.Contains(IWebElement classname);
-           
-     
+            List<string> eleL = new List<string>();
+            foreach (IWebElement element in elements)
+            {
+                eleL.Add(element.ToString());
+            }
+            eleL.Add("Xpath");
+            eleL.Add("Text");
+            eleL.Add("ClassName");
+
+            if (requiredClassName == ) { }
+            return eleL.ToString();
+        }
 
 
 

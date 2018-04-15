@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PracticeTask2
 {
-    class Car2 : Car
+    class Ford : Car
     {
-        String color2 = "blue";
+        string color2 = "blue";
 
-        public Car2(int type):base (type){
-}
+        public Ford(int type):base (type){
+        }
 
+        public Ford(int type, int speed)
+        {
+            this.type = type;
+            this.speed = speed;
+        }
         public override void PrintColor()
         {
             Console.WriteLine(color2);
