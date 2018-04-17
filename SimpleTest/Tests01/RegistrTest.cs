@@ -19,8 +19,8 @@ namespace Tests01
     {
         private string usernameWrong = "***";
         private string emailWrong = "1111";
-        private string usernameValid = "tes4sdd25ds";
-        private string emailValid = "merrychristmsas946@gmail.com";
+        private string usernameValid = "tes4sd66d25ds";
+        private string emailValid = "merrychristmfsas946@gmail.com";
         private string urlRegistration = "/wp-login.php?action=register";
         private string expectedMessage = "Registration complete. Please check your email.";
 

@@ -61,7 +61,7 @@ namespace Pages01
         public void ClickLoginButton()
         {
             LoginBtn.Click();
-            driver.FindElement(By.Id("wpadminbar"), 3);
+            driver.FindElement(By.Id("wpadminbar"), 5);
         }
         public void OpenLoginPage(string loginPageUrl)
         {

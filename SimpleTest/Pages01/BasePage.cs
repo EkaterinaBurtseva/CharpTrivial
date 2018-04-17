@@ -17,7 +17,7 @@ namespace Pages01
 
         public BasePage()
         {
-            var driver = Browsers.GetDriver;
+            driver = Browsers.GetDriver;
             PageFactory.InitElements(driver, this);
         }
 

@@ -22,7 +22,7 @@ namespace Pages01
         private IWebElement AccountLogo;
 
         public HomePage() : base()
-        {
+        { 
 
         }
         public bool IsHomePageOpened()
