@@ -17,19 +17,19 @@ namespace Tests01
     [TestFixture]
     class RegistrationTest : BaseTest
     {
-        string usernameWrong = "***";
-        string emailWrong = "1111";
-        string usernameValid = "tes4sdd25ds";
-        string emailValid = "merrychristmsas946@gmail.com";
-        string urlRegistration = "/wp-login.php?action=register";
-        string expectedMessage = "Registration complete. Please check your email.";
+        private string usernameWrong = "***";
+        private string emailWrong = "1111";
+        private string usernameValid = "tes4sdd25ds";
+        private string emailValid = "merrychristmsas946@gmail.com";
+        private string urlRegistration = "/wp-login.php?action=register";
+        private string expectedMessage = "Registration complete. Please check your email.";
 
         [Test]
         public void RegistrationPageTest()
         {
-            var loginPageB = new LoginPageB(driver);
+            var loginPageB = new LoginPageB();
             loginPageB.OpenLoginPage(loginPageUrl);
-            var registrationPage = new RegistrationPage(driver);
+            var registrationPage = new RegistrationPage();
             Assert.IsTrue(registrationPage.IsRegistrationLinkDisplayed(), "Verification Registration link is displayed");
             registrationPage.ClickRegistrationLink();
             Assert.AreEqual(urlRegistration, new Uri(driver.Url).PathAndQuery);
@@ -38,7 +38,7 @@ namespace Tests01
         [Test]
         public void RegistrationWrongTest()
         {
-            var registrationPage = new RegistrationPage(driver);
+            var registrationPage = new RegistrationPage();
             registrationPage.OpenRegistrationPage(registrPageUrl);
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
@@ -50,7 +50,7 @@ namespace Tests01
         [Test]
         public void RegistrationCorrectTest()
         {
-            var registrationPage = new RegistrationPage(driver);
+            var registrationPage = new RegistrationPage();
             registrationPage.OpenRegistrationPage(registrPageUrl);
             Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
             Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");

@@ -13,11 +13,8 @@ namespace Pages01
 
     public class LoginPageB : BasePage
     {
-
-
-
         [FindsBy(How = How.Id, Using = "post-31")]
-        public IWebElement LoginLogo;
+        private IWebElement LoginLogo;
 
         [FindsBy(How = How.Id, Using = "log")]
         private IWebElement UserNameLogin;
@@ -29,28 +26,29 @@ namespace Pages01
         private IWebElement LoginBtn;
 
         [FindsBy(How = How.Id, Using = "login_wrapper")]
-        public IWebElement LoginForm;
+        private IWebElement LoginForm;
 
         [FindsBy(How = How.Id, Using = "wpadminbar")]
         private IWebElement LoggedBar;
+
         [FindsBy(How = How.CssSelector, Using = "#wp-admin-bar-my-account a")]
         private IWebElement ProfileName;
 
         [FindsBy(How = How.CssSelector, Using = "input#email")]
         private IWebElement ProfileEmail;
 
-        public LoginPageB(IWebDriver driver) : base(driver)
+        public LoginPageB() : base()
         {
         }
 
         public bool IsLoginFormDisplayed()
         {
-            bool isDisplayed = LoginForm.Displayed;
+            var isDisplayed = LoginForm.Displayed;
             return isDisplayed;
         }
         public bool IsLoginButtonisplayed()
         {
-            bool isDisplayed = LoginBtn.Displayed;
+            var isDisplayed = LoginBtn.Displayed;
             return isDisplayed;
         }
 
@@ -73,18 +71,18 @@ namespace Pages01
         public bool IsLoginPageDisplayed()
         {
             // driver.FindElement(By.Id("post - 31"),2);
-            bool isDisplayed = LoginLogo.Displayed;
+            var isDisplayed = LoginLogo.Displayed;
             return isDisplayed;
         }
 
         public bool IsProfileLogoDisplayed()
         {
-            bool isDisplayed = ProfileName.Displayed;
+            var isDisplayed = ProfileName.Displayed;
             return isDisplayed;
         }
         public bool IsLoggedBarDisplayed()
         {
-            bool isDisplayed = LoggedBar.Displayed;
+            var isDisplayed = LoggedBar.Displayed;
             return isDisplayed;
 
         }

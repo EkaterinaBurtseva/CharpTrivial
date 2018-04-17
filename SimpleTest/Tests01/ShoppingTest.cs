@@ -19,20 +19,19 @@ namespace Tests01
     [TestFixture]
     public class ShoppingTest : BaseTest
     {
-
-        string defaultText = "test";
-        string purchaseUrl = "/products-page/checkout/";
+        private string defaultText = "test";
+        private string purchaseUrl = "/products-page/checkout/";
 
 
         [Test]
         public void BuyIpadTest()
         {
-            LoginPageB loginPage = new LoginPageB(driver);
+            var loginPage = new LoginPageB();
             loginPage.OpenLoginPage(loginPageUrl);
             loginPage.FillLoginForm(email, password);
             loginPage.ClickLoginButton();
 
-            ShoppingPage shopPage = new ShoppingPage(driver);
+            var shopPage = new ShoppingPage();
             shopPage.HoverProductCategory();
             shopPage.SelectIpadProduct();
             var actualTitle = shopPage.GetTitleOfProduct();

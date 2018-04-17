@@ -7,7 +7,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DE7FD83E-0ECF-4F40-AC9B-D8969AD79A62}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>Tests01</RootNamespace>
     <AssemblyName>Tests01</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
@@ -79,7 +82,6 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="HomeTest.cs" />
     <Compile Include="LoginTest.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrTest.cs" />
     <Compile Include="ShoppingTest.cs" />
@@ -93,9 +95,9 @@
       <Project>{1b0838e1-2a07-4ccc-a071-534cc83f4971}</Project>
       <Name>Helpers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Pages01\Pages01.csproj">
+    <ProjectReference Include="..\Pages01\Pages.csproj">
       <Project>{e37a1cf1-450e-4498-9d15-b8b9f4f1c5e0}</Project>
-      <Name>Pages01</Name>
+      <Name>Pages</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

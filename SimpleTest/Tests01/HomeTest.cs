@@ -20,7 +20,7 @@ namespace Tests01
         [Test]
         public void HomePageTestStart()
         {
-            HomePage homePage = new HomePage(driver);
+            var homePage = new HomePage();
             homePage.OpenStartPage(url);
             Assert.AreEqual(homePageTitle, driver.Title);
             Assert.IsTrue(homePage.IsHomePageOpened());

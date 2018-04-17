@@ -18,13 +18,13 @@ namespace Pages01
         private IWebElement RegisterTitle;
 
         [FindsBy(How = How.LinkText, Using = "Register")]
-        public IWebElement RegisterLink;
+        private IWebElement RegisterLink;
 
         [FindsBy(How = How.Id, Using = "registerform")]
         private IWebElement RegisterForm;
 
         [FindsBy(How = How.Id, Using = "user_login")]
-        public IWebElement Username;
+        private IWebElement Username;
 
         [FindsBy(How = How.Id, Using = "user_email")]
         private IWebElement Email;
@@ -41,12 +41,12 @@ namespace Pages01
 
         public bool IsRegistrationLinkDisplayed()
         {
-            Boolean isDisplayed = RegisterLink.Displayed;
+            var isDisplayed = RegisterLink.Displayed;
             return isDisplayed;
 
         }
 
-        public RegistrationPage(IWebDriver driver) : base(driver)
+        public RegistrationPage() : base()
         {
         }
 
@@ -58,7 +58,7 @@ namespace Pages01
 
         public bool IsRegistrationFormDisplyed()
         {
-            Boolean isDisplayed = RegisterForm.Displayed;
+            var isDisplayed = RegisterForm.Displayed;
             return isDisplayed;
 
         }
@@ -90,14 +90,14 @@ namespace Pages01
 
         public bool IsErrorDisplayed()
         {
-            Boolean isDisplayed = ErrorMessage.Displayed;
+            var isDisplayed = ErrorMessage.Displayed;
             return isDisplayed;
         }
 
         public bool IsSuccessDisplayed()
         {
             driver.FindElement(By.Id("login"), 3);
-            Boolean isDisplayed = SuccessMessage.Displayed;
+            var isDisplayed = SuccessMessage.Displayed;
             return isDisplayed;
         }
 
@@ -109,7 +109,7 @@ namespace Pages01
         }
         public string GetTextOfSuccessMessage()
         {
-            string actualMessage = SuccessMessage.Text;
+            var actualMessage = SuccessMessage.Text;
             return actualMessage;
         }
     }

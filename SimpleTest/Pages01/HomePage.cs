@@ -13,21 +13,21 @@ namespace Pages01
     public class HomePage : BasePage
     {
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
-        public IWebElement MyAccountButton;
+        private IWebElement MyAccountButton;
 
         [FindsBy(How = How.ClassName, Using = "caroufredsel_wrapper")]
-        public IWebElement HomepageLogo;
+        private IWebElement HomepageLogo;
 
         [FindsBy(How = How.Id, Using = "post-31")]
-        public IWebElement AccountLogo;
+        private IWebElement AccountLogo;
 
-        public HomePage(IWebDriver driver) : base(driver)
+        public HomePage() : base()
         {
 
         }
         public bool IsHomePageOpened()
         {
-            Boolean isDiplayed = HomepageLogo.Displayed;
+            var isDiplayed = HomepageLogo.Displayed;
             return isDiplayed;
         }
         public void ClickMyAccountButton()
@@ -38,14 +38,14 @@ namespace Pages01
 
         public bool IsAccountButtonDisplayed()
         {
-            Boolean isDisplayed = MyAccountButton.Displayed;
+            var isDisplayed = MyAccountButton.Displayed;
             return isDisplayed;
 
         }
 
         public bool IsAccountPageDisplayed()
         {
-            Boolean isDisplayed = AccountLogo.Displayed;
+            var isDisplayed = AccountLogo.Displayed;
             return isDisplayed;
         }
         public void OpenStartPage(string url)

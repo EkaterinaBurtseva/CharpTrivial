@@ -16,8 +16,8 @@ namespace Helpers
     public class Browsers
     {
 
-        private static IWebDriver webDriver;
-        private static string baseURL = ConfigurationManager.AppSettings["url"];
+        public static IWebDriver webDriver;
+        public static string baseURL = ConfigurationManager.AppSettings["url"];
         private static string browser = ConfigurationManager.AppSettings["browser"].ToString();
 
         public static void Init()

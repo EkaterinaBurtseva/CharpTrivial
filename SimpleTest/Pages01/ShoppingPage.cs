@@ -18,7 +18,7 @@ namespace Pages01
         //Page 1
 
         [FindsBy(How = How.Id, Using = "menu-item-33")]
-        public IWebElement ProductCategory;
+        private IWebElement ProductCategory;
 
         [FindsBy(How = How.CssSelector, Using = "li.menu-item-36 a")]
         private IWebElement iPadCategory;
@@ -100,7 +100,7 @@ namespace Pages01
         [FindsBy(How = How.CssSelector, Using = "td.wpsc_product_remove input[name='submit']")]
         private IWebElement RemoveBtn;
 
-        public ShoppingPage(IWebDriver driver) : base(driver)
+        public ShoppingPage() : base()
         {
         }
 
@@ -110,13 +110,13 @@ namespace Pages01
         }
         public string GetTitleOfProduct()
         {
-            string actualTitle = iPadProductTitle.Text;
+            var actualTitle = iPadProductTitle.Text;
             return actualTitle;
         }
 
         public string GetPriceOfProduct()
         {
-            string actualPrice = iPadProductPrice.Text;
+            var actualPrice = iPadProductPrice.Text;
             return actualPrice;
         }
 
@@ -146,7 +146,7 @@ namespace Pages01
         }
         public bool IsCartDisplayed()
         {
-            Boolean isDisplayed = Cart.Displayed;
+            var isDisplayed = Cart.Displayed;
             return isDisplayed;
         }
 
@@ -167,15 +167,14 @@ namespace Pages01
         public bool IsElementDisplayedCart()
         {
             driver.FindElement(By.ClassName("wpsc_product_name"), 2);
-            Boolean isDisplayed = ProductNameCart.Displayed;
+            var isDisplayed = ProductNameCart.Displayed;
             return isDisplayed;
 
         }
         public bool IsFinalPageDisplayed()
         {
-            Boolean isDisplayed = FinalPage.Displayed;
+            var isDisplayed = FinalPage.Displayed;
             return isDisplayed;
-            ;
 
         }
 
@@ -194,14 +193,14 @@ namespace Pages01
         {
 
             driver.FindElement(By.CssSelector("td.wpsc_product_name a"), 5);
-            string actualTitleStep2 = ProductNameTitleStep2.Text;
+            var actualTitleStep2 = ProductNameTitleStep2.Text;
             return actualTitleStep2;
         }
 
         public string GetPriceProductStep2()
         {
             driver.FindElement(By.CssSelector("tr.product_row td:nth-last-of-type(3) span"), 5);
-            string actualPriceStep2 = ProductPriceStep2.Text;
+            var actualPriceStep2 = ProductPriceStep2.Text;
             return actualPriceStep2;
         }
 
@@ -209,13 +208,13 @@ namespace Pages01
         {
 
             driver.FindElement(By.CssSelector("div.slide2"), 10);
-            bool isDisplayed = PurchasePage.Displayed;
+            var isDisplayed = PurchasePage.Displayed;
             return isDisplayed;
         }
         public bool IsStep2PageDisplayed()
         {
             driver.FindElement(By.ClassName(classNameToFind: "entry-content"), 5);
-            bool isDisplayed = Step2Page.Displayed;
+            var isDisplayed = Step2Page.Displayed;
             return isDisplayed;
         }
 
@@ -223,8 +222,7 @@ namespace Pages01
         public string GetFinalPrice()
         {
             driver.FindElement(By.CssSelector("tr.total_item span.checkout-shipping span"), 3);
-
-            string finalPrice = FinalPrice.Text;
+            var finalPrice = FinalPrice.Text;
             return finalPrice;
         }
     }

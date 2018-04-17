@@ -15,9 +15,9 @@ namespace Pages01
     {
         public IWebDriver driver;
 
-        public BasePage(IWebDriver driver)
+        public BasePage()
         {
-            this.driver = Browsers.GetDriver;
+            var driver = Browsers.GetDriver;
             PageFactory.InitElements(driver, this);
         }
 

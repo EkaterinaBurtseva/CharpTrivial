@@ -21,7 +21,7 @@ namespace Tests01
         public void LoginTestB()
         {
 
-            LoginPageB loginPage = new LoginPageB(driver);
+            var loginPage = new LoginPageB();
             loginPage.OpenLoginPage(loginPageUrl);
             Assert.IsTrue(loginPage.IsLoginPageDisplayed());
             Assert.IsTrue(loginPage.IsLoginFormDisplayed());
