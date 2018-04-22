@@ -6,23 +6,21 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using Helpers;
 
 namespace Pages01
 {
-
-
     public abstract class BasePage
 
     {
-        private IWebDriver driver;
+        protected IWebDriver driver;
 
-        public string BaseUrl = "http://store.demoqa.com";
-
-        protected BasePage(IWebDriver driver)
+        public BasePage()
         {
-            this.driver = driver;
+            driver = Browsers.GetDriver;
             PageFactory.InitElements(driver, this);
         }
+
 
 
     }

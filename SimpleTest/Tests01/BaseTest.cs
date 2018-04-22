@@ -1,40 +1,40 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using System;
+using System.Text;
+using System.Collections.Generic;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using Pages01;
-using System;
-
-
+using System.Threading;
+using OpenQA.Selenium;
+using System.Collections.Specialized;
+using Helpers;
+using NUnit.Framework;
+using System.Security.Policy;
 
 namespace Tests01
 {
-    [TestFixture(typeof(FirefoxDriver))]
-    [TestFixture(typeof(ChromeDriver))]
+    [TestFixture]
     public abstract class BaseTest
     {
-        protected IWebDriver driver;
+        public IWebDriver driver;
+        public string url;
+        public string loginPageUrl = "http://store.demoqa.com/products-page/your-account/";
+        public string registrPageUrl = "http://store.demoqa.com/wp-login.php?action=register";
+        public string email = "burcevakate@gmail.com";
+        public string password = "fC5m$I!(xO!5k^Aa";
 
-
-        [SetUp]
-        public void SetUp()
+        [OneTimeSetUp]
+        public void InitDriver()
         {
-            this.driver = new TWebDriver();
-        }
-
-        [Test]
-        public void FirstTest()
-        {
-            HomePage homePage = new Pages01.HomePage(driver);
-            homePage.OpenBasePage();
-            
+            Browsers.Init();
+            driver = Browsers.GetDriver;
         }
 
 
-        [TearDown]
-        public virtual void EndTest()
+        [OneTimeTearDown]
+        public void EndTest()
         {
-            driver.Close();
+            Browsers.Close();
         }
+
     }
 }
