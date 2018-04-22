@@ -146,8 +146,7 @@ namespace Pages01
         }
         public bool IsCartDisplayed()
         {
-            var isDisplayed = Cart.Displayed;
-            return isDisplayed;
+            return Cart.Displayed;
         }
 
         public void FillFormWithData(string email, string defaultText)
@@ -167,14 +166,12 @@ namespace Pages01
         public bool IsElementDisplayedCart()
         {
             driver.FindElement(By.ClassName("wpsc_product_name"), 2);
-            var isDisplayed = ProductNameCart.Displayed;
-            return isDisplayed;
+            return ProductNameCart.Displayed;
 
         }
         public bool IsFinalPageDisplayed()
         {
-            var isDisplayed = FinalPage.Displayed;
-            return isDisplayed;
+            return FinalPage.Displayed;
 
         }
 
@@ -208,14 +205,12 @@ namespace Pages01
         {
 
             driver.FindElement(By.CssSelector("div.slide2"), 10);
-            var isDisplayed = PurchasePage.Displayed;
-            return isDisplayed;
+            return PurchasePage.Displayed;
         }
         public bool IsStep2PageDisplayed()
         {
             driver.FindElement(By.ClassName(classNameToFind: "entry-content"), 5);
-            var isDisplayed = Step2Page.Displayed;
-            return isDisplayed;
+            return Step2Page.Displayed;
         }
 
 

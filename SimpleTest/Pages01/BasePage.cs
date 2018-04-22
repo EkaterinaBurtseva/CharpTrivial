@@ -13,7 +13,7 @@ namespace Pages01
     public abstract class BasePage
 
     {
-        public IWebDriver driver;
+        protected IWebDriver driver;
 
         public BasePage()
         {

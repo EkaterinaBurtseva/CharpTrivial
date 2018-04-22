@@ -41,8 +41,7 @@ namespace Pages01
 
         public bool IsRegistrationLinkDisplayed()
         {
-            var isDisplayed = RegisterLink.Displayed;
-            return isDisplayed;
+            return RegisterLink.Displayed;
 
         }
 
@@ -58,8 +57,7 @@ namespace Pages01
 
         public bool IsRegistrationFormDisplyed()
         {
-            var isDisplayed = RegisterForm.Displayed;
-            return isDisplayed;
+            return RegisterForm.Displayed;
 
         }
 
@@ -86,19 +84,20 @@ namespace Pages01
         public void ClickRegisterBtn()
         {
             RegisterBtn.Click();
+
         }
 
         public bool IsErrorDisplayed()
         {
-            var isDisplayed = ErrorMessage.Displayed;
-            return isDisplayed;
+            return ErrorMessage.Displayed;
+
         }
 
         public bool IsSuccessDisplayed()
         {
             driver.FindElement(By.Id("login"), 3);
-            var isDisplayed = SuccessMessage.Displayed;
-            return isDisplayed;
+            return SuccessMessage.Displayed;
+
         }
 
 
@@ -107,6 +106,7 @@ namespace Pages01
             driver = Browsers.GetDriver;
             driver.Navigate().GoToUrl(registrPageUrl);
         }
+
         public string GetTextOfSuccessMessage()
         {
             var actualMessage = SuccessMessage.Text;

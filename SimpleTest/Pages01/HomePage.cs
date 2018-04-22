@@ -22,13 +22,12 @@ namespace Pages01
         private IWebElement AccountLogo;
 
         public HomePage() : base()
-        { 
+        {
 
         }
         public bool IsHomePageOpened()
         {
-            var isDiplayed = HomepageLogo.Displayed;
-            return isDiplayed;
+            return HomepageLogo.Displayed;
         }
         public void ClickMyAccountButton()
         {
@@ -38,15 +37,14 @@ namespace Pages01
 
         public bool IsAccountButtonDisplayed()
         {
-            var isDisplayed = MyAccountButton.Displayed;
-            return isDisplayed;
+            return MyAccountButton.Displayed;
+
 
         }
 
         public bool IsAccountPageDisplayed()
         {
-            var isDisplayed = AccountLogo.Displayed;
-            return isDisplayed;
+            return AccountLogo.Displayed;
         }
         public void OpenStartPage(string url)
         {

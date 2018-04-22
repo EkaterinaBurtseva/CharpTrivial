@@ -43,13 +43,11 @@ namespace Pages01
 
         public bool IsLoginFormDisplayed()
         {
-            var isDisplayed = LoginForm.Displayed;
-            return isDisplayed;
+            return LoginForm.Displayed;
         }
         public bool IsLoginButtonisplayed()
         {
-            var isDisplayed = LoginBtn.Displayed;
-            return isDisplayed;
+            return LoginBtn.Displayed;
         }
 
         public void FillLoginForm(string email, string password)
@@ -70,20 +68,16 @@ namespace Pages01
         }
         public bool IsLoginPageDisplayed()
         {
-            // driver.FindElement(By.Id("post - 31"),2);
-            var isDisplayed = LoginLogo.Displayed;
-            return isDisplayed;
+            return LoginLogo.Displayed;
         }
 
         public bool IsProfileLogoDisplayed()
         {
-            var isDisplayed = ProfileName.Displayed;
-            return isDisplayed;
+            return ProfileName.Displayed;
         }
         public bool IsLoggedBarDisplayed()
         {
-            var isDisplayed = LoggedBar.Displayed;
-            return isDisplayed;
+            return LoggedBar.Displayed;
 
         }
         public void ClickProfileLogo()
