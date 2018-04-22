@@ -8,36 +8,28 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Pages01;
+using Helpers;
 
 namespace Tests01
 {
-    class HomeTest : BaseTest<>
+    [TestFixture]
+    class HomeTest : BaseTest
     {
-
-        [SetUp]
-        [Test]
-        public void RegistrationWrongTest()
-        {
-            RegistrationPage registrationPage = new RegistrationPage(driver);
-            FirstTest();
-            Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
-            Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
-            registrationPage.FillFormWrong();
-            registrationPage.ClickRegisterBtn();
-            Assert.IsTrue(registrationPage.IsErrorDisplayed(), "Error message should be displayed");
-        }
+        string homePageTitle = "ONLINE STORE | Toolsqa Dummy Test site";
 
         [Test]
-        public void RegistrationCorrectTest()
+        public void HomePageTestStart()
         {
-            FirstTest();
-            RegistrationPage registrationPage = new RegistrationPage(driver);
-            Assert.IsTrue(registrationPage.IsRegistrationFormDisplyed(), "Verification Regitration form  is displayed");
-            Assert.IsTrue(registrationPage.IsRegisterBtnDisplyed(), "Verification Registration button is displayed");
-            registrationPage.FillFormCorrect();
-            registrationPage.ClickRegisterBtn();
-            Assert.IsTrue(registrationPage.IsSuccessDisplayed(), "Success message should be displayed");
+            var homePage = new HomePage();
+            homePage.OpenStartPage(url);
+            Assert.AreEqual(homePageTitle, driver.Title);
+            Assert.IsTrue(homePage.IsHomePageOpened());
+            Assert.IsTrue(homePage.IsAccountButtonDisplayed());
+            homePage.ClickMyAccountButton();
+            Assert.IsTrue(homePage.IsAccountPageDisplayed());
 
         }
+
+
     }
 }

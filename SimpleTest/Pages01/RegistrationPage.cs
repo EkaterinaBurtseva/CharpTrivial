@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Helpers;
 
 
 namespace Pages01
@@ -13,14 +14,17 @@ namespace Pages01
     public class RegistrationPage : BasePage
     {
 
-        [FindsBy(How = How.CssSelector, Using = "p.message")]
+        [FindsBy(How = How.CssSelector, Using = "p.message.register")]
         private IWebElement RegisterTitle;
+
+        [FindsBy(How = How.LinkText, Using = "Register")]
+        private IWebElement RegisterLink;
 
         [FindsBy(How = How.Id, Using = "registerform")]
         private IWebElement RegisterForm;
 
         [FindsBy(How = How.Id, Using = "user_login")]
-        public IWebElement Username;
+        private IWebElement Username;
 
         [FindsBy(How = How.Id, Using = "user_email")]
         private IWebElement Email;
@@ -28,26 +32,32 @@ namespace Pages01
         [FindsBy(How = How.Id, Using = "wp-submit")]
         private IWebElement RegisterBtn;
 
-        [FindsBy(How = How.Id, Using = "login")]
+        [FindsBy(How = How.CssSelector, Using = "p.message")]
         private IWebElement SuccessMessage;
 
         [FindsBy(How = How.Id, Using = "login_error")]
         private IWebElement ErrorMessage;
 
-        string usernameWrong = "***";
-        string emailWrong = "1111";
-        string usernameValid = "test";
-        string emailValid = "merrychristmas946@gmail.com";
-        private IWebDriver driver;
 
-        public RegistrationPage(IWebDriver driver) : base(driver)
+        public bool IsRegistrationLinkDisplayed()
         {
+            return RegisterLink.Displayed;
+
+        }
+
+        public RegistrationPage() : base()
+        {
+        }
+
+        public void ClickRegistrationLink()
+        {
+            RegisterLink.Click();
+            driver.FindElement(By.CssSelector("p.message.register"), 5);
         }
 
         public bool IsRegistrationFormDisplyed()
         {
-            Boolean isDisplayed = RegisterForm.Displayed;
-            return isDisplayed;
+            return RegisterForm.Displayed;
 
         }
 
@@ -57,34 +67,53 @@ namespace Pages01
             return RegisterBtn.Displayed;
         }
 
-        public void FillFormCorrect()
+        public bool FillFormCorrect(string usernameValid, string emailValid)
         {
             Username.SendKeys(usernameValid);
             Email.SendKeys(emailValid);
+            return true;
         }
 
-        public void FillFormWrong()
+        public void FillFormWrong(string usernameWrong, string emailWrong)
         {
             Username.SendKeys(usernameWrong);
             Email.SendKeys(emailWrong);
+
         }
 
         public void ClickRegisterBtn()
         {
             RegisterBtn.Click();
+
         }
 
         public bool IsErrorDisplayed()
         {
-            Boolean isDisplayed = ErrorMessage.Displayed;
-            return isDisplayed;
+            return ErrorMessage.Displayed;
+
         }
 
         public bool IsSuccessDisplayed()
         {
-            Boolean isDisplayed = SuccessMessage.Displayed;
-            return isDisplayed;
+            driver.FindElement(By.Id("login"), 3);
+            return SuccessMessage.Displayed;
+
+        }
+
+
+        public void OpenRegistrationPage(string registrPageUrl)
+        {
+            driver = Browsers.GetDriver;
+            driver.Navigate().GoToUrl(registrPageUrl);
+        }
+
+        public string GetTextOfSuccessMessage()
+        {
+            var actualMessage = SuccessMessage.Text;
+            return actualMessage;
         }
     }
+
 }
+
 

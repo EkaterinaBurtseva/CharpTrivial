@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using Helpers;
 
 namespace Pages01
 {
@@ -14,47 +15,40 @@ namespace Pages01
         [FindsBy(How = How.CssSelector, Using = "a.account_icon")]
         private IWebElement MyAccountButton;
 
-        [FindsBy(How = How.LinkText, Using = "Register")]
-        private IWebElement RegisterLink;
+        [FindsBy(How = How.ClassName, Using = "caroufredsel_wrapper")]
+        private IWebElement HomepageLogo;
 
-        [FindsBy(How = How.Id, Using = "logo")]
-        public IWebElement Logo;
+        [FindsBy(How = How.Id, Using = "post-31")]
+        private IWebElement AccountLogo;
 
-        public HomePage(IWebDriver driver) : base(driver)
+        public HomePage() : base()
         {
 
         }
-
-        public void OpenBasePage()
+        public bool IsHomePageOpened()
         {
-            driver.Navigate().GoToUrl(BaseUrl);
+            return HomepageLogo.Displayed;
         }
-
         public void ClickMyAccountButton()
         {
             MyAccountButton.Click();
 
         }
 
-
-        public void ClickRegistrationLink()
-        {
-            RegisterLink.Click();
-
-        }
-
-        public bool IsRegistrationLinkDisplayed()
-        {
-            Boolean isDisplayed = RegisterLink.Displayed;
-            return isDisplayed;
-
-        }
-
         public bool IsAccountButtonDisplayed()
         {
-            Boolean isDisplayed = MyAccountButton.Displayed;
-            return isDisplayed;
+            return MyAccountButton.Displayed;
 
+
+        }
+
+        public bool IsAccountPageDisplayed()
+        {
+            return AccountLogo.Displayed;
+        }
+        public void OpenStartPage(string url)
+        {
+            Browsers.Goto(url);
         }
     }
 }

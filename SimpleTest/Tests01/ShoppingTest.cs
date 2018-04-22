@@ -5,75 +5,63 @@ using OpenQA.Selenium.Interactions;
 using Pages01;
 using System;
 using System.Threading;
+using Helpers;
+using Tests01;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium.Firefox;
+
 
 namespace Tests01
 {
-    //[TestFixture(typeof(FirefoxDriver))]
-    [TestFixture(typeof(ChromeDriver))]
-    // [TestFixture(typeof(EdgeDriver))]
-    class ShoppingTest<TWebDriver> where TWebDriver : IWebDriver, new()
+    [TestFixture]
+    public class ShoppingTest : BaseTest
     {
-        private IWebDriver driver;
+        private string defaultText = "test";
+        private string purchaseUrl = "/products-page/checkout/";
 
-
-        [SetUp]
-        public void SetUp()
-        {
-            this.driver = new TWebDriver();
-
-        }
-
-
-        public void StartTest()
-        {
-            BasePage basePage = new BasePage(driver);
-            basePage.OpenBasePage();
-            basePage.ClickMyAccountButton();
-        }
-
-        [Test]
-        public void LoginPageB()
-        {
-            StartTest();
-            LoginPageB loginPage = new LoginPageB(driver);
-            Assert.IsTrue(loginPage.IsLoginFormDisplayed(), "Verification that Login form is displayed");
-            Assert.IsTrue(loginPage.IsLoginButtonisplayed(), "Verification that Login form is displayed");
-            loginPage.FillLoginForm();
-            loginPage.ClickLoginButton();
-            Assert.AreEqual("/products-page/your-account/", new Uri(driver.Url).PathAndQuery, "Verification that user is logged");
-            //is it ok to use such type of wait here?
-            Thread.Sleep(5000);
-        }
 
         [Test]
         public void BuyIpadTest()
         {
-            LoginPageB();
-            ShoppingPage shopPage = new ShoppingPage(driver);
-            //is it posibly to use HoverOver inside method?
+            var loginPage = new LoginPageB();
+            loginPage.OpenLoginPage(loginPageUrl);
+            loginPage.FillLoginForm(email, password);
+            loginPage.ClickLoginButton();
 
-            Actions action = new Actions(driver);
-            action.MoveToElement(driver.FindElement(By.Id("menu-item-33"))).Build().Perform();
+            var shopPage = new ShoppingPage();
+            shopPage.HoverProductCategory();
             shopPage.SelectIpadProduct();
-            shopPage.ClcikAddtoCart();
+            var actualTitle = shopPage.GetTitleOfProduct();
+            var actualPrice = shopPage.GetPriceOfProduct();
+            shopPage.ClickAddtoCart();
             Assert.IsTrue(shopPage.IsCartDisplayed(), "Cart button should be visible");
+
             shopPage.ClickGoToCart();
-            Assert.AreEqual("/products-page/checkout/", new Uri(driver.Url).PathAndQuery, "Verification that user redirected to Step2");
+            Assert.IsTrue(shopPage.IsStep2PageDisplayed());
+            Assert.AreEqual(purchaseUrl, new Uri(driver.Url).PathAndQuery, "Verification that user redirected to Step2");
             Assert.IsTrue(shopPage.IsElementDisplayedCart(), "Verification that element in cart");
+            var actualTitleStep2 = shopPage.GetTitleProductStep2();
+            Assert.AreEqual(actualTitle, actualTitleStep2);
+            var actualPriceStep2 = shopPage.GetPriceProductStep2();
+            Assert.AreEqual(actualPrice, actualPriceStep2);
             shopPage.ClickContinueButton();
-            shopPage.FillFormWithData();
+
+            Assert.IsTrue(shopPage.IsPurchasePageDisplayed());
+            shopPage.FillFormWithData(email, defaultText);
+            var finalPrice = shopPage.GetFinalPrice();
+            Assert.AreEqual(actualPrice, finalPrice);
             shopPage.ClickPurchase();
             Assert.IsTrue(shopPage.IsFinalPageDisplayed(), "Success");
-        }
-        [TearDown]
-        public void ClearingTest()
-        {
-            LoginPageB();
-            ShoppingPage shopPage = new ShoppingPage(driver);
+
             shopPage.ClickGoToCart();
             shopPage.Remove();
+
         }
 
 
     }
 }
+
