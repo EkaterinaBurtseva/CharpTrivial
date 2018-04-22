@@ -10,13 +10,11 @@ using System.Threading.Tasks;
  */
 namespace PracticeTask2.Task1List
 {
-    class WebElement
+    public class WebElement
     {
-        public string Xpath="xp";
-        public string Text="tx";
-        public string ClassName="cn";
-        public string Name="nm";
-
+        public string Xpath = "xp";
+        public string Text = "tx";
+        public string ClassName = "cn";
+        public string Name = "nm";
     }
-   
 }

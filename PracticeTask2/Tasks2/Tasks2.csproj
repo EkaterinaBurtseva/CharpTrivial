@@ -47,7 +47,7 @@
     <Compile Include="Task1List\Solution.cs" />
     <Compile Include="Task1List\WebElement.cs" />
     <Compile Include="Tsk2Column\Column.cs" />
-    <Compile Include="Tsk2Column\Contains.cs" />
+    <Compile Include="Tsk2Column\Solutions2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

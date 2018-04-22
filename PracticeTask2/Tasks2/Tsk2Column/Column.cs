@@ -13,15 +13,13 @@ using System.Threading.Tasks;
  */
 namespace PracticeTask2
 {
-    class Column
+    public class Column
     {
-        int Id;
-        string Name;
-        string Header;
-        private static readonly IDictionary<string, int> idsAndNames = new Dictionary<string, int>();
-        private static readonly IDictionary<string, string> namesAndHeaders = new Dictionary<string, string>();
-        
-}
+        public int Id= 1;
+        public string Name="name";
+        public string Header="header";
+
+    }
 }
 
 

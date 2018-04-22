@@ -9,23 +9,25 @@ using System.Xml.XPath;
 
 namespace PracticeTask2.Task1List
 {
-    class Solution:WebElement
+    public class Solution : WebElement
     {
-        
-        public string ListOfElements(List<WebElement>elements, string requiredClassName)
+
+        public string ListOfElements(List<WebElement> elements, string requiredClassName)
         {
-        requiredClassName = "bnmn";
-        string res="0";
-            if(requiredClassName.Equals(ClassName))
+            string error = "Error";
+            string res;
+            if (requiredClassName.Equals(ClassName))
             {
-                res = ClassName + ", " + Xpath + " ," + Name + ", " + "Text";
+                res = ClassName + ", " + Xpath + " ," + Name + ", " + Text;
+                Console.WriteLine(res);
                 return res;
-               Console.WriteLine(res);
             }
-            return res;
-           // Console.WriteLine(res);
+            Console.WriteLine(error);
+            return error;
         }
-        
     }
-    
 }
+
+
+
+
