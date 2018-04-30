@@ -1,20 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+using System.Collections.Generic;
+using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Chrome;
+using System.Threading;
 using OpenQA.Selenium;
+using System.Collections.Specialized;
 using Settings;
+using NUnit.Framework;
+using System.Security.Policy;
 
-namespace Tests
+namespace Tests01
 {
     [TestFixture]
     public abstract class BaseTest
     {
         public IWebDriver driver;
-        public string baseURL= "https://www.itera.no/";
-      
+        public string baseURL= "https://itera.no";
+
 
         [OneTimeSetUp]
         public void InitDriver()

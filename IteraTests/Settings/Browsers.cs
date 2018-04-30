@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using System.Threading;
+using System.Drawing;
 
 namespace Settings
 {
@@ -14,7 +17,7 @@ namespace Settings
     {
         private static IWebDriver webDriver;
         public static string baseURL = ConfigurationManager.AppSettings["url"];
-        private static string browser = ConfigurationManager.AppSettings["browser"].ToString();
+        private static readonly string browser = ConfigurationManager.AppSettings["browser"].ToString();
 
         public static void Init()
         {

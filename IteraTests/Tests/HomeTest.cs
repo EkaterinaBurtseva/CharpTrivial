@@ -4,22 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using Pages;
 using Settings;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium;
-using Settings;
 
-namespace Tests
+namespace Tests01
 {
     [TestFixture]
-    class HomeTest:BaseTest
+    class HomeTest : BaseTest
     {
+        
         [Test]
-        public void HomePageFirstTest()
+        public void HomePageTestStart()
         {
             var homePage = new HomePage();
             homePage.OpenStartPage(baseURL);
+
 
         }
 
