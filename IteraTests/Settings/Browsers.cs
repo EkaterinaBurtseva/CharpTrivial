@@ -36,7 +36,7 @@ namespace Settings
 
         }
 
-        public static void Goto(string url)
+        public static void Goto(string baseURL)
         {
             webDriver.Navigate().GoToUrl(baseURL);
         }
