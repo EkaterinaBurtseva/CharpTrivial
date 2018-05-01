@@ -56,6 +56,7 @@
     <Compile Include="BasePage.cs" />
     <Compile Include="HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VacanciesPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
