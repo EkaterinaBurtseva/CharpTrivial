@@ -16,7 +16,7 @@ namespace Tests01
     public abstract class BaseTest
     {
         public IWebDriver driver;
-        public string baseURL= "https://itera.no";
+        public string baseURL = "https://itera.no";
 
 
         [OneTimeSetUp]
