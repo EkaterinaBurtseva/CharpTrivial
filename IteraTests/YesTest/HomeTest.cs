@@ -10,12 +10,13 @@ using OpenQA.Selenium.Firefox;
 using Pages;
 using Settings;
 
-namespace Tests01
+namespace Tests
 {
     [TestFixture]
     class HomeTest : BaseTest
     {
         private string homeTitle = "Specialists in creating digital business - Itera";
+        private string uaLocationLink = "https://www.itera.no/ua/";
 
         [Test]
         public void HomePageTestStart()
@@ -31,6 +32,7 @@ namespace Tests01
         public void OpenVacanciesPage()
         {
             var homePage = new HomePage();
+            homePage.OpenStartPage(baseURL);
             homePage.ClickMenuButton();
             Assert.IsTrue(homePage.IsGamburgerMenuOpened());
             homePage.ClickYouAtIteraLink();
@@ -40,7 +42,17 @@ namespace Tests01
             Assert.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
 
         }
+        [Test]
 
-
+        public void ChangeLocation()
+        {
+            var homePage = new HomePage();
+            homePage.OpenStartPage(baseURL);
+            homePage.ClickLocationSelector();
+            homePage.SelectUALOcation();
+            Assert.Equals(uaLocationLink, new Uri(driver.Url).PathAndQuery);
+        }
     }
+
 }
+

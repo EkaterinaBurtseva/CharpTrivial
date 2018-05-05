@@ -21,7 +21,7 @@ namespace Pages
         private IWebElement HomeLogo;
 
 
-        [FindsBy(How = How.ClassName, Using = "burger js-burger")]
+        [FindsBy(How = How.CssSelector, Using = "button.burger")]
         private IWebElement MenuButton;
 
         [FindsBy(How = How.CssSelector, Using = "ul.nav--large  li:nth-last-of-type(6) a")]
@@ -33,8 +33,18 @@ namespace Pages
         [FindsBy(How = How.Id, Using = "mCSB_5_container")]
         private IWebElement GamburgerMenu2;
 
-        [FindsBy(How = How.Id, Using = "#mCSB_5_container li:nth-last-of-type(1)")]
+        [FindsBy(How = How.CssSelector, Using = "#mCSB_5_container li:nth-last-of-type(1) a")]
         private IWebElement VacanciesLink;
+
+        [FindsBy(How = How.ClassName, Using = "header__countries")]
+        private IWebElement LocationSelector;
+
+        [FindsBy(How = How.ClassName, Using = "header__countries open")]
+        private IWebElement LocationSelectorOpen;
+
+        [FindsBy(How = How.ClassName, Using = "a[hreflang='uk']")]
+        private IWebElement LocationUA;
+
 
 
 
@@ -51,6 +61,7 @@ namespace Pages
 
         public void ClickMenuButton()
         {
+            driver.FindElement(By.ClassName("js-burger"), 3);
             MenuButton.Click();
         }
 
@@ -61,6 +72,7 @@ namespace Pages
 
         public void ClickYouAtIteraLink()
         {
+            driver.FindElement(By.CssSelector("li.hide-for-medium a[href='#40']"), 5);
             YouAtIteraLink.Click();
         }
 
@@ -71,7 +83,32 @@ namespace Pages
 
         public void ClickVacanciesLink()
         {
+            driver.FindElement(By.CssSelector("#mCSB_5_container li:nth-last-of-type(1) a"), 3);
             VacanciesLink.Click();
+        }
+
+        public void GoToVacanciesPage()
+        {
+
+            ClickMenuButton();
+            ClickYouAtIteraLink();
+            ClickVacanciesLink();
+        }
+
+        public void ClickLocationSelector()
+        {
+            driver.FindElement(By.CssSelector("div.header__countries"), 3);
+            LocationSelector.Click();
+        }
+
+        public bool IsLocationDropdownOpened()
+        {
+            driver.FindElement(By.CssSelector("div.open"), 3);
+            return LocationSelectorOpen.Displayed;
+        }
+        public void SelectUALOcation()
+        {
+            LocationUA.Click();
         }
 
 

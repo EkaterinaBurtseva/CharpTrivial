@@ -10,7 +10,7 @@ using Settings;
 using NUnit.Framework;
 using System.Security.Policy;
 
-namespace Tests01
+namespace Tests
 {
     [TestFixture]
     public abstract class BaseTest
