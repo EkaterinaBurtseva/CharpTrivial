@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,23 +9,41 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Pages;
+using RelevantCodes.ExtentReports;
 using Settings;
+
+
 
 namespace Tests
 {
+
     [TestFixture]
     class HomeTest : BaseTest
     {
+
         private string homeTitle = "Specialists in creating digital business - Itera";
         private string uaLocationLink = "https://www.itera.no/ua/";
+
+        public HomeTest()
+        {
+
+            testUrl = "reports\\HomeTest.html";
+        }
+
+
 
         [Test]
         public void HomePageTestStart()
         {
+
+            test = extent.StartTest("Home Page Start test");
             var homePage = new HomePage();
+            test.Log(LogStatus.Info, "Opening base page");
             homePage.OpenStartPage(baseURL);
+
             Assert.IsTrue(homePage.IsHomePageOpened());
             Assert.AreEqual(homeTitle, driver.Title);
+            test.Log(LogStatus.Info, "screenshot " + test.AddScreenCapture("screen"));
 
         }
 
@@ -42,6 +61,7 @@ namespace Tests
             Assert.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
 
         }
+
         [Test]
 
         public void ChangeLocation()

@@ -15,6 +15,11 @@ namespace Tests
     {
 
         private string title = ".NET";
+        public VacanciesTest()
+        {
+
+            testUrl = "reports\\VacanciesTest.html";
+        }
         [Test]
         public void VacanciesStartTest()
         {

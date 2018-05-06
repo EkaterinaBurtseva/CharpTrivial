@@ -32,7 +32,7 @@ namespace Pages
 
         public bool IsVacanciesPageDisplayed()
         {
-           return VacanciesHeader.Displayed;
+            return VacanciesHeader.Displayed;
         }
 
         public bool IsVacanciesDisplayed()
@@ -49,7 +49,7 @@ namespace Pages
             foreach (IWebElement element in VacanciesTitles)
             {
                 allText[i++] = element.Text;
-                count++;         
+                count++;
 
             }
             Console.WriteLine(count);

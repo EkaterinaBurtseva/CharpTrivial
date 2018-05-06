@@ -1,48 +1,38 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium.Chrome;
-using System.Threading;
-using OpenQA.Selenium;
-using System.Collections.Specialized;
-using Settings;
-using NUnit.Framework;
-using System.Security.Policy;
+﻿using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using RelevantCodes.ExtentReports;
-using static YesTests.BasicReport;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Tests
+namespace YesTests
 {
     [TestFixture]
-    public abstract class BaseTest
+    public class BasicReport
     {
-        public IWebDriver driver;
-        public string baseURL = "https://itera.no";
-        public static ExtentReports extent;
-        public static ExtentTest test;
-        public string testUrl = "reports\\MyOwnReport.html";
-
+        public ExtentReports extent;
+        public ExtentTest test;
 
         [OneTimeSetUp]
-        public void InitDriver()
+        public void StartReport()
         {
-            Browsers.Init();
-            driver = Browsers.GetDriver;
-
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
             string projectPath = new Uri(actualPath).LocalPath;
+            string testUrl = "reports\\MyOwnReport.html";
             var reportPath = projectPath + testUrl;
 
             extent = new ExtentReports(reportPath, true);
             extent
-                .AddSystemInfo("Host Name", "test")
-                .AddSystemInfo("Environment", "QA")
-                .AddSystemInfo("User Name", "Kate");
+            .AddSystemInfo("Host Name", "test")
+            .AddSystemInfo("Environment", "QA")
+            .AddSystemInfo("User Name", "Kate");
             extent.LoadConfig(projectPath + "extent-config.xml");
         }
+
 
         [TearDown]
         public void GetResult()
@@ -59,13 +49,10 @@ namespace Tests
         }
 
         [OneTimeTearDown]
-        public void EndTest()
+        public void EndReport()
         {
-            Browsers.Close();
-            extent.EndTest(test);
             extent.Flush();
-
+            extent.Close();
         }
-
     }
 }
