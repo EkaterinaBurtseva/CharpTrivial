@@ -11,6 +11,7 @@ using NUnit.Framework;
 using System.Security.Policy;
 using NUnit.Framework.Interfaces;
 using RelevantCodes.ExtentReports;
+using YesTest;
 using static YesTests.BasicReport;
 
 namespace Tests
@@ -53,10 +54,14 @@ namespace Tests
 
             if (status == TestStatus.Failed)
             {
+                string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
                 test.Log(LogStatus.Fail, stackTrace + errorMessage);
+                test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
             }
-            extent.EndTest(test);
+
+
         }
+
 
         [OneTimeTearDown]
         public void EndTest()
