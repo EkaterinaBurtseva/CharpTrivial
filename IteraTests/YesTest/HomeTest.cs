@@ -21,7 +21,7 @@ namespace Tests
     class HomeTest : BaseTest
     {
 
-        private string homeTitle = "Specialistsss in creating digital business - Itera";
+        private string homeTitle = "Specialists in creating digital business - Itera";
         private string uaLocationLink = "https://www.itera.no/ua/";
 
         public HomeTest()
@@ -44,6 +44,7 @@ namespace Tests
             test.Log(LogStatus.Pass, "Home page is opened");
             Assert.AreEqual(homeTitle, driver.Title);
             test.Log(LogStatus.Pass, "Title is correct");
+            test.Log(LogStatus.Fail, "Title is wrong");
 
 
         }
@@ -77,10 +78,14 @@ namespace Tests
         {
             test = extent.StartTest("Change Location test");
             var homePage = new HomePage();
+            test.Log(LogStatus.Info, "Opening base page");
             homePage.OpenStartPage(baseURL);
+            test.Log(LogStatus.Info, "Click location selector");
             homePage.ClickLocationSelector();
+            test.Log(LogStatus.Info, "Click Ukraine location");
             homePage.SelectUALOcation();
-            Assert.Equals(uaLocationLink, new Uri(driver.Url).PathAndQuery);
+            Assert.AreEqual(uaLocationLink, driver.Url);
+            test.Log(LogStatus.Pass, "Location changed to Ukraine");
         }
     }
 

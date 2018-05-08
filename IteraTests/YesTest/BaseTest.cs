@@ -11,7 +11,6 @@ using NUnit.Framework;
 using System.Security.Policy;
 using NUnit.Framework.Interfaces;
 using RelevantCodes.ExtentReports;
-using YesTest;
 using static YesTests.BasicReport;
 
 namespace Tests
@@ -66,6 +65,7 @@ namespace Tests
         [OneTimeTearDown]
         public void EndTest()
         {
+
             Browsers.Close();
             extent.EndTest(test);
             extent.Flush();
