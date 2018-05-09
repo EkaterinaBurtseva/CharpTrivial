@@ -16,10 +16,8 @@ namespace Pages
 
         }
 
-
         [FindsBy(How = How.ClassName, Using = "header__pageTitle")]
         private IWebElement HomeLogo;
-
 
         [FindsBy(How = How.CssSelector, Using = "button.burger")]
         private IWebElement MenuButton;
@@ -42,11 +40,8 @@ namespace Pages
         [FindsBy(How = How.ClassName, Using = "header__countries open")]
         private IWebElement LocationSelectorOpen;
 
-        [FindsBy(How = How.ClassName, Using = "a[hreflang='uk']")]
+        [FindsBy(How = How.CssSelector, Using = "a[hreflang='uk']")]
         private IWebElement LocationUA;
-
-
-
 
         public void OpenStartPage(string baseURL)
         {
@@ -56,7 +51,6 @@ namespace Pages
         public bool IsHomePageOpened()
         {
             return HomeLogo.Displayed;
-
         }
 
         public void ClickMenuButton()
@@ -89,7 +83,6 @@ namespace Pages
 
         public void GoToVacanciesPage()
         {
-
             ClickMenuButton();
             ClickYouAtIteraLink();
             ClickVacanciesLink();
@@ -106,6 +99,7 @@ namespace Pages
             driver.FindElement(By.CssSelector("div.open"), 3);
             return LocationSelectorOpen.Displayed;
         }
+
         public void SelectUALOcation()
         {
             LocationUA.Click();

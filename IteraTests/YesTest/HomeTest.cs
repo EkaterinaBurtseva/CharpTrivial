@@ -13,29 +13,24 @@ using RelevantCodes.ExtentReports;
 using Settings;
 
 
-
 namespace Tests
 {
 
     [TestFixture]
     class HomeTest : BaseTest
     {
-
         private string homeTitle = "Specialists in creating digital business - Itera";
-        private string uaLocationLink = "https://www.itera.no/ua/";
+        private string uaLocationLink = "https://itera.no/ua/";
 
-        public HomeTest()
+        /*public HomeTest()
         {
-
             testUrl = "reports\\HomeTest.html";
         }
-
-
+        */
 
         [Test]
         public void HomePageTestStart()
         {
-
             test = extent.StartTest("Home Page Start test");
             var homePage = new HomePage();
             test.Log(LogStatus.Info, "Opening base page");
@@ -44,9 +39,6 @@ namespace Tests
             test.Log(LogStatus.Pass, "Home page is opened");
             Assert.AreEqual(homeTitle, driver.Title);
             test.Log(LogStatus.Pass, "Title is correct");
-            test.Log(LogStatus.Fail, "Title is wrong");
-
-
         }
 
         [Test]
@@ -73,7 +65,6 @@ namespace Tests
         }
 
         [Test]
-
         public void ChangeLocation()
         {
             test = extent.StartTest("Change Location test");

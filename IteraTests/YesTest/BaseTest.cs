@@ -11,7 +11,7 @@ using NUnit.Framework;
 using System.Security.Policy;
 using NUnit.Framework.Interfaces;
 using RelevantCodes.ExtentReports;
-using static YesTests.BasicReport;
+using static Settings.BasicReport;
 
 namespace Tests
 {
@@ -22,7 +22,7 @@ namespace Tests
         public string baseURL = "https://itera.no";
         public static ExtentReports extent;
         public static ExtentTest test;
-        public string testUrl = "reports\\MyOwnReport.html";
+        public string testUrl = "reports\\IteraTestsReport.html";
 
 
         [OneTimeSetUp]

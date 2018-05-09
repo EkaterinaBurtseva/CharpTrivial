@@ -17,6 +17,7 @@ namespace Tests
     {
 
         private string title = ".NET";
+
         public VacanciesTest()
         {
 
@@ -37,10 +38,11 @@ namespace Tests
             test.Log(LogStatus.Pass, "List of vacancies is displayed");
             Assert.IsTrue(vacanciesPage.IsNetVacanciesDisplayed());
             test.Log(LogStatus.Pass, "Net vacanices are displayed in list(at least one)");
-            test.Log(LogStatus.Info,"Print list of titles");
-            vacanciesPage.PrintTitles();
-            test.Log(LogStatus.Info,"Number of vacancies");
-            vacanciesPage.NumberOfVacancies();
+            var titles = vacanciesPage.PrintTitles();
+            test.Log(LogStatus.Info, "Print list of titles: " + titles + " ");
+            var numbers = vacanciesPage.NumberOfVacancies();
+            test.Log(LogStatus.Info, "Number of vacancies: " + numbers);
+
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Pages
             return VacanciesItems.Displayed;
         }
 
-        public void NumberOfVacancies()
+        public int NumberOfVacancies()
         {
             String[] allText = new String[VacanciesTitles.Count];
             int i = 0;
@@ -52,6 +52,7 @@ namespace Pages
                 count++;
 
             }
+            return count;
             Console.WriteLine(count);
         }
 
@@ -68,22 +69,27 @@ namespace Pages
                     return result = true;
                 }
             }
+
             return result;
         }
 
-        public void PrintTitles()
+        public string PrintTitles()
         {
             String[] allText = new String[VacanciesTitles.Count];
             int i = 0;
+            string results = null;
             foreach (IWebElement element in VacanciesTitles)
             {
-                allText[i++] = element.Text;
+                var titles = element.Text;
+                allText[i++] = titles;
 
-                Console.WriteLine(element.Text);
+                Console.Write(titles + " ");
+                results = results + titles + ", ";
             }
+
+            return results;
+
         }
-
-
 
     }
 }
