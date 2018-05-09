@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Properties;
 
-namespace Pages
+namespace Page
 {
     public class HomePage:BasePage
     {

@@ -7,21 +7,18 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using Properties;
 
-namespace Pages
+namespace Page
 {
-    public abstract class BasePage
-
+    public abstract class BaseP
     {
+
         protected IWebDriver driver;
 
-
-        protected BasePage()
+        protected BaseP()
         {
             driver = Browsers.GetDriver;
             PageFactory.InitElements(driver, this);
         }
-
-
 
     }
 }
