@@ -8,7 +8,7 @@ namespace PracticeTask2
 {
     class Car2 : Car
     {
-        String color2 = "blue";
+        string color2 = "blue";
 
         public Car2(int type):base (type){
 }
@@ -17,6 +17,11 @@ namespace PracticeTask2
         {
             Console.WriteLine(color2);
 
+        }
+
+        public override void Drive()
+        {
+            speed = 100;
         }
      
         

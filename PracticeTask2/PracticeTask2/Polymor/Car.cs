@@ -6,20 +6,29 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2
 {
-   class Car
+  abstract class Car
     {
-        String color ="red";
-        int speed;
-        public  int type;
+        string color ="red";
+        public int speed;
+        public int type;
         public virtual void PrintColor()
         {
             Console.WriteLine(color);
         }
 
-       
+        public virtual void Drive()
+        {
+            speed = 50;
+
+        }
         public Car(int type)
         {
             this.type = type;
+        }
+
+        public void Info()
+        {
+            
         }
        
     }

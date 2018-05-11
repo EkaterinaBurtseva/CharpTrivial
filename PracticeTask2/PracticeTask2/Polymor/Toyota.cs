@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2
 {
-    class Program
+    class Toyota:Car
     {
-        static void Main(string[] args)
+        public Toyota(int type) : base(type)
         {
+        }
+
+        public void Info()
+        {
+            var engine_type = "4A-GE";
         }
     }
 }

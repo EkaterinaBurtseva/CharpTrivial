@@ -25,4 +25,3 @@ namespace PracticeTask2
 }
 
 
-}
