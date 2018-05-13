@@ -19,14 +19,10 @@ namespace Tests
     [TestFixture]
     class HomeTest : BaseTest
     {
-        private string homeTitle = "Specialists in creating digital business - Itera";
+        private string homeTitle = "SpecialisFts in creating digital business - Itera";
         private string uaLocationLink = "https://itera.no/ua/";
 
-        /*public HomeTest()
-        {
-            testUrl = "reports\\HomeTest.html";
-        }
-        */
+      
 
         [Test]
         public void HomePageTestStart()

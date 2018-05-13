@@ -47,7 +47,7 @@ namespace Properties
         }
         public static void Close()
         {
-            webDriver.Close();
+            webDriver.Quit();
         }
     }
 }

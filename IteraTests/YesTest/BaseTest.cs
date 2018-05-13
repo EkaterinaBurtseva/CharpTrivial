@@ -11,6 +11,7 @@ using NUnit.Framework;
 using System.Security.Policy;
 using NUnit.Framework.Interfaces;
 using RelevantCodes.ExtentReports;
+using TechTalk.SpecFlow.BindingSkeletons;
 using static Settings.BasicReport;
 
 namespace Tests
@@ -50,6 +51,7 @@ namespace Tests
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
             var errorMessage = TestContext.CurrentContext.Result.Message;
+            var details = TestContext.CurrentContext.Result.Outcome;
 
             if (status == TestStatus.Failed)
             {
@@ -57,6 +59,8 @@ namespace Tests
                 test.Log(LogStatus.Fail, stackTrace + errorMessage);
                 test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
             }
+
+           
 
 
         }
