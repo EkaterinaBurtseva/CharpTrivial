@@ -1,42 +1,36 @@
-﻿using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using RelevantCodes.ExtentReports;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
+using RelevantCodes.ExtentReports;
 
-namespace Settings
+namespace Properties
 {
-    [TestFixture]
-    public class BasicReport
+    public class ExtentR
     {
-        public ExtentReports extent;
-        public ExtentTest test;
-        public IWebDriver driver;
+        public string testUrl = "reports\\GoogleTestsReport.html";
+        public static ExtentReports extent;
+        public static ExtentTest test;
+        protected IWebDriver driver;
 
-
-
-        public void StartReport()
+        public void StartTest()
         {
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
             string projectPath = new Uri(actualPath).LocalPath;
-            string testUrl = "reports\\MyOwnReport.html";
             var reportPath = projectPath + testUrl;
 
             extent = new ExtentReports(reportPath, true);
             extent
-            .AddSystemInfo("Host Name", "test")
-            .AddSystemInfo("Environment", "QA")
-            .AddSystemInfo("User Name", "Kate");
+                .AddSystemInfo("Host Name", "test")
+                .AddSystemInfo("Environment", "QA")
+                .AddSystemInfo("User Name", "Kate");
             extent.LoadConfig(projectPath + "extent-config.xml");
         }
-
 
 
         public void GetResult()
@@ -52,13 +46,18 @@ namespace Settings
                 test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
             }
 
+
         }
 
 
-        public void EndReport()
+        [OneTimeTearDown]
+        public void EndTest()
         {
+
+            Browsers.Close();
+            extent.EndTest(test);
             extent.Flush();
-            extent.Close();
+
         }
     }
 }

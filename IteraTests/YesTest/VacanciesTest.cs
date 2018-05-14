@@ -24,8 +24,6 @@ namespace Tests
         {
             var homePage = new HomePage();
             test = extent.StartTest("Vacancies start test");
-            homePage.OpenStartPage(baseURL);
-            test.Log(LogStatus.Info, "Open vacancies page");
             homePage.GoToVacanciesPage();
             var vacanciesPage = new VacanciesPage();
             Assert.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());

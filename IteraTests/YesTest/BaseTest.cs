@@ -10,6 +10,7 @@ using Settings;
 using NUnit.Framework;
 using System.Security.Policy;
 using NUnit.Framework.Interfaces;
+using Pages;
 using RelevantCodes.ExtentReports;
 using TechTalk.SpecFlow.BindingSkeletons;
 using static Settings.BasicReport;
@@ -31,38 +32,19 @@ namespace Tests
         {
             Browsers.Init();
             driver = Browsers.GetDriver;
-
-            string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
-            string actualPath = path.Substring(0, path.LastIndexOf("bin"));
-            string projectPath = new Uri(actualPath).LocalPath;
-            var reportPath = projectPath + testUrl;
-
-            extent = new ExtentReports(reportPath, true);
-            extent
-                .AddSystemInfo("Host Name", "test")
-                .AddSystemInfo("Environment", "QA")
-                .AddSystemInfo("User Name", "Kate");
-            extent.LoadConfig(projectPath + "extent-config.xml");
+            var baseReport = new BasicReport();
+            baseReport.StartReport();
+            var homePage = new HomePage();
+            test.Log(LogStatus.Info, "Opening base page");
+            homePage.OpenStartPage(baseURL);
+            Assert.IsTrue(homePage.IsHomePageOpened());
         }
 
         [TearDown]
-        public void GetResult()
+        public void GetResultBase()
         {
-            var status = TestContext.CurrentContext.Result.Outcome.Status;
-            var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
-            var errorMessage = TestContext.CurrentContext.Result.Message;
-            var details = TestContext.CurrentContext.Result.Outcome;
-
-            if (status == TestStatus.Failed)
-            {
-                string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
-                test.Log(LogStatus.Fail, stackTrace + errorMessage);
-                test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
-            }
-
-           
-
-
+            var baseReport = new BasicReport();
+            baseReport.GetResult();
         }
 
 
@@ -71,8 +53,8 @@ namespace Tests
         {
 
             Browsers.Close();
-            extent.EndTest(test);
-            extent.Flush();
+            var baseReport = new BasicReport();
+            baseReport.EndReport();
 
         }
 

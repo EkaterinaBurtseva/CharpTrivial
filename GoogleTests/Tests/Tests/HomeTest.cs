@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 using NUnit.Framework;
 using Page;
 using RelevantCodes.ExtentReports;
@@ -19,10 +20,6 @@ namespace Tests
         public void HomePageGoogleStart()
         {
             test = extent.StartTest("Home Page Start test");
-            var homePage = new HomeP();
-            test.Log(LogStatus.Info, "Opening base page");
-            homePage.OpenStartPage(baseURL);
-            Assert.IsTrue(homePage.IsHomePageOpened());
             test.Log(LogStatus.Pass, "Home page is opened");
             Assert.AreEqual(title, driver.Title);
             test.Log(LogStatus.Pass, "Title is correct");
@@ -34,8 +31,6 @@ namespace Tests
         {
             test = extent.StartTest("Search for selenium");
             var homePage = new HomeP();
-            test.Log(LogStatus.Info, "Opening base page");
-            homePage.OpenStartPage(baseURL);
             test.Log(LogStatus.Info, "Searching for selenium");
             homePage.SearchForItem("selenium");
             var firstUrl = homePage.GetFirstUrl();

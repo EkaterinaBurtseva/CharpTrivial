@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
+using Page;
 using Properties;
 using RelevantCodes.ExtentReports;
 
@@ -27,34 +28,19 @@ namespace Tests
         {
             Browsers.Init();
             driver = Browsers.GetDriver;
-
-            string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
-            string actualPath = path.Substring(0, path.LastIndexOf("bin"));
-            string projectPath = new Uri(actualPath).LocalPath;
-            var reportPath = projectPath + testUrl;
-
-            extent = new ExtentReports(reportPath, true);
-            extent
-                .AddSystemInfo("Host Name", "test")
-                .AddSystemInfo("Environment", "QA")
-                .AddSystemInfo("User Name", "Kate");
-            extent.LoadConfig(projectPath + "extent-config.xml");
+            var report = new ExtentR();
+            report.StartTest();
+            var homePage = new HomeP();
+            test.Log(LogStatus.Info, "Opening base page");
+            homePage.OpenStartPage(baseURL);
+            Assert.IsTrue(homePage.IsHomePageOpened());
         }
 
         [TearDown]
-        public void GetResult()
+        public void GetResulta()
         {
-            var status = TestContext.CurrentContext.Result.Outcome.Status;
-            var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
-            var errorMessage = TestContext.CurrentContext.Result.Message;
-
-            if (status == TestStatus.Failed)
-            {
-                string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
-                test.Log(LogStatus.Fail, stackTrace + errorMessage);
-                test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
-            }
-
+            var report = new ExtentR();
+            report.GetResult();
 
         }
 
@@ -64,8 +50,9 @@ namespace Tests
         {
 
             Browsers.Close();
-            extent.EndTest(test);
-            extent.Flush();
+            var report = new ExtentR();
+            report.EndTest();
+
 
         }
 
