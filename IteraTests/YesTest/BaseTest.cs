@@ -22,9 +22,7 @@ namespace Tests
     {
         public IWebDriver driver;
         public string baseURL = "https://itera.no";
-        public static ExtentReports extent;
-        public static ExtentTest test;
-        public string testUrl = "reports\\IteraTestsReport.html";
+
 
 
         [OneTimeSetUp]
@@ -33,7 +31,7 @@ namespace Tests
             Browsers.Init();
             driver = Browsers.GetDriver;
             var baseReport = new BasicReport();
-            baseReport.StartReport();
+            BasicReport.StartReport();
             var homePage = new HomePage();
             test.Log(LogStatus.Info, "Opening base page");
             homePage.OpenStartPage(baseURL);
@@ -43,18 +41,15 @@ namespace Tests
         [TearDown]
         public void GetResultBase()
         {
-            var baseReport = new BasicReport();
-            baseReport.GetResult();
+           BasicReport.GetResult();
         }
 
 
         [OneTimeTearDown]
         public void EndTest()
         {
-
             Browsers.Close();
-            var baseReport = new BasicReport();
-            baseReport.EndReport();
+            BasicReport.EndReport();
 
         }
 

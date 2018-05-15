@@ -15,13 +15,13 @@ namespace Settings
     [TestFixture]
     public class BasicReport
     {
-        public ExtentReports extent;
-        public ExtentTest test;
-        public IWebDriver driver;
+        public static ExtentReports extent;
+        public static ExtentTest test;
+        public static IWebDriver driver;
 
 
 
-        public void StartReport()
+        public static void StartReport()
         {
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
@@ -39,7 +39,7 @@ namespace Settings
 
 
 
-        public void GetResult()
+        public static void GetResult()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
@@ -55,7 +55,7 @@ namespace Settings
         }
 
 
-        public void EndReport()
+        public  static void EndReport()
         {
             extent.Flush();
             extent.Close();

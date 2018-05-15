@@ -28,8 +28,8 @@ namespace Tests
         {
             Browsers.Init();
             driver = Browsers.GetDriver;
-            var report = new ExtentR();
-            report.StartTest();
+            ExtentR.StartTest();
+
             var homePage = new HomeP();
             test.Log(LogStatus.Info, "Opening base page");
             homePage.OpenStartPage(baseURL);
@@ -39,9 +39,7 @@ namespace Tests
         [TearDown]
         public void GetResulta()
         {
-            var report = new ExtentR();
-            report.GetResult();
-
+            ExtentR.GetResult();
         }
 
 
@@ -50,8 +48,7 @@ namespace Tests
         {
 
             Browsers.Close();
-            var report = new ExtentR();
-            report.EndTest();
+            ExtentR.EndTest();
 
 
         }

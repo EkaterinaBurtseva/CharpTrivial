@@ -10,7 +10,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using Pages;
 using RelevantCodes.ExtentReports;
-using Settings;
+using static Settings.BasicReport;
 
 
 namespace Tests

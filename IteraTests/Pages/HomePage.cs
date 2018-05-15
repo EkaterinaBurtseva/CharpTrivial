@@ -81,11 +81,12 @@ namespace Pages
             VacanciesLink.Click();
         }
 
-        public void GoToVacanciesPage()
+        public VacanciesPage GoToVacanciesPage()
         {
             ClickMenuButton();
             ClickYouAtIteraLink();
             ClickVacanciesLink();
+            return new VacanciesPage();
         }
 
         public void ClickLocationSelector()

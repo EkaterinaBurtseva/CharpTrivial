@@ -7,6 +7,7 @@ using Microsoft.Win32.SafeHandles;
 using NUnit.Framework;
 using Page;
 using RelevantCodes.ExtentReports;
+using static Properties.ExtentR;
 
 namespace Tests
 {
@@ -15,11 +16,16 @@ namespace Tests
     {
         private string title = "Google";
         private string expectedUrl = "https://www.seleniumhq.org/";
+     
 
         [Test]
         public void HomePageGoogleStart()
         {
             test = extent.StartTest("Home Page Start test");
+            var homePage = new HomeP();
+            test.Log(LogStatus.Info, "Opening base page");
+            homePage.OpenStartPage(baseURL);
+            Assert.IsTrue(homePage.IsHomePageOpened());
             test.Log(LogStatus.Pass, "Home page is opened");
             Assert.AreEqual(title, driver.Title);
             test.Log(LogStatus.Pass, "Title is correct");

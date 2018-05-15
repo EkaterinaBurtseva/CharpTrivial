@@ -8,7 +8,7 @@ using NUnit.Framework;
 using NUnit.Framework.Internal;
 using Pages;
 using RelevantCodes.ExtentReports;
-
+using static Settings.BasicReport;
 
 namespace Tests
 {
@@ -22,10 +22,10 @@ namespace Tests
         [Test]
         public void VacanciesStartTest()
         {
-            var homePage = new HomePage();
+            
             test = extent.StartTest("Vacancies start test");
-            homePage.GoToVacanciesPage();
-            var vacanciesPage = new VacanciesPage();
+            var homePage = new HomePage();
+            var vacanciesPage=homePage.GoToVacanciesPage();
             Assert.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
             test.Log(LogStatus.Pass, "Vacancies page is opened");
             Assert.IsTrue(vacanciesPage.IsVacanciesDisplayed());

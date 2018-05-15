@@ -12,12 +12,12 @@ namespace Properties
 {
     public class ExtentR
     {
-        public string testUrl = "reports\\GoogleTestsReport.html";
+        public static string testUrl = "reports\\GoogleTestsReport.html";
         public static ExtentReports extent;
         public static ExtentTest test;
-        protected IWebDriver driver;
+        protected static IWebDriver driver;
 
-        public void StartTest()
+        public  static void StartTest()
         {
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
@@ -33,7 +33,7 @@ namespace Properties
         }
 
 
-        public void GetResult()
+        public static void GetResult()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
@@ -46,15 +46,10 @@ namespace Properties
                 test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
             }
 
-
         }
-
-
-        [OneTimeTearDown]
-        public void EndTest()
+       
+        public static void EndTest()
         {
-
-            Browsers.Close();
             extent.EndTest(test);
             extent.Flush();
 
