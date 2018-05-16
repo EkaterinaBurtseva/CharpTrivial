@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Browsers.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="ExtentR.cs" />
     <Compile Include="GetScreenshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

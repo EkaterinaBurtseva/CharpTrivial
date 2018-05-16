@@ -12,11 +12,11 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Settings
 {
-    [TestFixture]
+   
     public class BasicReport
     {
         public static ExtentReports extent;
-        public static ExtentTest test;
+        //public static ExtentTest test;
         public static IWebDriver driver;
 
 
@@ -39,7 +39,7 @@ namespace Settings
 
 
 
-        public static void GetResult()
+        public static void GetResult(ExtentTest test)
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";

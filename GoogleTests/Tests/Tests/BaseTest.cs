@@ -9,6 +9,7 @@ using OpenQA.Selenium;
 using Page;
 using Properties;
 using RelevantCodes.ExtentReports;
+using static Properties.ExtentR;
 
 
 namespace Tests
@@ -18,9 +19,7 @@ namespace Tests
     {
         public IWebDriver driver;
         public string baseURL = "https://google.com";
-        public static ExtentReports extent;
-        public static ExtentTest test;
-        public string testUrl = "reports\\GoogleTestsReport.html";
+       
 
 
         [OneTimeSetUp]

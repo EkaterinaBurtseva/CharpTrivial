@@ -28,6 +28,7 @@ namespace Tests
         public void HomePageTestStart()
         {
             test = extent.StartTest("Home Page Start test");
+
             test.Log(LogStatus.Pass, "Home page is opened");
             Assert.AreEqual(homeTitle, driver.Title);
             test.Log(LogStatus.Pass, "Title is correct");
