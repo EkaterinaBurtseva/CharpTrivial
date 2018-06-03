@@ -17,26 +17,16 @@ namespace Tests
     [TestFixture]
     public class HomeTest : BaseTest
     {
-        private string title = "Google";
+        private string title = "Googsle";
         private string expectedUrl = "https://www.seleniumhq.org/";
-     
+        private string wrongTitle = "Title is wrong";
 
         [Test]
-        public void HomePageGoogleStart()
-        {
-            Check.Equals();
-            
-            test = extent.StartTest("Home Page Start test");
-            var homePage = new HomeP();
-            test.Log(LogStatus.Info, "Opening base page");
-            homePage.OpenStartPage(baseURL);
-            Assert.IsTrue(homePage.IsHomePageOpened());
-            test.Log(LogStatus.Pass, "Home page is opened");
-            Assert.AreEqual(title, driver.Title);
+        public void HomePageGoogleStart(){
+            Check.Equals(title, driver.Title, false, wrongTitle);          
             test.Log(LogStatus.Pass, "Title is correct");
-
         }
-
+        
         [Test]
         public void SearchTest()
         {

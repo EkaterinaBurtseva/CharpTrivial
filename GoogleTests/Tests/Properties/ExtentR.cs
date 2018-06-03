@@ -12,24 +12,29 @@ namespace Properties
 {
     public class ExtentR
     {
-        public static string testUrl = "reports\\GoogleTestsReport.html";
+       
         public static ExtentReports extent;
         public static ExtentTest test;
         protected static IWebDriver driver;
+       
 
         public  static void StartTest()
         {
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
-            string projectPath = new Uri(actualPath).LocalPath;
-            var reportPath = projectPath + testUrl;
-
+            string projectPath = new Uri(actualPath).LocalPath;            
+            string reportFileName = string.Concat(TestContext.CurrentContext.Test.ClassName, ".html");
+            //DateTime.Now.ToString("yyyy-MM-dd-HHmm-ss")
+            var reportPath = projectPath + "reports\\" +reportFileName;
+            
             extent = new ExtentReports(reportPath, true);
             extent
                 .AddSystemInfo("Host Name", "test")
                 .AddSystemInfo("Environment", "QA")
                 .AddSystemInfo("User Name", "Kate");
             extent.LoadConfig(projectPath + "extent-config.xml");
+
+          
         }
 
 

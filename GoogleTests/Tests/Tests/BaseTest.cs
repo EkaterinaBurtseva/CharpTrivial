@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -19,7 +20,7 @@ namespace Tests
     {
         public IWebDriver driver;
         public string baseURL = "https://google.com";
-       
+        protected ThreadLocal<ExtentTest> _test;
 
 
         [OneTimeSetUp]
@@ -27,25 +28,32 @@ namespace Tests
         {
             Browsers.Init();
             driver = Browsers.GetDriver;
-            ExtentR.StartTest();
-
+            ExtentR.StartTest();            
+            _test = new ThreadLocal<ExtentTest>();
+        }
+        [SetUp]
+        public void Initialize()
+        {           
+            test = extent.StartTest(TestContext.CurrentContext.Test.Name);
+            _test.Value = test;
             var homePage = new HomeP();
             test.Log(LogStatus.Info, "Opening base page");
             homePage.OpenStartPage(baseURL);
             Assert.IsTrue(homePage.IsHomePageOpened());
+            test.Log(LogStatus.Pass, "Home page is opened");
+
         }
 
-        [TearDown]
-        public void GetResulta()
-        {
-            ExtentR.GetResult();
-        }
+        //[TearDown]
+       // public void GetResulta()
+       // {
+       //     ExtentR.GetResult();
+        //}
 
 
         [OneTimeTearDown]
         public void EndTest()
         {
-
             Browsers.Close();
             ExtentR.EndTest();
 
