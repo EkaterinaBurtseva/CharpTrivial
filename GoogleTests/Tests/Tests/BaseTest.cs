@@ -57,7 +57,6 @@ namespace Tests
             Browsers.Close();
             ExtentR.EndTest();
 
-
         }
 
     }

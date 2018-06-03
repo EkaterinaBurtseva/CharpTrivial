@@ -23,15 +23,14 @@ namespace Tests
 
         [Test]
         public void HomePageGoogleStart(){
-            Check.Equals(title, driver.Title, false, wrongTitle);          
-            test.Log(LogStatus.Pass, "Title is correct");
+            Check.Equals(title, driver.Title, false, wrongTitle);        
+            
         }
         
         [Test]
         public void SearchTest()
-        {
-            
-            test = extent.StartTest("Search for selenium");
+        {            
+          
             var homePage = new HomeP();
             test.Log(LogStatus.Info, "Searching for selenium");
             homePage.SearchForItem("selenium");
