@@ -27,9 +27,6 @@ namespace Tests
         [Test]
         public void HomePageTestStart()
         {
-            test = extent.StartTest("Home Page Start test");
-
-            test.Log(LogStatus.Pass, "Home page is opened");
             Assert.AreEqual(homeTitle, driver.Title);
             test.Log(LogStatus.Pass, "Title is correct");
         }
@@ -37,8 +34,7 @@ namespace Tests
         [Test]
         public void OpenVacanciesPage()
         {
-            test = extent.StartTest("Open Vacancies Page test");
-           var homePage = new HomePage();
+            
             test.Log(LogStatus.Info, "Click menu button");
             homePage.ClickMenuButton();
             Assert.IsTrue(homePage.IsGamburgerMenuOpened());
@@ -57,9 +53,7 @@ namespace Tests
 
         [Test]
         public void ChangeLocation()
-        {
-            test = extent.StartTest("Change Location test");
-            var homePage = new HomePage();
+        {            
             test.Log(LogStatus.Info, "Click location selector");
             homePage.ClickLocationSelector();
             test.Log(LogStatus.Info, "Click Ukraine location");

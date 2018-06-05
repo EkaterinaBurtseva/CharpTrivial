@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="BasicReport.cs" />
     <Compile Include="Browsers.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="GetScreenshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WaitForElement.cs" />

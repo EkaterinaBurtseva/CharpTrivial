@@ -23,8 +23,7 @@ namespace Tests
         public void VacanciesStartTest()
         {
             
-            test = extent.StartTest("Vacancies start test");
-            var homePage = new HomePage();
+        
             var vacanciesPage=homePage.GoToVacanciesPage();
             Assert.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
             test.Log(LogStatus.Pass, "Vacancies page is opened");

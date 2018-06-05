@@ -23,43 +23,42 @@ namespace Tests
         public IWebDriver driver;
         public string baseURL = "https://itera.no";
         protected HomePage homePage;
-        //protected ExtentReports extent;
         protected ExtentTest test;
+        protected ThreadLocal<ExtentTest> _test;
 
         [OneTimeSetUp]
         public void InitDriver()
         {
             Browsers.Init();
             driver = Browsers.GetDriver;
-            BasicReport.StartReport();
-            
+            BasicReport.StartTest();
+            _test = new ThreadLocal<ExtentTest>();
         }
-
-        [SetUp]//check if it works
-        public void StartTest()
+        [SetUp]
+        public void Initialize()
         {
-            //extent = new ExtentReports("dsfsdfsd", true);
-            test = extent.StartTest("test1"); // get test name
-           
-
-            homePage = new HomePage();
+            test = extent.StartTest(TestContext.CurrentContext.Test.Name);
+            _test.Value = test;
+            var homePage = new HomePage();
             test.Log(LogStatus.Info, "Opening base page");
             homePage.OpenStartPage(baseURL);
             Assert.IsTrue(homePage.IsHomePageOpened());
+            test.Log(LogStatus.Pass, "Home page is opened");
+
         }
 
-        [TearDown]
-        public void GetResultBase()
-        {
-           BasicReport.GetResult(test);
-        }
+        //[TearDown]
+        // public void GetResulta()
+        // {
+        //     ExtentR.GetResult();
+        //}
 
 
         [OneTimeTearDown]
         public void EndTest()
         {
             Browsers.Close();
-            BasicReport.EndReport();
+            BasicReport.EndTest();
 
         }
 

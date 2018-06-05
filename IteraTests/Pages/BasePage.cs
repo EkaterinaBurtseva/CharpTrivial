@@ -13,13 +13,13 @@ namespace Pages
 
     {
         protected IWebDriver driver;
-        
+
         protected BasePage()
         {
             driver = Browsers.GetDriver;
             PageFactory.InitElements(driver, this);
         }
-        
+
     }
 }
 

@@ -16,30 +16,31 @@ namespace Settings
     public class BasicReport
     {
         public static ExtentReports extent;
-        //public static ExtentTest test;
-        public static IWebDriver driver;
+        public static ExtentTest test;
+        protected static IWebDriver driver;
 
 
-
-        public static void StartReport()
+        public static void StartTest()
         {
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
             string projectPath = new Uri(actualPath).LocalPath;
-            string testUrl = "reports\\MyOwnReport.html";
-            var reportPath = projectPath + testUrl;
+            string reportFileName = string.Concat(TestContext.CurrentContext.Test.ClassName, ".html");
+            //DateTime.Now.ToString("yyyy-MM-dd-HHmm-ss")
+            var reportPath = projectPath + "reports\\" + reportFileName;
 
             extent = new ExtentReports(reportPath, true);
             extent
-            .AddSystemInfo("Host Name", "test")
-            .AddSystemInfo("Environment", "QA")
-            .AddSystemInfo("User Name", "Kate");
+                .AddSystemInfo("Host Name", "test")
+                .AddSystemInfo("Environment", "QA")
+                .AddSystemInfo("User Name", "Kate");
             extent.LoadConfig(projectPath + "extent-config.xml");
+
+
         }
 
 
-
-        public static void GetResult(ExtentTest test)
+        public static void GetResult()
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
@@ -54,11 +55,11 @@ namespace Settings
 
         }
 
-
-        public  static void EndReport()
+        public static void EndTest()
         {
+            extent.EndTest(test);
             extent.Flush();
-            extent.Close();
+
         }
     }
 }
