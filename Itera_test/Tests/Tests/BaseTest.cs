@@ -19,7 +19,7 @@ namespace Tests
     public abstract class BaseTest
     {
         public IWebDriver driver;
-        public string baseURL = "https://google.com";
+        public string baseURL = "https://itera.no";
         protected ThreadLocal<ExtentTest> _test;
 
 
@@ -44,6 +44,11 @@ namespace Tests
 
         }
 
+        //[TearDown]
+        // public void GetResulta()
+        // {
+        //     ExtentR.GetResult();
+        //}
 
 
         [OneTimeTearDown]

@@ -1,21 +1,21 @@
-﻿using System;
+﻿using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
+using RelevantCodes.ExtentReports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
-using RelevantCodes.ExtentReports;
 
-namespace Properties
+namespace Settings
 {
-    public class ExtentR
+   public  class ExtentReport
     {
-
         public static ExtentReports extent;
         public static ExtentTest test;
         protected static IWebDriver driver;
+
 
 
         public static void StartTest()
@@ -61,3 +61,4 @@ namespace Properties
         }
     }
 }
+
