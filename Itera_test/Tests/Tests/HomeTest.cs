@@ -19,13 +19,13 @@ namespace Tests
     {
         private string homeTitle = "Specialiists in creating digital business - Itera";
         private string uaLocationLink = "https://itera.no/ga/";
-
+         private static HomeP homePage = new HomeP();
 
         [Test]
         public void HomePageTestStart()
         {
-            var homePage = new HomeP();
-            Assert.AreEqual(homeTitle, driver.Title);
+          //  var homePage = new HomeP();
+            Check.Equals(homeTitle, driver.Title,true,"test");
             test.Log(LogStatus.Pass, "Title is correct");
         }
 
