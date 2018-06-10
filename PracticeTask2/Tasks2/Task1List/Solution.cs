@@ -37,27 +37,27 @@ namespace PracticeTask2.Task1List
                 Xpath,
                 Text,
                 ClassName
-            };           
+            };
 
             Console.Write("Enter requiredClassName: ");
             string requiredClassName = Console.ReadLine();
-            var finalResult =" ";
+            var finalResult = " ";
             foreach (string i in list)
-            {               
+            {
                 if (requiredClassName.Equals(ClassName))
                 {
                     var res = ClassName + ", " + Xpath + " ," + Name + ", " + Text;
-                    finalResult = res;                   
+                    finalResult = res;
                 }
                 else
                 {
                     finalResult = "Required classname isn't equal to className";
                 }
-                             
+
             }
             Console.WriteLine(finalResult);
-            return finalResult;           
-            
+            return finalResult;
+
         }
 
 
@@ -84,11 +84,11 @@ namespace PracticeTask2.Task1List
             Console.Write("Enter requiredClassName: ");
             string requiredClassName = Console.ReadLine();
 
-            var result = from i in list 
+            var result = from i in list
                          where requiredClassName.Equals(ClassName)
                          select i;
-            var finaresult ="Error" ;
-            foreach(string i2 in result)
+            var finaresult = "Error";
+            foreach (string i2 in result)
             {
                 finaresult = i2 + ",";
                 Console.Write(finaresult);

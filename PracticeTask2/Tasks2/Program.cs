@@ -12,13 +12,14 @@ namespace Tasks2
     {
         static void Main(string[] args)
         {
-            var solution = new Solution();
-            solution.ListOfElementsForeach();
-            solution.ListOfElementsLinq();
-          
+            //var solution = new Solution();
+            //  solution.ListOfElementsForeach();
+            //solution.ListOfElementsLinq();
 
-           // var solution2= new Solutions2();
-           // solution2.PrintDictionaries(new Dictionary<int, string>(), new Dictionary<string, string>());
+
+            var solution2 = new Solutions2();
+            //solution2.PrintDictionariesFE(new Dictionary<int, string>(), new Dictionary<string, string>());
+            solution2.PrintDictionariesLNQ();
 
         }
 
