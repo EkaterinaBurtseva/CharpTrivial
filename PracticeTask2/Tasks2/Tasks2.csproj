@@ -45,7 +45,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task1List\Solution.cs" />
-    <Compile Include="Task1List\WebElement.cs" />
     <Compile Include="Tsk2Column\Column.cs" />
     <Compile Include="Tsk2Column\Solutions2.cs" />
   </ItemGroup>
