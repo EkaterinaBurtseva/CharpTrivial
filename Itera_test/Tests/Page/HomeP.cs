@@ -23,7 +23,7 @@ namespace Page
         [FindsBy(How = How.CssSelector, Using = "button.burger")]
         private IWebElement MenuButton;
 
-        [FindsBy(How = How.CssSelector, Using = "ul.nav--large  li:nth-last-of-type(6) a")]
+        [FindsBy(How = How.CssSelector, Using = "li.hide-for-medium a[href='#40']")]
         private IWebElement YouAtIteraLink;
 
         [FindsBy(How = How.Id, Using = "mCSB_1_container")]
@@ -73,6 +73,7 @@ namespace Page
 
         public bool IsGamburgerMenu2Opened()
         {
+            driver.FindElement(By.Id("mCSB_5_container"), 5);
             return GamburgerMenu2.Displayed;
         }
 

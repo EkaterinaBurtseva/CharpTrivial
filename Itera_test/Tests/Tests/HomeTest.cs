@@ -17,15 +17,14 @@ namespace Tests
     [TestFixture]
     public class HomeTest : BaseTest
     {
-        private string homeTitle = "Specialiists in creating digital business - Itera";
-        private string uaLocationLink = "https://itera.no/ga/";
-         private static HomeP homePage = new HomeP();
+        private string homeTitle = "Specialists in creating digital business - Itera";
+        private string uaLocationLink = "https://itera.no/ua/";
 
         [Test]
         public void HomePageTestStart()
         {
-          //  var homePage = new HomeP();
-            Check.Equals(homeTitle, driver.Title,true,"test");
+            var homePage = new HomeP();
+            Check.Equals(homeTitle, driver.Title, false, "Titles aren't equal");
             test.Log(LogStatus.Pass, "Title is correct");
         }
 
@@ -35,18 +34,17 @@ namespace Tests
             var homePage = new HomeP();
             test.Log(LogStatus.Info, "Click menu button");
             homePage.ClickMenuButton();
-            Assert.IsTrue(homePage.IsGamburgerMenuOpened());
+            Check.IsTrue(homePage.IsGamburgerMenuOpened());
             test.Log(LogStatus.Pass, "Gamburger menu is opened");
             test.Log(LogStatus.Info, "Click Itera Link");
             homePage.ClickYouAtIteraLink();
-            Assert.IsTrue(homePage.IsGamburgerMenu2Opened());
+            Check.IsTrue(homePage.IsGamburgerMenu2Opened());
             test.Log(LogStatus.Pass, "Gamburger menu is opened");
             test.Log(LogStatus.Info, "Click Vacancies Link");
             homePage.ClickVacanciesLink();
             var vacanciesPage = new VacanciesP();
-            Assert.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
+            Check.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
             test.Log(LogStatus.Pass, "Vacancies page is opened");
-
         }
 
         [Test]

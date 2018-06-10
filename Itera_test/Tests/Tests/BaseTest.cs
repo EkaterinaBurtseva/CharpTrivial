@@ -44,11 +44,6 @@ namespace Tests
 
         }
 
-        //[TearDown]
-        // public void GetResulta()
-        // {
-        //     ExtentR.GetResult();
-        //}
 
 
         [OneTimeTearDown]

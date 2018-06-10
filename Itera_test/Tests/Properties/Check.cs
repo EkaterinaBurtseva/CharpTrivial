@@ -8,20 +8,18 @@ using NUnit.Framework;
 using RelevantCodes.ExtentReports;
 using OpenQA.Selenium;
 using static Properties.ExtentR;
+using static Properties.GetScreenshot;
 
 namespace Properties
 {
     public static class Check
     {
-       // public static ExtentReports extent;
-       // public static ExtentTest test;
         private static IWebDriver driver;
 
         public static void Equals(string expectedResult, string actualResult, bool fail = false, string message = "")
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
-            //var errorMessage = TestContext.CurrentContext.Result.Message;
 
             try
             {
@@ -29,26 +27,25 @@ namespace Properties
             }
             catch (Exception ex)
             {
-               // string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
-                
-               // test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
 
                 if (fail)
                 {
                     test.Log(LogStatus.Fatal, stackTrace + message);
                     Assert.Fail(message);
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(GetScreenshot.Capture(driver, "ScreenShotName")));
+
                 }
                 else
                     test.Log(LogStatus.Fail, stackTrace + message);
+                test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(GetScreenshot.Capture(driver, "ScreenShotName")));
             }
 
         }
 
-        public static void isTrue(bool expectedResult, bool fail, string message)
+        public static void IsTrue(bool expectedResult, bool fail = false, string message = "Step failed")
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
-            var errorMessage = TestContext.CurrentContext.Result.Message;
 
             try
             {
@@ -56,13 +53,18 @@ namespace Properties
             }
             catch (Exception ex)
             {
-                string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
-                test.Log(LogStatus.Fail, stackTrace + errorMessage);
-                test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
 
                 if (fail)
                 {
+                    test.Log(LogStatus.Fatal, stackTrace + message);
                     Assert.Fail(message);
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(GetScreenshot.Capture(driver, "ScreenShotName")));
+
+                }
+                else
+                {
+                    test.Log(LogStatus.Fail, stackTrace + message);
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(GetScreenshot.Capture(driver, "ScreenShotName")));
                 }
             }
 

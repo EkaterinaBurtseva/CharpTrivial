@@ -26,12 +26,11 @@ namespace Tests
             test.Log(LogStatus.Info, "Open vacancies page");
             homePage.GoToVacanciesPage();
             var vacanciesPage = new VacanciesP();
-            Check.True(vacanciesPage.IsVacanciesPageDisplayed(), false, "test");
-            //where insert pass 
+            Check.IsTrue(vacanciesPage.IsVacanciesPageDisplayed());
             test.Log(LogStatus.Pass, "Vacancies page is opened");
-            Check.True(vacanciesPage.IsVacanciesDisplayed(), false, "test2");
+            Check.IsTrue(vacanciesPage.IsVacanciesDisplayed());
             test.Log(LogStatus.Pass, "List of vacancies is displayed");
-            Check.True(vacanciesPage.IsNetVacanciesDisplayed(), false, "test3");
+            Check.IsTrue(vacanciesPage.IsNetVacanciesDisplayed());
             test.Log(LogStatus.Pass, "Net vacanices are displayed in list(at least one)");
             var titles = vacanciesPage.PrintTitles();
             test.Log(LogStatus.Info, "Print list of titles: " + titles + " ");

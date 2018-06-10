@@ -23,8 +23,7 @@ namespace Properties
             string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = path.Substring(0, path.LastIndexOf("bin"));
             string projectPath = new Uri(actualPath).LocalPath;
-            string reportFileName = string.Concat(TestContext.CurrentContext.Test.ClassName, ".html");
-            //DateTime.Now.ToString("yyyy-MM-dd-HHmm-ss")
+            string reportFileName = string.Concat(TestContext.CurrentContext.Test.ClassName + "_" + DateTime.Now.ToString("yyyy-MM-dd-HHmm-ss") + ".html");
             var reportPath = projectPath + "reports\\" + reportFileName;
 
             extent = new ExtentReports(reportPath, true);
@@ -57,7 +56,6 @@ namespace Properties
         {
             extent.EndTest(test);
             extent.Flush();
-
         }
     }
 }

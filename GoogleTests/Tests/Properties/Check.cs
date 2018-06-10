@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,20 +7,19 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using RelevantCodes.ExtentReports;
 using OpenQA.Selenium;
+using static Properties.ExtentR;
+using static Properties.GetScreenshot;
 
 namespace Properties
 {
     public static class Check
     {
-        public static ExtentReports extent;
-        public static ExtentTest test;
         private static IWebDriver driver;
 
-        public static void Equals(string expectedResult, string actualResult, bool fail, string message)
+        public static void Equals(string expectedResult, string actualResult, bool fail = false, string message = "Step failed")
         {
             var status = TestContext.CurrentContext.Result.Outcome.Status;
             var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
-            var errorMessage = TestContext.CurrentContext.Result.Message;
 
             try
             {
@@ -29,16 +27,49 @@ namespace Properties
             }
             catch (Exception ex)
             {
-                string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
-                test.Log(LogStatus.Fail, stackTrace + errorMessage);
-                test.Log(LogStatus.Fail, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
 
                 if (fail)
                 {
+                    test.Log(LogStatus.Fatal, stackTrace + message);
                     Assert.Fail(message);
+                    string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
+                }
+                else
+                {
+                    test.Log(LogStatus.Fail, stackTrace + message);
+                    string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
                 }
             }
+        }
 
+        public static void IsTrue(bool actualResult, bool fail = false, string message = "Step failed")
+        {
+            var status = TestContext.CurrentContext.Result.Outcome.Status;
+            var stackTrace = "<pre>" + TestContext.CurrentContext.Result.StackTrace + "</pre>";
+
+            try
+            {
+                Assert.IsTrue(actualResult);
+            }
+            catch (Exception ex)
+            {
+
+                if (fail)
+                {
+                    test.Log(LogStatus.Fatal, stackTrace + message);
+                    Assert.Fail(message);
+                    string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
+                }
+                else
+                {
+                    test.Log(LogStatus.Fail, stackTrace + message);
+                    string screenShotPath = GetScreenshot.Capture(driver, "ScreenShotName");
+                    test.Log(LogStatus.Fatal, "Snapshot below: " + test.AddScreenCapture(screenShotPath));
+                }
+            }
         }
     }
 }
