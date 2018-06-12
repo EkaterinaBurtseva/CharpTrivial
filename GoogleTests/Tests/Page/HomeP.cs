@@ -17,7 +17,8 @@ namespace Page
 
         }
 
-        [FindsBy(How = How.Id, Using = "lga")] private IWebElement HomeLogo;
+        [FindsBy(How = How.Id, Using = "lga")]
+        private IWebElement HomeLogo;
 
         [FindsBy(How = How.CssSelector, Using = "#gs_lc0 input")]
         private IWebElement HomeInput;
