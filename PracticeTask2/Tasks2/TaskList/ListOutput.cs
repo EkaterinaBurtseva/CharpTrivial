@@ -17,7 +17,10 @@ namespace PracticeTask2.Task1List
 {
     public class Solution
     {
-
+        public List<WebElement> generateData()
+        {
+            return new List<WebElement>
+        }
 
         public string ListOfElementsForeach()
         {
