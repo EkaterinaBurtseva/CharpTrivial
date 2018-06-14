@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * <int, string> and namesAndHeaders<string, string>.We know that in first
  * dictionary key int represents a Id of column, and value string represents NameAnd for 
  * second dictionary key string is a Name and value string represents Header.
- * Outpit the Column objects with all known data using the input dictionaries
+ * Output the Column objects with all known data using the input dictionaries
  */
 
 namespace Collections.ColumnTask
@@ -17,35 +17,35 @@ namespace Collections.ColumnTask
 
     public class ColumnOutput
     {
-        public string PrintDictionariesFE(IDictionary<int, string> idsAndNames, IDictionary<string, string> namesAndHeaders)
+        public void PrintDictionariesFE()
         {
-            Console.Write("Enter Id: ");
-            int Id = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Name: ");
-            string Name = Console.ReadLine();
-            Console.Write("Enter Header: ");
-            string Header = Console.ReadLine();
-
-
-            idsAndNames.Add(Id, Name);
-            namesAndHeaders.Add(Name, Header);
-
-            var result1 = "error";
-            var result2 = "error2";
-
-            foreach (KeyValuePair<int, string> keyValue in idsAndNames)
+            Dictionary<int, string> idsAndName = new Dictionary<int, string>()
             {
-                result1 = keyValue.Key + " - " + keyValue.Value;
-                Console.WriteLine(result1);
-            }
+                {1, "Name1" },
+                {2, "Name2" },
+                {3, "Name3" },
+                {4, "Name4" }
+            };
 
-            foreach (KeyValuePair<string, string> keyValue in namesAndHeaders)
+            Dictionary<string, string> namesAndHeaders = new Dictionary<string, string>()
             {
-                result2 = keyValue.Key + " - " + keyValue.Value;
-                Console.WriteLine(result2);
+                {"Name1", "Header1" },
+                {"Name2", "Header2" },
+                {"Name3", "Header3" },
+                {"Name4", "Header4" },
+            };
+
+            foreach (KeyValuePair<int, string> keyValue in idsAndName)
+            {
+                var header = namesAndHeaders[keyValue.Value];
+                int id = keyValue.Key;
+                string name = keyValue.Value;
+
+                Column col = new Column() { Header = header, Id = id, Name = name };
+                Console.WriteLine(col);
             }
-            Console.WriteLine(result1 + " | " + result2);
-            return result1 + " | " + result2;
+            Console.ReadLine();
+
         }
 
 
@@ -102,4 +102,4 @@ namespace Collections.ColumnTask
         }
     }
 }
-   
+

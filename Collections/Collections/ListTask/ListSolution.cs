@@ -35,11 +35,10 @@ namespace Collections.ListTask
                 tmpElement.ClassName = ClassName;
                 tmpElement.Name = Name;
 
-                elements.Add(tmpElement);                
-            }          
+                elements.Add(tmpElement);
+            }
             return elements;
         }
-
 
         public string CreateOutput()
         {
@@ -56,39 +55,38 @@ namespace Collections.ListTask
             {
                 if (requiredClassName.Equals(el.ClassName))
                 {
-                    finalResult = String.Concat(finalResult,el.Text, ",");
+                    finalResult = String.Join(el.Text, finalResult, ", ");
                 }
 
-
             }
-            Console.WriteLine(finalResult);
+            string str = finalResult.Remove(finalResult.LastIndexOf(", "));
+            Console.WriteLine(str);
             Console.ReadLine();
             return finalResult;
-
         }
 
 
-        / public string ListOfElementsLinq()
-          {
-              var items= GenerateData();
-              Console.Write("Enter RequiredClassName: ");
-              string requiredClassName = Console.ReadLine();
+        public string ListOfElementsLinq()
+        {
+            var items = GenerateData();
+            Console.Write("Enter RequiredClassName: ");
+            string requiredClassName = Console.ReadLine();
 
-              var result = from el in items
-                           where requiredClassName.Equals(el.ClassName)
-                           select el;
-              var finalResult = "";
-              foreach (WebElement i in result)
-              {
-                finalResult = String.Concat(finalResult,i, ",");
-                 
-              }
-              Console.WriteLine(finalResult);
-              Console.ReadLine();
-              return finalResult;
-          }
-      }
-     
+            var result = from el in items
+                         where requiredClassName.Equals(el.ClassName)
+                         select el;
+            var finalResult = "";
+            foreach (WebElement i in result)
+            {
+                finalResult = String.Join(finalResult, i, ",");
+            }
+            string str = finalResult.Remove(finalResult.LastIndexOf(", "));
+            Console.WriteLine(str);
+            Console.ReadLine();
+            return finalResult;
+        }
+    }
+
 }
 
-   
+

@@ -1,4 +1,5 @@
-﻿using Collections.ListTask;
+﻿using Collections.ColumnTask;
+using Collections.ListTask;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,11 @@ namespace Collections
         static void Main(string[] args)
         {
             var list = new ListSolution();
-            list.CreateOutput();
+            list.ListOfElementsLinq();
+
+            // var column = new ColumnOutput();
+            //column.PrintDictionariesFE();
+
         }
     }
 }

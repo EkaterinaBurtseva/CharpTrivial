@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace Collections.ColumnTask
 {
-   public  class Column
+    public class Column
     {
-        string Header { get; set; }
-        int Id { get; set; }
-        string Name { get; set; }
+        public string Header { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public override string ToString()
+        {
+            return "id: " + this.Id + ", name: " + this.Name + ", header: " + this.Header;
+        }
     }
 }
