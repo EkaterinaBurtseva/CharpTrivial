@@ -71,15 +71,10 @@ namespace Collections.ListTask
             var items = GenerateData();
             Console.Write("Enter RequiredClassName: ");
             string requiredClassName = Console.ReadLine();
-
             var result = from el in items
                          where requiredClassName.Equals(el.ClassName)
-                         select el;
-            var finalResult = "";
-            foreach (WebElement i in result)
-            {
-                finalResult = String.Join(finalResult, i, ",");
-            }
+                         select el.Text;                       
+            var finalResult = String.Join(", ", result.ToArray().ToString());
             string str = finalResult.Remove(finalResult.LastIndexOf(", "));
             Console.WriteLine(str);
             Console.ReadLine();
