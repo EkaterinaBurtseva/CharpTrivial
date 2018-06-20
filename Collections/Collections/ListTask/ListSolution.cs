@@ -29,12 +29,8 @@ namespace Collections.ListTask
                 Console.Write("Enter Classname: ");
                 string ClassName = Console.ReadLine();
                 Console.Write("Enter Name: ");
-                string Name = Console.ReadLine();
-                tmpElement.Xpath = Xpath;
-                tmpElement.Text = Text;
-                tmpElement.ClassName = ClassName;
-                tmpElement.Name = Name;
-                elements.Add(tmpElement);
+                string Name = Console.ReadLine();            
+                elements.Add(new WebElement() { ClassName = ClassName, Name = Name, Xpath = Xpath, Text = Text});
             }
             return elements;
         }
