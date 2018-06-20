@@ -13,9 +13,5 @@ namespace Collections.ListTask
         public string ClassName { get; set; }
         public string Name { get; set; }
 
-        public override string ToString()
-        {
-            return this.Text;
-        }
     }
 }

@@ -34,7 +34,6 @@ namespace Collections.ListTask
                 tmpElement.Text = Text;
                 tmpElement.ClassName = ClassName;
                 tmpElement.Name = Name;
-
                 elements.Add(tmpElement);
             }
             return elements;
@@ -70,13 +69,12 @@ namespace Collections.ListTask
         {
             var items = GenerateData();
             Console.Write("Enter RequiredClassName: ");
-            string requiredClassName = Console.ReadLine();
+            string requiredClassName = Console.ReadLine();            
             var result = from el in items
                          where requiredClassName.Equals(el.ClassName)
-                         select el.Text;                       
-            var finalResult = String.Join(", ", result.ToArray().ToString());
-            string str = finalResult.Remove(finalResult.LastIndexOf(", "));
-            Console.WriteLine(str);
+                         select el.Text;
+            var finalResult = String.Join(", ", result.Select(el => el.ToString()).ToArray());
+            Console.WriteLine(finalResult);
             Console.ReadLine();
             return finalResult;
         }
