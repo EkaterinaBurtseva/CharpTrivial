@@ -4,53 +4,79 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Linq;
 
-namespace Task1_methods
+
+namespace Task1
 {
     public class Features
     {
+        private XmlDocument doc;
+
+        public Features(/*path*/)
+        {
+            this.doc = new XmlDocument();
+            doc.Load("example.xml");
+        }
+
         public void ReadNodeXpath()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("example.xml");
-            XmlNodeList nodeList = doc.SelectNodes("/bookstore/book[@publicationdate='1981']/title");            
+
+            XmlNodeList nodeList = doc.SelectNodes("/bookstore/book[@publicationdate='1981']/title");
             foreach (XmlNode node in nodeList)
             {
                 Console.WriteLine(node.InnerText);
-               // Console.WriteLine("First-name: " + node["first-name"].InnerText + " Last Name: " + node["last-name"].InnerText);
+                // Console.WriteLine("First-name: " + node["first-name"].InnerText + " Last Name: " + node["last-name"].InnerText);
             }
-                      
+
 
         }
-           public  void ReadValueByXpath()
+        public void ReadValueByXpath()
+        {
+            XmlNodeList nodeList = doc.DocumentElement.SelectNodes("/bookstore/book[@publicationdate='1967']");
+            string myVal = "";
+            foreach (XmlNode node in nodeList)
             {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("example.xml");
-            string myVal = ((XmlElement)doc.DocumentElement.SelectSingleNode("descendant::bookstore/book/author/xpath")).Value;
-            Console.WriteLine(myVal);
+                myVal = node.Attributes["genre"].Value.ToString();
+                Console.WriteLine(myVal);
 
+            }
         }
 
         public void AddNodeByXpath()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("example.xml");
             XmlNode node = doc.CreateNode(XmlNodeType.Element, "book", null);
+
+            XmlAttribute genre = doc.CreateAttribute("genre");
+            genre.Value = "detective";
+            XmlAttribute publicationdate = doc.CreateAttribute("publicationdate");
+            publicationdate.Value = "2000";
+            XmlAttribute isbn = doc.CreateAttribute("ISBN");
+            isbn.Value = "0-861001-77-6";
+
             XmlNode nodeTitle = doc.CreateElement("title");
-            nodeTitle.InnerText = "This title is created by code";
-            XmlNode nodeUrl = doc.CreateElement("author");
+            nodeTitle.InnerText = "Snowman";
+            XmlNode nodeAuthor = doc.CreateElement("author");
+            nodeAuthor.InnerText = "Jo Nesbø";
+
+            node.Attributes.Append(genre);
+            node.Attributes.Append(publicationdate);
+            node.Attributes.Append(isbn);
+
             node.AppendChild(nodeTitle);
-            node.AppendChild(nodeUrl);
+            node.AppendChild(nodeAuthor);
             doc.DocumentElement.AppendChild(node);
             doc.Save("example.xml");
+            doc.Save(Console.Out);
 
         }
 
         public void ModifyValueByXpath()
         {
-
-        }
+            XmlNode node = doc.SelectSingleNode("bookstore/book[@publicationdate='2000']/author");
+            node.InnerText = "Vasya Pupkin";
+            doc.Save("example.xml");
+            doc.Save(Console.Out);
         }
     }
+}
 
