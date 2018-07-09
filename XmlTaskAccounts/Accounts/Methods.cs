@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Accounts.Model;
+using System;
 using System.Xml;
 
 namespace Accounts
@@ -15,6 +12,18 @@ namespace Accounts
         {
             this.doc = new XmlDocument();
             doc.Load("Account.xml");
+        }
+
+        public Account GetAccount(string nameAttribute)
+        {
+            // implement
+
+        }
+
+        public void SaveAccount(Account account)
+        {
+            // implement
+
         }
 
 

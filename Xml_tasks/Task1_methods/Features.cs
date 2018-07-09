@@ -20,7 +20,6 @@ namespace Task1
 
         public void ReadNodeXpath()
         {
-
             XmlNodeList nodeList = doc.SelectNodes("/bookstore/book[@publicationdate='1981']/title");
             foreach (XmlNode node in nodeList)
             {
