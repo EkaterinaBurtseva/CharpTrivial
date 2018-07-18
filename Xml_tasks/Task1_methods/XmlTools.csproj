@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features.cs" />
-    <Compile Include="Main1.cs" />
+    <Compile Include="XmlTools.cs" />
+    <Compile Include="XmlToolsExecution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
