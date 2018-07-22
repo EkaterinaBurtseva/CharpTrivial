@@ -20,12 +20,10 @@ namespace XmlTools
 
         public void ReadNodeXpath(string xpath)
         {
-            //xpath =""/bookstore/book[@publicationdate='1981']/title";
             XmlNodeList nodeList = doc.SelectNodes(xpath);
             foreach (XmlNode node in nodeList)
             {
                 Console.WriteLine(node.InnerText);
-                // Console.WriteLine("First-name: " + node["first-name"].InnerText + " Last Name: " + node["last-name"].InnerText);
             }
 
 
@@ -44,25 +42,17 @@ namespace XmlTools
         public void AddNodeByXpath(string path, string nodeName, string attribute, string value)
         {
             XmlNode node = doc.CreateNode(XmlNodeType.Element, nodeName, null);
-
             XmlAttribute genre = doc.CreateAttribute(attribute);
             genre.Value = value;
-            // XmlAttribute publicationdate = doc.CreateAttribute("publicationdate");
-            //publicationdate.Value = "2000";
-            // XmlAttribute isbn = doc.CreateAttribute("ISBN");
-            //isbn.Value = "0-861001-77-6";
 
-            XmlNode nodeTitle = doc.CreateElement("title");
-            nodeTitle.InnerText = "Snowman";
-            XmlNode nodeAuthor = doc.CreateElement("author");
-            nodeAuthor.InnerText = "Jo Nesbø";
-
+            //XmlNode nodeTitle = doc.CreateElement("title");
+            //  nodeTitle.InnerText = "Snowman";
+            //  XmlNode nodeAuthor = doc.CreateElement("author");
+            //  nodeAuthor.InnerText = "Jo Nesbø";
             node.Attributes.Append(genre);
-            //node.Attributes.Append(publicationdate);
-            // node.Attributes.Append(isbn);
 
-            node.AppendChild(nodeTitle);
-            node.AppendChild(nodeAuthor);
+            // node.AppendChild(nodeTitle);
+            //node.AppendChild(nodeAuthor);
             doc.DocumentElement.AppendChild(node);
             doc.Save(path);
             doc.Save(Console.Out);
