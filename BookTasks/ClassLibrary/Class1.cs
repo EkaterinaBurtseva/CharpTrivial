@@ -8,6 +8,9 @@ namespace ClassLibrary
 {
     public class Class1
     {
+        static Class1()
+        {
+            Console.WriteLine("Type Initialized");
+        }
     }
 }
-asd
