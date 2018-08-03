@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ShapeInterfaces
 {
-    class Shapes
+    interface IFigure
     {
+
+        void FindArea();
+        void FindPerimeter();
+
     }
 }
