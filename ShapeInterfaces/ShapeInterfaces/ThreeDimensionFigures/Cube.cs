@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ShapeInterfaces
 {
-    class Cube:IFigure
+    class Cube:IThreeDimensionalFigure, Parallelepiped
     {
         public double CubeSide { get; }
                 
@@ -15,7 +16,7 @@ namespace ShapeInterfaces
             this.CubeSide = CubeSide;
         }
 
-        public double FindArea()
+        public double GetArea()
         {
             double a = 6 *Math.Pow(CubeSide, 2);
             Console.WriteLine("Cube area is " + a);
@@ -23,13 +24,17 @@ namespace ShapeInterfaces
 
         }
 
-        public double FindPerimeter()
+        public double GetVolume()
         {
             double p = 12 * CubeSide;
             Console.WriteLine("Cube perimeter is " + p);
             Console.ReadLine();
             return p;
 
+        }
+        public string GetFigureName()
+        {
+            return "";
         }
     }
 }

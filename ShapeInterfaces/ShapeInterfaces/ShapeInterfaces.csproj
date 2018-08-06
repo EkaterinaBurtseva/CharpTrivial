@@ -53,8 +53,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cube.cs" />
-    <Compile Include="IFigure.cs" />
+    <Compile Include="ThreeDimensionFigures\Cone.cs" />
+    <Compile Include="ThreeDimensionFigures\Cube.cs" />
+    <Compile Include="Interfaces\IFigureBase.cs" />
+    <Compile Include="Interfaces\IFlatFigure.cs" />
+    <Compile Include="Interfaces\IThreeDimensionalFigure.cs" />
+    <Compile Include="ThreeDimensionFigures\Parallelepiped.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -69,9 +73,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Calculation.cs" />
-    <Compile Include="Circle.cs" />
-    <Compile Include="Square.cs" />
-    <Compile Include="Triangle.cs" />
+    <Compile Include="FlatFigures\Circle.cs" />
+    <Compile Include="FlatFigures\Rectangle.cs" />
+    <Compile Include="FlatFigures\Square.cs" />
+    <Compile Include="FlatFigures\Triangle.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

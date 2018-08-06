@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShapeInterfaces
 {
-    interface IFigure
+    class Rectangle
     {
-        double FindArea();
-        double FindPerimeter();
-
     }
 }

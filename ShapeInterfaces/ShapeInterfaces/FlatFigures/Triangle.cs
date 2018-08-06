@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShapeInterfaces
 {
-    class Triangle :IFigure
+    class Triangle :IFlatFigure
     {
         public double SideA { get; }
         public double SideB { get; }
@@ -26,7 +26,7 @@ namespace ShapeInterfaces
             this.SideB = SideB;
             this.HeightA = HeightA;
         }
-        public double FindArea()
+        public double GetArea()
         {
             double a = 0.5*SideA*HeightA;
             Console.WriteLine("Triangle area is " + a);
@@ -34,12 +34,17 @@ namespace ShapeInterfaces
            
         }
 
-        public double FindPerimeter()
+        public double GetPerimeter()
         {
             double p = SideA + SideB + SideC;
             Console.WriteLine("Triangle perimeter is " + p);
             return p;
           
+        }
+
+        public string GetFigureName()
+        {
+            return "";
         }
     }
 }

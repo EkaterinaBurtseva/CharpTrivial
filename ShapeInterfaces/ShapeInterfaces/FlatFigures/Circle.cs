@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShapeInterfaces
 {
-    class Circle: IFigure
+    class Circle: IFlatFigure
     {
         const double Pi = 3.14;
         public double Radius { get;}
@@ -16,19 +16,23 @@ namespace ShapeInterfaces
             this.Radius = Radius;
         }
 
-        public double FindPerimeter()
+        public double GetPerimeter()
         {
             double p = 2 *Pi * Radius;
             Console.WriteLine("Circle perimeter is " + p);
             return p;
                         
         }
-        public double FindArea()
+        public double GetArea()
         {
             double a = Pi * Math.Pow(Radius,2);
             Console.WriteLine("Circle area is " + a);
             return a;
             
+        }
+        public string GetFigureName()
+        {
+            return "";
         }
     }
 }
