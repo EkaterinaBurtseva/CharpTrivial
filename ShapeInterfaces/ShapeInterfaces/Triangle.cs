@@ -8,16 +8,13 @@ namespace ShapeInterfaces
 {
     class Triangle :IFigure
     {
-        public double SideA { get; set; }
-        public double SideB { get; set; }
-        public double SideC { get; set; }
-        public double HeightA { get; set; }
-        public Triangle()
-        {
-
-        }
-
-        public Triangle(double SideA, double SideB, double SideC)
+        public double SideA { get; }
+        public double SideB { get; }
+        public double SideC { get; }
+        public double HeightA { get;}
+         
+             
+        public Triangle(double sideA, double SideB, double SideC)
         {
             this.SideA = SideA;
             this.SideB = SideB;
@@ -29,17 +26,19 @@ namespace ShapeInterfaces
             this.SideB = SideB;
             this.HeightA = HeightA;
         }
-        public void FindArea()
+        public double FindArea()
         {
             double a = 0.5*SideA*HeightA;
             Console.WriteLine("Triangle area is " + a);
+            return a;
            
         }
 
-        public void FindPerimeter()
+        public double FindPerimeter()
         {
             double p = SideA + SideB + SideC;
             Console.WriteLine("Triangle perimeter is " + p);
+            return p;
           
         }
     }

@@ -8,30 +8,27 @@ namespace ShapeInterfaces
 {
     class Cube:IFigure
     {
-        public double CubeSide { get; set; }
-
-        public Cube()
-        {
-
-        }
-
+        public double CubeSide { get; }
+                
         public Cube(double Side)
         {
             this.CubeSide = CubeSide;
         }
 
-        public void FindArea()
+        public double FindArea()
         {
             double a = 6 *Math.Pow(CubeSide, 2);
             Console.WriteLine("Cube area is " + a);
+            return a;
 
         }
 
-        public void FindPerimeter()
+        public double FindPerimeter()
         {
             double p = 12 * CubeSide;
             Console.WriteLine("Cube perimeter is " + p);
             Console.ReadLine();
+            return p;
 
         }
     }

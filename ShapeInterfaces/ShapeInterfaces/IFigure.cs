@@ -8,9 +8,8 @@ namespace ShapeInterfaces
 {
     interface IFigure
     {
-
-        void FindArea();
-        void FindPerimeter();
+        double FindArea();
+        double FindPerimeter();
 
     }
 }

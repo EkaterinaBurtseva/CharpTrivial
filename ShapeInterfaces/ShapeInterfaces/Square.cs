@@ -8,29 +8,26 @@ namespace ShapeInterfaces
 {
     class Square:IFigure
     {
-        public double Side { get; set; }
-        
-        public Square()
-        {
-
-        }
-
+        public double Side { get; }        
+       
         public Square(double Side)
         {
             this.Side = Side;
         }
        
-        public void FindArea()
+        public double FindArea()
         {
             double a = Math.Pow(Side, 2);
             Console.WriteLine("Square area is " + a);
+            return a;
 
         }
 
-        public void FindPerimeter()
+        public double FindPerimeter()
         {
             double p = 4 * Side;
             Console.WriteLine("Square perimeter is " + p);
+            return p;
 
         }
     }
