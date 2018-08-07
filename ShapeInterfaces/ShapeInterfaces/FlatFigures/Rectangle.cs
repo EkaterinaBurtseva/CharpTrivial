@@ -10,24 +10,28 @@ namespace ShapeInterfaces
     {
         private string name = "Rectangle";
 
-        public double Side { get; }
+        public double SideA { get; }
         public double SideB { get; }
 
-        public Rectangle(double side, double sideB)
+        public Rectangle(double sideA, double sideB)
         {
-            this.Side = side;
+            this.SideA = sideA;
             this.SideB = sideB;
         }
 
-        public Rectangle(double side)
+        public Rectangle(double sideA)
         {
-            this.Side = side;
+            this.SideA = sideA;
            
         }
 
         public Rectangle(string name)
         {
             this.Name = name;
+        }
+
+        public Rectangle()
+        {
         }
 
         public string Name
@@ -38,7 +42,7 @@ namespace ShapeInterfaces
 
         public double GetArea()
         {
-            double a = Math.Pow(Side, 2);
+            double a = SideA * SideB;
             Console.WriteLine("Square area is " + a);
             return a;
 
@@ -46,7 +50,7 @@ namespace ShapeInterfaces
 
         public double GetPerimeter()
         {
-            double p = 4 * Side;
+            double p = 2*(SideA + SideB);
             Console.WriteLine("Square perimeter is " + p);
             return p;
 
@@ -54,9 +58,7 @@ namespace ShapeInterfaces
 
         public string GetFigureName()
         {
-            string s = "Figure name is " + this.Name;
-            Console.WriteLine(s);
-            return s;
+           return Name;
         }
 
     }

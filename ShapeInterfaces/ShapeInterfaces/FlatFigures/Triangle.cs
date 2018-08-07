@@ -21,18 +21,22 @@ namespace ShapeInterfaces
             set { name = value; }
         }
 
-        public Triangle(double sideA, double SideB, double SideC)
+        public Triangle(double sideA, double sideB, double sideC)
         {
-            this.SideA = SideA;
-            this.SideB = SideB;
-            this.SideC = SideC;
+            this.SideA = sideA;
+            this.SideB = sideB;
+            this.SideC = sideC;
         }
-        public Triangle(double SideA, double HeightA)
+        public Triangle(double sideA, double heightA)
         {
-            this.SideA = SideA;
-            this.SideB = SideB;
-            this.HeightA = HeightA;
+            this.SideA = sideA;            
+            this.HeightA = heightA;
         }
+
+        public Triangle()
+        {
+        }
+
         public double GetArea()
         {
             double a = 0.5*SideA*HeightA;
@@ -51,9 +55,7 @@ namespace ShapeInterfaces
 
         public string GetFigureName()
         {
-            string s = "Figure name is " + this.Name;
-            Console.WriteLine(s);
-            return s;
+            return Name;
         }
 
       

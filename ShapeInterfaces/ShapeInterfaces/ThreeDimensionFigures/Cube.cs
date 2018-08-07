@@ -38,11 +38,9 @@ namespace ShapeInterfaces
             return p;
 
         }
-        public string GetFigureName()
-        {
-            string s = "Figure name is " + this.Name;
-            Console.WriteLine(s);
-            return s;
+        public new string GetFigureName()
+        {               
+            return Name;
         }
 
        

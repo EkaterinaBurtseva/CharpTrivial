@@ -8,14 +8,14 @@ namespace ShapeInterfaces
 {
     class Circle: IFlatFigure
     {
-        const double Pi = 3.14;
+        const double pi = 3.14;
         private string name ="Circle";
 
         public double Radius { get;}
                     
-        public Circle(double Radius)
+        public Circle(double radius)
         {
-            this.Radius = Radius;
+            this.Radius = radius;
         }
 
         public Circle(string name)
@@ -23,31 +23,35 @@ namespace ShapeInterfaces
             this.Name = name;
         }
 
+        public Circle()
+        {
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
         public double GetPerimeter()
         {
-            double p = 2 *Pi * Radius;
+            double p = 2 *pi * Radius;
             Console.WriteLine("Circle perimeter is " + p);
             return p;
                         
         }
         public double GetArea()
         {
-            double a = Pi * Math.Pow(Radius,2);
+            double a = pi * Math.Pow(Radius,2);
             Console.WriteLine("Circle area is " + a);
             return a;
             
         }
 
         public string GetFigureName()
-        {
-            string s = "Figure name is " + this.Name;
-            Console.WriteLine(s);
-            return s;
+        {                        
+            return Name;
         }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+      
     }
 }
