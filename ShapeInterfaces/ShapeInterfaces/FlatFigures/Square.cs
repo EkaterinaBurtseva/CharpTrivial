@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace ShapeInterfaces
 {
-    class Square:IFlatFigure, Rectangle
+    public class Square:Rectangle, IFlatFigure
     {
-        public double Side { get; }        
-       
-        public Square(double Side)
+        private string name ="Square";
+
+        public Square(double side) : base(side)
         {
-            this.Side = Side;
         }
-       
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
         public double GetArea()
         {
             double a = Math.Pow(Side, 2);
@@ -25,7 +30,7 @@ namespace ShapeInterfaces
 
         public double GetPerimeter()
         {
-            double p = 4 * Side;
+            double p = 4 *Side;
             Console.WriteLine("Square perimeter is " + p);
             return p;
 
@@ -33,9 +38,12 @@ namespace ShapeInterfaces
 
         public string GetFigureName()
         {
-            return "";
+            string s = "Figure name is " + this.Name;
+            Console.WriteLine(s);
+            return s;
         }
 
+        
 
     }
 }

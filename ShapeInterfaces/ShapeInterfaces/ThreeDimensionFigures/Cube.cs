@@ -7,18 +7,24 @@ using System.Threading.Tasks;
 
 namespace ShapeInterfaces
 {
-    class Cube:IThreeDimensionalFigure, Parallelepiped
+   public  class Cube: Parallelepiped, IThreeDimensionalFigure
     {
-        public double CubeSide { get; }
-                
-        public Cube(double Side)
+        private string name ="Cube";
+
+        public Cube(double parallelepipedSide) : base(parallelepipedSide)
         {
-            this.CubeSide = CubeSide;
         }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }                     
+        
 
         public double GetArea()
         {
-            double a = 6 *Math.Pow(CubeSide, 2);
+            double a = 6 *Math.Pow(ParallelepipedSide, 2);
             Console.WriteLine("Cube area is " + a);
             return a;
 
@@ -26,7 +32,7 @@ namespace ShapeInterfaces
 
         public double GetVolume()
         {
-            double p = 12 * CubeSide;
+            double p = 12 * ParallelepipedSide;
             Console.WriteLine("Cube perimeter is " + p);
             Console.ReadLine();
             return p;
@@ -34,7 +40,11 @@ namespace ShapeInterfaces
         }
         public string GetFigureName()
         {
-            return "";
+            string s = "Figure name is " + this.Name;
+            Console.WriteLine(s);
+            return s;
         }
+
+       
     }
 }

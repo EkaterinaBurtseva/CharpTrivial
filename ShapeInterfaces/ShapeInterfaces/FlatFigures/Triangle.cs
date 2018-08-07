@@ -8,12 +8,19 @@ namespace ShapeInterfaces
 {
     class Triangle :IFlatFigure
     {
+        private string name ="Triangle";
+
         public double SideA { get; }
         public double SideB { get; }
         public double SideC { get; }
         public double HeightA { get;}
-         
-             
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
         public Triangle(double sideA, double SideB, double SideC)
         {
             this.SideA = SideA;
@@ -44,7 +51,11 @@ namespace ShapeInterfaces
 
         public string GetFigureName()
         {
-            return "";
+            string s = "Figure name is " + this.Name;
+            Console.WriteLine(s);
+            return s;
         }
+
+      
     }
 }

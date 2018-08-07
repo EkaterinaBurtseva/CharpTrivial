@@ -8,13 +8,8 @@ namespace ShapeInterfaces
 {
     interface IThreeDimensionalFigure : IFigureBase
     {
-        double GetVolume()
-        {
-
-        }
-        double GetArea()
-        {
-
-        }
+        double GetVolume();
+        double GetArea();
+        
     }
 }

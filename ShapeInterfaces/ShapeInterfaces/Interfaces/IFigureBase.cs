@@ -8,11 +8,12 @@ namespace ShapeInterfaces
 {
     interface IFigureBase
     {
-            
-        string GetFigureName()
+        string Name
         {
-
+            get;
+            set;
         }
-
+        string GetFigureName();
+      
     }
 }
