@@ -9,40 +9,62 @@ namespace ShapeInterfaces
     public class Parallelepiped : IThreeDimensionalFigure
     {
         private string name = "Parallelepiped";
+        private int count =8;
 
-        public string Name
+        public virtual string Name
         {
             get { return name; }
             set { name = value; }
         }
 
-        public double ParallelepipedSide { get; set; }
-
-        public Parallelepiped(double parallelepipedSide)
+        public double ParallelepipedSideA { get; set; }
+        public double ParallelepipedSideB { get; set; }
+        public double ParallelepipedSideC { get; set; }
+        public int VerticesCount
         {
-            this.ParallelepipedSide = parallelepipedSide;
+            get { return count; }
+            set { count = value; }
         }
 
-        public double GetArea()
+        public Parallelepiped(double parallelepipedSideA, double parallelepipedSideB, double parallelepipedSideC)
         {
-            double a = 6 * Math.Pow(ParallelepipedSide, 2);
+            this.ParallelepipedSideA = parallelepipedSideA;
+            this.ParallelepipedSideB = parallelepipedSideB;
+            this.ParallelepipedSideC = parallelepipedSideC;
+        }
+        public Parallelepiped(double parallelepipedSideA)
+        {
+            this.ParallelepipedSideA = parallelepipedSideA;            
+        }
+
+        public Parallelepiped()
+        {
+          
+        }
+        
+        public virtual double GetArea()
+        {
+            double a = 2 * (ParallelepipedSideA * ParallelepipedSideB + ParallelepipedSideB * ParallelepipedSideC + ParallelepipedSideC * ParallelepipedSideA);
             Console.WriteLine("Parallelepiped area is " + a);
             return a;
 
         }
 
-        public double GetVolume()
+        public virtual double GetVolume()
         {
-            double p = 12 * ParallelepipedSide;
-            Console.WriteLine("Parallelepiped perimeter is " + p);
-            Console.ReadLine();
-            return p;
+            double v =  ParallelepipedSideA *ParallelepipedSideB*ParallelepipedSideC;
+            Console.WriteLine("Parallelepiped volume is " + v);
+            return v;
 
         }
-        public string GetFigureName()
-        {       
-            
+        public virtual string GetFigureName()
+        {  
             return Name;
+        }
+
+        public int GetVerticesCount()
+        {
+            return VerticesCount;
         }
     }
 }

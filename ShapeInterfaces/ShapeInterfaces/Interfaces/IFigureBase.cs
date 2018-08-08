@@ -13,7 +13,13 @@ namespace ShapeInterfaces
             get;
             set;
         }
+        int VerticesCount
+        {
+            get;
+            set;
+        }
         string GetFigureName();
+        int GetVerticesCount();
       
     }
 }

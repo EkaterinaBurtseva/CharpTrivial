@@ -22,12 +22,12 @@ namespace ShapeInterfaces
             this.Name = nameSquare;
         }
 
-        public new string Name
+        public override string Name
         {
             get { return nameSquare; }
             set { nameSquare = value; }
         }
-        public new double GetArea()
+        public override double GetArea()
         {
             double a = Math.Pow(SideA, 2);
             Console.WriteLine("Square area is " + a);
@@ -35,7 +35,7 @@ namespace ShapeInterfaces
 
         }
 
-        public new double GetPerimeter()
+        public override double GetPerimeter()
         {
             double p = 4 *SideA;
             Console.WriteLine("Square perimeter is " + p);
@@ -46,9 +46,7 @@ namespace ShapeInterfaces
         public new string GetFigureName()
         {                     
             return Name;
-        }
-
-        
+        }              
 
     }
 }

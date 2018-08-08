@@ -33,6 +33,8 @@ namespace ShapeInterfaces
             set { name = value; }
         }
 
+        public int VerticesCount { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
+
         public double GetPerimeter()
         {
             double p = 2 *pi * Radius;
@@ -52,6 +54,10 @@ namespace ShapeInterfaces
         {                        
             return Name;
         }
-      
+
+        public int GetVerticesCount()
+        {
+            throw new NotSupportedException();
+        }
     }
 }

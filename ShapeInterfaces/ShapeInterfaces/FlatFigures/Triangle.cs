@@ -9,7 +9,13 @@ namespace ShapeInterfaces
     class Triangle :IFlatFigure
     {
         private string name ="Triangle";
+        private int count = 3;
 
+        public int VerticesCount
+        {
+            get { return count; }
+            set { count = value; }
+        }
         public double SideA { get; }
         public double SideB { get; }
         public double SideC { get; }
@@ -56,6 +62,10 @@ namespace ShapeInterfaces
         public string GetFigureName()
         {
             return Name;
+        }
+        public int GetVerticesCount()
+        {
+            return VerticesCount;
         }
 
       

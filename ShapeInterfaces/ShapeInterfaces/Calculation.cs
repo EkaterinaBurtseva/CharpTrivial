@@ -19,7 +19,7 @@ namespace ShapeInterfaces
             Console.WriteLine("---------------------------------------------------");
 
             IFlatFigure rectangle = new Rectangle();
-            Console.WriteLine("To find perimeter and area for  " + rectangle.GetFigureName() + " enter side A and side b");
+            Console.WriteLine("To find perimeter and area for  " + rectangle.GetFigureName() + " enter side A and side B");
             var sideA = double.Parse(Console.ReadLine());
             var sideB = double.Parse(Console.ReadLine());
             IFlatFigure rectangleCalc = new Rectangle(sideA, sideB);            
@@ -54,11 +54,37 @@ namespace ShapeInterfaces
             Console.WriteLine("---------------------------------------------------");
 
             Console.WriteLine();
-            Console.WriteLine("To find area and perimeter for cube enter its side ");
-            var CubeSide = double.Parse(Console.ReadLine());
-            IThreeDimensionalFigure cube = new Cube(CubeSide);
-            cube.GetArea();
-            
+            IThreeDimensionalFigure parellelepiped = new Parallelepiped();
+            Console.WriteLine("To find volume and perimeter for " + parellelepiped.GetFigureName() + "  next values: ");
+            Console.WriteLine("Enter side A ");
+            var sideOneA = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter side B ");
+            var sideTwoB = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter side C ");
+            var sideThreeC = double.Parse(Console.ReadLine());
+            IThreeDimensionalFigure parellelepipedCalc = new Parallelepiped(sideOneA, sideTwoB, sideThreeC);
+            parellelepipedCalc.GetArea();
+            parellelepipedCalc.GetVolume();
+            Console.WriteLine("---------------------------------------------------");
+
+            Console.WriteLine();
+            IThreeDimensionalFigure cube = new Cube();
+            Console.WriteLine("Finding area and perimeter for " + cube.GetFigureName());
+            IThreeDimensionalFigure cubeCalc = new Cube(sideOneA);
+            cubeCalc.GetArea();
+            cubeCalc.GetVolume();
+            Console.WriteLine("---------------------------------------------------");
+
+            Console.WriteLine();
+            IThreeDimensionalFigure cone = new Cone();
+            Console.WriteLine("To find volume and perimeter for " + cone.GetFigureName() + "  next values: ");
+            Console.WriteLine("Enter cone height ");
+            var coneHeight = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter cone radius base ");
+            var coneRadiusBase = double.Parse(Console.ReadLine());
+            IThreeDimensionalFigure coneCalc = new Cone(coneRadiusBase, coneHeight);
+            coneCalc.GetArea();
+            coneCalc.GetVolume();
         }
     }
 }

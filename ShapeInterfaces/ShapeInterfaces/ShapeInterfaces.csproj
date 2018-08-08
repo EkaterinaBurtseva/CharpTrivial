@@ -53,6 +53,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlatFigures\Quadrilatel.cs" />
     <Compile Include="ThreeDimensionFigures\Cone.cs" />
     <Compile Include="ThreeDimensionFigures\Cube.cs" />
     <Compile Include="Interfaces\IFigureBase.cs" />
