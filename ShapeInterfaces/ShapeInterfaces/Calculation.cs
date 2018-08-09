@@ -9,82 +9,109 @@ namespace ShapeInterfaces
     class Calculation
     {
         static void Main(string[] args)
-        {
-            IFlatFigure circle = new Circle();
-            Console.WriteLine("To find perimeter and area for " + circle.GetFigureName() + " enter radius");
+        {                   
+                        
+            Console.WriteLine("To find perimeter and area for Circle enter radius");
             var radius = double.Parse(Console.ReadLine());
-            IFlatFigure circleCalc = new Circle(radius);
-            circleCalc.GetPerimeter();
-            circleCalc.GetArea();            
+            IFlatFigure circle = new Circle(radius);
+            PrintName(circle);
+            PrintPerimeter(circle);
+            PrintArea(circle);                        
             Console.WriteLine("---------------------------------------------------");
 
-            IFlatFigure rectangle = new Rectangle();
-            Console.WriteLine("To find perimeter and area for  " + rectangle.GetFigureName() + " enter side A and side B");
+            
+            Console.WriteLine("To find perimeter and area for Rectangle enter side A and side B");
             var sideA = double.Parse(Console.ReadLine());
             var sideB = double.Parse(Console.ReadLine());
-            IFlatFigure rectangleCalc = new Rectangle(sideA, sideB);            
-            rectangleCalc.GetPerimeter();
-            rectangleCalc.GetArea();            
+            IFlatFigure rectangle = new Rectangle(sideA, sideB);
+            PrintName(rectangle);
+            PrintPerimeter(rectangle);
+            PrintArea(rectangle);                  
             Console.WriteLine("---------------------------------------------------");
 
-            IFlatFigure triangle = new Triangle();            
-            Console.WriteLine("To find perimeter for " + triangle.GetFigureName() + " enter next values: ");            
+                     
+            Console.WriteLine("To find perimeter for Triangle enter next values: ");            
             Console.WriteLine("Enter side A ");
             var sideOne = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter side B ");
             var sideTwo = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter side C ");
             var sideThree = double.Parse(Console.ReadLine());
-            IFlatFigure triangleCalc = new Triangle(sideOne, sideTwo, sideThree);
-            triangleCalc.GetPerimeter();
-            Console.WriteLine();
+            IFlatFigure triangle = new Triangle(sideOne, sideTwo, sideThree);
+            PrintName(triangle);
+            PrintPerimeter(triangle);
             Console.WriteLine("To find area for triangle enter next values: ");           
             Console.WriteLine("Enter height to side A ");
             var heightA = double.Parse(Console.ReadLine());
             IFlatFigure triangleArea = new Triangle(sideA, heightA);
-            triangleArea.GetArea();
+            PrintArea(triangleArea); ;
             Console.WriteLine("---------------------------------------------------");
 
-
-            IFlatFigure square = new Square();                     
-            Console.WriteLine("Finding area and perimeter for " + square.GetFigureName());          
-            IFlatFigure squareCalc = new Square(sideA);
-            squareCalc.GetArea();
-            squareCalc.GetPerimeter();
+                                   
+            Console.WriteLine("Finding area and perimeter for Square");          
+            IFlatFigure square = new Square(sideA);
+            PrintName(square);
+            PrintPerimeter(square);
             Console.WriteLine("---------------------------------------------------");
 
-            Console.WriteLine();
-            IThreeDimensionalFigure parellelepiped = new Parallelepiped();
-            Console.WriteLine("To find volume and perimeter for " + parellelepiped.GetFigureName() + "  next values: ");
+            Console.WriteLine();            
+            Console.WriteLine("To find volume and perimeter for Parellelepiped next values: ");
             Console.WriteLine("Enter side A ");
             var sideOneA = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter side B ");
             var sideTwoB = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter side C ");
             var sideThreeC = double.Parse(Console.ReadLine());
-            IThreeDimensionalFigure parellelepipedCalc = new Parallelepiped(sideOneA, sideTwoB, sideThreeC);
-            parellelepipedCalc.GetArea();
-            parellelepipedCalc.GetVolume();
+            IThreeDimensionalFigure parellelepiped = new Parallelepiped(sideOneA, sideTwoB, sideThreeC);
+            PrintName(parellelepiped);
+            PrintVolume(parellelepiped);
+            PrintArea(parellelepiped);      
             Console.WriteLine("---------------------------------------------------");
 
-            Console.WriteLine();
-            IThreeDimensionalFigure cube = new Cube();
-            Console.WriteLine("Finding area and perimeter for " + cube.GetFigureName());
-            IThreeDimensionalFigure cubeCalc = new Cube(sideOneA);
-            cubeCalc.GetArea();
-            cubeCalc.GetVolume();
+            Console.WriteLine();            
+            Console.WriteLine("Finding area and perimeter for Cube");
+            IThreeDimensionalFigure cube = new Cube(sideOneA);
+            PrintName(cube);
+            PrintVolume(cube);
+            PrintArea(cube);
             Console.WriteLine("---------------------------------------------------");
 
-            Console.WriteLine();
-            IThreeDimensionalFigure cone = new Cone();
-            Console.WriteLine("To find volume and perimeter for " + cone.GetFigureName() + "  next values: ");
+            Console.WriteLine();            
+            Console.WriteLine("To find volume and perimeter for Cone next values: ");
             Console.WriteLine("Enter cone height ");
             var coneHeight = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter cone radius base ");
             var coneRadiusBase = double.Parse(Console.ReadLine());
-            IThreeDimensionalFigure coneCalc = new Cone(coneRadiusBase, coneHeight);
-            coneCalc.GetArea();
-            coneCalc.GetVolume();
+            IThreeDimensionalFigure cone = new Cone(coneRadiusBase, coneHeight);
+            PrintName(cone);
+            PrintVolume(cone);
+            PrintArea(cone);
+            Console.ReadLine();
+          
+        }
+
+        public static void PrintName(IFigureBase figure)
+        {
+            Console.WriteLine(figure.Name);
+        }
+        public static void PrintPerimeter(IFlatFigure figure)
+        {
+            Console.WriteLine("Perimeter is " + figure.GetPerimeter());
+        }
+
+        public static void PrintArea(IFlatFigure figure)
+        {
+            Console.WriteLine("Area is " + figure.GetArea());
+        }
+
+        public static void PrintVolume(IThreeDimensionalFigure figure)
+        {
+            Console.WriteLine("Volume is " + figure.GetVolume());
+        }
+
+        public static void PrintArea(IThreeDimensionalFigure figure)
+        {
+            Console.WriteLine("Area is  " + figure.GetArea());
         }
     }
 }

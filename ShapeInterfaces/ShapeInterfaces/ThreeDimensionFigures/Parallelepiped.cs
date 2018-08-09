@@ -32,28 +32,18 @@ namespace ShapeInterfaces
             this.ParallelepipedSideB = parallelepipedSideB;
             this.ParallelepipedSideC = parallelepipedSideC;
         }
-        public Parallelepiped(double parallelepipedSideA)
-        {
-            this.ParallelepipedSideA = parallelepipedSideA;            
-        }
-
-        public Parallelepiped()
-        {
-          
-        }
+                  
         
         public virtual double GetArea()
         {
-            double a = 2 * (ParallelepipedSideA * ParallelepipedSideB + ParallelepipedSideB * ParallelepipedSideC + ParallelepipedSideC * ParallelepipedSideA);
-            Console.WriteLine("Parallelepiped area is " + a);
+            double a = 2 * (ParallelepipedSideA * ParallelepipedSideB + ParallelepipedSideB * ParallelepipedSideC + ParallelepipedSideC * ParallelepipedSideA);           
             return a;
 
         }
 
         public virtual double GetVolume()
         {
-            double v =  ParallelepipedSideA *ParallelepipedSideB*ParallelepipedSideC;
-            Console.WriteLine("Parallelepiped volume is " + v);
+            double v =  ParallelepipedSideA *ParallelepipedSideB*ParallelepipedSideC;            
             return v;
 
         }

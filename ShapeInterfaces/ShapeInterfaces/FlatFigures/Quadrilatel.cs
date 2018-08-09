@@ -12,6 +12,8 @@ namespace ShapeInterfaces.FlatFigures
         private int count = 4;
         public double SideA { get; set; }
         public double SideB { get; }
+        public double SideС { get; }
+        public double SideD { get; }
 
         public Quadrilatel(string name)
         {
@@ -24,19 +26,14 @@ namespace ShapeInterfaces.FlatFigures
             set { name = value; }
         }
 
-        public Quadrilatel(double sideA, double sideB)
+        public Quadrilatel(double sideA, double sideB, double sideC, double sideD)
         {
-            this.SideA = sideA;
-            this.SideB = sideB;
+            SideA = sideA;
+            SideB = sideB;
+            SideС = sideC;
+            SideD = sideD;
         }
-        public Quadrilatel(double sideA)
-        {
-            this.SideA = sideA;            
-        }
-        public Quadrilatel()
-        {
-            
-        }
+    
 
         public int VerticesCount
         {
@@ -47,17 +44,13 @@ namespace ShapeInterfaces.FlatFigures
        
         public virtual double GetArea()
         {
-            double a = SideA * SideB;
-            Console.WriteLine(Name + "  area is " + a);
-            return a;
+            return 0;
 
         }
 
         public virtual double GetPerimeter()
         {
-            double p = 2 * (SideA + SideB);
-            Console.WriteLine( Name +" perimeter is " + p);
-            return p;
+            return 0;
 
         }
 

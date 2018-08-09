@@ -37,15 +37,13 @@ namespace ShapeInterfaces
 
         public double GetPerimeter()
         {
-            double p = 2 *pi * Radius;
-            Console.WriteLine("Circle perimeter is " + p);
+            double p = 2 *pi * Radius;            
             return p;
                         
         }
         public double GetArea()
         {
-            double a = pi * Math.Pow(Radius,2);
-            Console.WriteLine("Circle area is " + a);
+            double a = pi * Math.Pow(Radius,2);           
             return a;
             
         }

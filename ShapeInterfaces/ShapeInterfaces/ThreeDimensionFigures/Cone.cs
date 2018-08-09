@@ -31,10 +31,7 @@ namespace ShapeInterfaces
             this.ConeRadiusBase = coneRadiusBase;
             this.ConeHeight = coneHeight;            
         }
-
-        public Cone()
-        {
-        }
+             
 
         public double GetArea()
         {
@@ -42,16 +39,13 @@ namespace ShapeInterfaces
             double generationConeLine = Math.Sqrt(Math.Pow(ConeRadiusBase, 2) + Math.Pow(ConeHeight, 2));
             double lateralArea = pi * ConeRadiusBase * generationConeLine;
             double a = baseCircleArea + lateralArea;
-            Console.WriteLine("Cone area is " + a);
             return a;
 
         }
 
         public double GetVolume()
         {
-            double v = ConeHeight / 3 * pi * Math.Pow(ConeRadiusBase, 2);
-            Console.WriteLine("Cone volume is " + v);
-            Console.ReadLine();
+            double v = ConeHeight / 3 * pi * Math.Pow(ConeRadiusBase, 2);           
             return v;
 
         }

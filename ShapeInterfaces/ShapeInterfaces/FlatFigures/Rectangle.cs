@@ -9,25 +9,11 @@ namespace ShapeInterfaces
     public class Rectangle : FlatFigures.Quadrilatel
     {
         private string name = "Rectangle";
-        
 
-        public Rectangle(double SideA, double SideB) : base(SideA, SideB)
-        {
-           
-        }
-        public Rectangle(string Name) : base(Name)           
-        {
-           Name = name;
-        }
 
-        public Rectangle() : base()
+        public Rectangle(double SideA, double SideB) : base(SideA, SideB, SideA, SideB)
         {
 
-        }
-
-        public Rectangle(double sideA)
-        {
-            this.SideA = sideA;
         }
 
         public override string Name
@@ -44,6 +30,19 @@ namespace ShapeInterfaces
         public override int GetVerticesCount()
         {
             return VerticesCount;
+        }
+
+        public override double GetArea()
+        {
+            double a = SideA * SideB;
+            return a;
+
+        }
+        public override double GetPerimeter()
+        {
+            double p = 2 * (SideA + SideB);
+            return p;
+
         }
 
     }
