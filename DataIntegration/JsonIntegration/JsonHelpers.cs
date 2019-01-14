@@ -1,14 +1,6 @@
-﻿using Json;
-using Json.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
+﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace JsonIntegration
@@ -34,19 +26,17 @@ namespace JsonIntegration
            
 
 
-            public void CreateAccountAttribute()
+            public void CreateAccountAttribute(string path)
             {
-                /*XmlNode node = doc.CreateNode(XmlNodeType.Element, "Account", null);
-                XmlAttribute name = doc.CreateAttribute("name");
-                name.Value = "Test";
-                XmlNode nodeFirstName = doc.CreateElement("FistName");
-                nodeFirstName.InnerText = "Merry";
-                node.Attributes.Append(name);
-                node.AppendChild(nodeFirstName);
-                doc.DocumentElement.AppendChild(node);
-                doc.Save("Account.xml");
-                doc.Save(Console.Out);
-                */
+            using (StreamReader r = new StreamReader(path))
+            {
+                var json = r.ReadToEnd();
+                JObject test = new JObject("test",
+                new JObject(
+                    new JProperty("test1", "test2")));
+                
+            }
+            //create new parameter in account
             }
 
         public void AddNewNode(string path, string newNode)
@@ -60,9 +50,13 @@ namespace JsonIntegration
                 Console.WriteLine(json);
                 
             }
+
+            //var list = JsonConvert.DeserializeObject<List<Account>>(myJsonString);
+           // list.Add(new Account(1234, "carl2");
+            //var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
         }
 
-        public void EditAndUpdateNode(string path)
+        public void EditAndUpdateNode(string path, string old = "Kate", string newValue ="T")
             {
             using (StreamReader r = new StreamReader(path))
             {
