@@ -16,15 +16,6 @@ namespace JsonIntegration
         string writeResult = string.Empty;
                 
             
-            public Account GetAccount(string nameAttribute, string path)
-            {
-               
-                return new Account();
-
-            }
-
-           
-
 
             public void CreateAccountAttribute(string path)
             {
@@ -38,6 +29,25 @@ namespace JsonIntegration
             }
             //create new parameter in account
             }
+
+        public Account GetAccount(string path, string accountName)
+        {
+            using (StreamReader r = new StreamReader(path))
+            {
+                var json = r.ReadToEnd();
+                JArray jobj = JArray.Parse(json);
+                // dynamic data = JObject.Parse(jobj[0].ToString());
+                // foreach(var item in accountNa)
+                JToken accountData = jobj.SelectToken("$.[?(@AccountName=='Katerina' )]");
+               
+                  
+                Console.WriteLine(accountData);
+
+                return new Account();
+
+            }
+           
+}
 
         public void AddNewNode(string path, string newNode)
         {

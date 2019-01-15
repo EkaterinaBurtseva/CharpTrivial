@@ -13,16 +13,13 @@ namespace JsonIntegration
 
         static void Main(string[] args)
         {
-            JsonHelpers jsonData = new JsonHelpers(path);
-            jsonData.EditAndUpdateNode(path);       
-            //jsonData.AddNewNode(path, "LoginName");
+            JsonHelpers jsonData = new JsonHelpers(path);           
+          
+            Account KateAccount = jsonData.GetAccount(path, "Katerina");
+           // KateAccount.FirstName = "Kate1";
+            //jsonData.UpdateAccount(KateAccount);
+            // List<Account>
             Console.ReadLine();
-
-            Account KateAccount = jsonData.GetAccount("Kate");
-            KateAccount.FirstName = "Kate1";
-            jsonData.UpdateAccount(KateAccount);
-            List<Account>
-
         }
     }
 }
