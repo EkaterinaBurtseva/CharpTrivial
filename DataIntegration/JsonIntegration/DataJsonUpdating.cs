@@ -9,15 +9,15 @@ namespace JsonIntegration
 {
     public class DataJsonUpdating
     {
-        private static string path = "C:\\Users\\kateryna.burtseva\\Desktop\\Accounts1.json";
+        private static string path = "C:\\Users\\kateryna.burtseva\\Documents\\CharpTrivial\\DataIntegration\\JsonIntegration\\Accounts1.json";
 
         static void Main(string[] args)
         {
             JsonHelpers jsonData = new JsonHelpers(path);           
           
-            Account KateAccount = jsonData.GetAccount(path, "Katerina");
-           // KateAccount.FirstName = "Kate1";
-            //jsonData.UpdateAccount(KateAccount);
+            Account KateAccount = jsonData.GetAccount(path,"AccountName", "Katerina");
+            KateAccount.FirstName = "Kate1";
+            jsonData.UpdateAccount(KateAccount, path);
             // List<Account>
             Console.ReadLine();
         }
