@@ -45,16 +45,14 @@ namespace ShapeInterfaces
 
         public double GetArea()
         {
-            double a = 0.5*SideA*HeightA;
-            Console.WriteLine("Triangle area is " + a);
+            double a = 0.5*SideA*HeightA;           
             return a;
            
         }
 
         public double GetPerimeter()
         {
-            double p = SideA + SideB + SideC;
-            Console.WriteLine("Triangle perimeter is " + p);
+            double p = SideA + SideB + SideC;            
             return p;
           
         }

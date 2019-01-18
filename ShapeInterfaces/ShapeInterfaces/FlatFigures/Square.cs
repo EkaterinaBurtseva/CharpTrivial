@@ -10,18 +10,11 @@ namespace ShapeInterfaces
     {
         private string nameSquare ="Square";
 
-        public Square(double SideA) : base(SideA)
+        public Square(double SideA) : base(SideA, SideA)
         {
-           Name = nameSquare;
+            Name = nameSquare;
         }
-        public Square()
-        {
-        }
-        public Square(string nameSquare)
-        {
-            this.Name = nameSquare;
-        }
-
+        
         public override string Name
         {
             get { return nameSquare; }
@@ -29,16 +22,14 @@ namespace ShapeInterfaces
         }
         public override double GetArea()
         {
-            double a = Math.Pow(SideA, 2);
-            Console.WriteLine("Square area is " + a);
+            double a = Math.Pow(SideA, 2);            
             return a;
 
         }
 
         public override double GetPerimeter()
         {
-            double p = 4 *SideA;
-            Console.WriteLine("Square perimeter is " + p);
+            double p = 4 *SideA;           
             return p;
 
         }

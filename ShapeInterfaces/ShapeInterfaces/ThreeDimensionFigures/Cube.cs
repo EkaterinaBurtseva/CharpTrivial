@@ -11,14 +11,10 @@ namespace ShapeInterfaces
     {
         private string name ="Cube";
 
-        public Cube(double parallelepipedSideA) : base(parallelepipedSideA)
+        public Cube(double parallelepipedSideA) : base(parallelepipedSideA,parallelepipedSideA, parallelepipedSideA)
         {
         }
-        public Cube() : base()
-        {
-
-        }
-
+      
         public override string Name
         {
             get { return name; }
@@ -28,16 +24,14 @@ namespace ShapeInterfaces
 
         public override double GetArea()
         {
-            double a = 6 *Math.Pow(ParallelepipedSideA, 2);
-            Console.WriteLine("Cube area is " + a);
+            double a = 6 *Math.Pow(ParallelepipedSideA, 2);           
             return a;
 
         }
 
         public override double GetVolume()
         {
-            double v =Math.Pow(ParallelepipedSideA,3);
-            Console.WriteLine("Cube volume is " + v);            
+            double v =Math.Pow(ParallelepipedSideA,3);            
             return v;
 
         }
