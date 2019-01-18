@@ -8,15 +8,15 @@ namespace JsonIntegration
 {
     public class DataJsonUpdating
     {
-        private static string path = "C:\\Users\\kateryna.burtseva\\Documents\\CharpTrivial\\DataIntegration\\JsonIntegration\\Accounts1.json";
+        private static string pathToFile = "C:\\Users\\kateryna.burtseva\\Documents\\CharpTrivial\\DataIntegration\\JsonIntegration\\Accounts1.json";
 
         static void Main(string[] args)
         {
-            JsonHelpers jsonData = new JsonHelpers(path);
+            JsonHelpers jsonHelper = new JsonHelpers(pathToFile);
 
-            Account KateAccount = jsonData.GetAccount(path, "AccountName", "Katerina");
+            Account KateAccount = jsonHelper.GetAccount("AccountName", "Katerina");
             KateAccount.FirstName = "Kate1";
-            jsonData.UpdateAccount(KateAccount, path);
+            jsonHelper.UpdateAccount(KateAccount);
             Console.ReadLine();
         }
     }

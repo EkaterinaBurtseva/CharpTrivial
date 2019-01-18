@@ -9,49 +9,46 @@ namespace JsonIntegration
 {
     class JsonHelpers
     {
-        public JsonHelpers(string path)
+        private string PathToFile;
+        public JsonHelpers(string pathToFile)
         {
-
+            PathToFile = pathToFile;
         }
 
         string readResult = string.Empty;
         string writeResult = string.Empty;
 
-        public Account GetAccount(string path, string parameter, string parameterName)
+        public Account GetAccount(string parameter, string parameterName)
         {
-            using (StreamReader r = new StreamReader(path))
+            using (StreamReader r = new StreamReader(PathToFile))
             {
-                var json = r.ReadToEnd();
-                JArray jobj = JArray.Parse(json);
+                var jsonString = r.ReadToEnd();
+                JArray jarr = JArray.Parse(jsonString);
                 var token = $"$.[?(@" + parameter + "== '" + parameterName + "')]";
-                JToken accountData = jobj.SelectToken(token);
-                Console.WriteLine(accountData);
-
-                return new Account();
-
+                JToken accountData = jarr.SelectToken(token);
+                return accountData.ToObject<Account>();
             }
-
         }
 
-        public void UpdateAccount(Account account, string path)
+        public void UpdateAccount(Account account)
         {
             Console.WriteLine("updating...");
-            string json = File.ReadAllText(path);
+            var jsonString = File.ReadAllText(PathToFile);
             string jsonData = JsonConvert.SerializeObject(account, Formatting.Indented);
             Console.WriteLine(jsonData);
         }
 
-        public void AddNewNode(string path, string newNode)
+        public void AddNewNode(string newNode)
         {
-                       
+
         }
 
-        public void EditAndUpdateNode(string path, string old = "Kate", string newValue = "T")
+        public void EditAndUpdateNode(string old = "Kate", string newValue = "T")
         {
-            using (StreamReader r = new StreamReader(path))
+            using (StreamReader r = new StreamReader(PathToFile))
             {
-                var json = r.ReadToEnd();
-                var jobj = JObject.Parse(json);
+                var jsonString = r.ReadToEnd();
+                var jobj = JObject.Parse(jsonString);
                 readResult = jobj.ToString();
                 foreach (var item in jobj.Properties())
                 {
@@ -61,7 +58,7 @@ namespace JsonIntegration
                 Console.WriteLine(jobj);
             }
             Console.WriteLine(readResult);
-            File.WriteAllText(path, writeResult);
+            File.WriteAllText(PathToFile, writeResult);
         }
     }
 }
