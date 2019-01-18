@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataIntegration
 {
-    public class Class1
+    public class DataExcelIntegration
     {
         static void Main(string[] args)
         {

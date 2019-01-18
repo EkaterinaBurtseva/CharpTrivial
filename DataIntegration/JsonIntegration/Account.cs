@@ -28,6 +28,6 @@ namespace JsonIntegration
             AccountName = accountName;
             ExpirationDate = expirationDate;
         }
-        //public List<Account> accountData { get; set; } = new List<Account>;
+
     }
 }

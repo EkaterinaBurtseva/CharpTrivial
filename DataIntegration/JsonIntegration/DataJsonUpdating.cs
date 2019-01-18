@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Newtonsoft.Json.Linq;
 
 namespace JsonIntegration
 {
@@ -13,12 +12,11 @@ namespace JsonIntegration
 
         static void Main(string[] args)
         {
-            JsonHelpers jsonData = new JsonHelpers(path);           
-          
-            Account KateAccount = jsonData.GetAccount(path,"AccountName", "Katerina");
+            JsonHelpers jsonData = new JsonHelpers(path);
+
+            Account KateAccount = jsonData.GetAccount(path, "AccountName", "Katerina");
             KateAccount.FirstName = "Kate1";
             jsonData.UpdateAccount(KateAccount, path);
-            // List<Account>
             Console.ReadLine();
         }
     }

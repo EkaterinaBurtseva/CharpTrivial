@@ -43,19 +43,7 @@ namespace JsonIntegration
 
         public void AddNewNode(string path, string newNode)
         {
-            using (StreamReader r = new StreamReader(path))
-            {
-                var json = r.ReadToEnd();
-                var jobj = JObject.Parse(json);
-                jobj.Add(newNode, JObject.FromObject(jobj));
-
-                Console.WriteLine(json);
-
-            }
-
-            //var list = JsonConvert.DeserializeObject<List<Account>>(myJsonString);
-            // list.Add(new Account(1234, "carl2");
-            //var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+                       
         }
 
         public void EditAndUpdateNode(string path, string old = "Kate", string newValue = "T")
