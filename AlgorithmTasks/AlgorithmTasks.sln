@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetterCounter", "LetterCoun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "Matrix\Matrix.csproj", "{BF51A0FC-BA3A-4E89-83B3-65AB0E8D060D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseArray", "ReverseArray\ReverseArray.csproj", "{C712E2D0-9C10-4FEC-B90B-41296BF6450B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fibonacci", "Fibonacci\Fibonacci.csproj", "{667349E6-1897-4A05-80A9-1FB421E4F75B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{BF51A0FC-BA3A-4E89-83B3-65AB0E8D060D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF51A0FC-BA3A-4E89-83B3-65AB0E8D060D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF51A0FC-BA3A-4E89-83B3-65AB0E8D060D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C712E2D0-9C10-4FEC-B90B-41296BF6450B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C712E2D0-9C10-4FEC-B90B-41296BF6450B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C712E2D0-9C10-4FEC-B90B-41296BF6450B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C712E2D0-9C10-4FEC-B90B-41296BF6450B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{667349E6-1897-4A05-80A9-1FB421E4F75B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{667349E6-1897-4A05-80A9-1FB421E4F75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{667349E6-1897-4A05-80A9-1FB421E4F75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{667349E6-1897-4A05-80A9-1FB421E4F75B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
