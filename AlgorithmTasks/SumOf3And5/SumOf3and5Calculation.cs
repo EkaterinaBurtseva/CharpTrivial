@@ -18,28 +18,17 @@ namespace SumOf3And5
                 Console.WriteLine("Please enter number above 7");
             }
             int countThree = 0;
-            int countTwo = 0;
+            int countFive = 0;
 
-            if (number % 2 == 0 && number % 3 != 0)
+            while (number % 3 != 0 && number != 0)
             {
-                number = number - 2;
-                countTwo++;
-            }
-            if (number % 3 == 0 && number != 0)
-            {
-                number = number - 3;
-                countThree++;
+                number = number - 5;
+                countFive++;
 
             }
-            if (number % 2 != 0 && number % 3 != 0)
-            {
-                number = number - 2;
-                countTwo++;
-               
-                
-            }
+            countThree = number / 3;
 
-            Console.WriteLine($"{ enteredValue} is 2 * {countTwo} and 3 * {countThree}");
+            Console.WriteLine($"{ enteredValue} is 5 * {countFive} and 3 * {countThree}");
             Console.ReadLine();
 
         }

@@ -40,7 +40,7 @@ namespace HappyTickets
             {
                 Console.WriteLine("Sorry, ticket isn't happy.");
             }
-
+            Console.ReadLine();
 
         }
     }

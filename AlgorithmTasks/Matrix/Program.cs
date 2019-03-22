@@ -20,6 +20,7 @@ namespace Matrix
             string max = Console.ReadLine();
             int maxValue = Convert.ToInt32(max);
             GenerateMatrix(matrixRow, minValue, maxValue);
+            Console.ReadLine();
 
         }
 
