@@ -19,7 +19,13 @@ namespace Matrix
             Console.WriteLine("Enter max number at matrix");
             string max = Console.ReadLine();
             int maxValue = Convert.ToInt32(max);
-            GenerateMatrix(matrixRow, minValue, maxValue);
+
+            int[,] array = GenerateMatrix(matrixRow, minValue, maxValue);
+            var sumDiagonals = CalculateSumOfDiagonals(array, matrixRow);
+            Console.WriteLine("Matrix with switched diagonals");
+            int[,] newArray = ReplaceDiagonals(array, matrixRow);
+            Console.WriteLine("Transposition Matrix");
+            int[,] transArray = TranspMatrix(array, matrixRow);
             Console.ReadLine();
 
         }
@@ -41,15 +47,89 @@ namespace Matrix
             }
             return array;
         }
-        //    public void CalculateSumOfDiagonals()
-        // {
-        //    long result = 0;
-        //   for (int i = 0; i < matrixRow; i++)
-        //  {
-        //     result += array[i][j];
-        //     if (i < matrixRow - 1)
-        //          result += array[i][j + 1];
-        //   }
-        //  }
+
+        public static int CalculateSumOfDiagonals(int[,] array, int n)
+        {
+            int mainDiagonalSum = 0;
+            int sideDiagonalSum = 0;
+
+            for (int i = 0; i <= n - 1; i++)
+            {
+
+                for (int j = 0; j <= n - 1; j++)
+                {
+                    if (i == j)
+                    {
+                        mainDiagonalSum += array[i, j];
+                        sideDiagonalSum += array[i, n - j - 1];
+                    }
+
+
+                }
+            }
+            Console.WriteLine($"Sum of diagonals {mainDiagonalSum + sideDiagonalSum}");
+            return mainDiagonalSum + sideDiagonalSum;
+        }
+        public static int[,] ReplaceDiagonals(int[,] array, int n)
+        {
+            int[,] newArray = new int[n, n];
+            int[] mainDiagonal = new int[n];
+            int[] sideDiagonal = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == j)
+                    {
+                        mainDiagonal[i] = array[i, j];
+                    }
+                    if (i == n - 1 - j)
+                    {
+                        sideDiagonal[i] = array[i, j];
+                    }
+                }
+            }
+
+
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                {
+
+                    newArray[i, j] = array[i, j];
+
+                    if (i == n - 1 - j)
+                        newArray[i, j] = mainDiagonal[i];
+
+                    if (i == j)
+                        newArray[i, j] = sideDiagonal[i];
+
+
+                }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+
+                    Console.Write(newArray[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            return newArray;
+        }
+        public static int[,] TranspMatrix(int[,] array, int n)
+        {
+            int[,] trans = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    trans[i, j] = array[j, i];
+                    Console.Write(trans[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            return trans;
+        }
     }
 }
