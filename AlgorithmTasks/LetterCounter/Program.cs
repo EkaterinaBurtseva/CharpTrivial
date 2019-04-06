@@ -12,17 +12,40 @@ namespace LetterCounter
         {
             Console.WriteLine("Enter a string");
             string enteredValue = Console.ReadLine();
-            Console.WriteLine("Enter a character");
-            string enteredCharacter = Console.ReadLine();           
-            GetCharOccurence(enteredValue, Convert.ToChar(enteredCharacter));
+
+            foreach (var letter in enteredValue.Distinct().ToArray())
+            {
+                var count = enteredValue.Count(chr => chr == letter);
+                Console.WriteLine("Number of characters {0} = {1}", letter, count);
+            }
             Console.ReadLine();
+            NumberCalculation(enteredValue);
         }
 
-        public static int GetCharOccurence(string text, char c)
+        public static void NumberCalculation(string enteredString)
         {
-            int count = text.Where(x => x == c).Count();
-            Console.WriteLine($"Symbol {c} repeats {count} times");
-            return count;
+            int count = 0;
+            char prevValue = '&';
+            foreach (char c in enteredString)
+            {
+                foreach (char ch in enteredString)
+                {
+                    if (ch == c && ch != prevValue)
+                    {
+                        count++;
+                    }
+                }
+                if (count != 0)
+                {
+                    Console.WriteLine("Variant2: Number of characters {0} = {1}", c, count);
+                    count = 0;
+                    prevValue = c;
+                }
+
+            }
+
+            Console.ReadLine();
         }
     }
 }
+
