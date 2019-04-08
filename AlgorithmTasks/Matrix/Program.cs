@@ -56,69 +56,38 @@ namespace Matrix
             for (int i = 0; i <= n - 1; i++)
             {
 
-                for (int j = 0; j <= n - 1; j++)
-                {
-                    if (i == j)
-                    {
-                        mainDiagonalSum += array[i, j];
-                        sideDiagonalSum += array[i, n - j - 1];
-                    }
-
-
-                }
+                mainDiagonalSum += array[i, i];
+                sideDiagonalSum += array[i, n - i - 1];
             }
+
+
             Console.WriteLine($"Sum of diagonals {mainDiagonalSum + sideDiagonalSum}");
             return mainDiagonalSum + sideDiagonalSum;
         }
         public static int[,] ReplaceDiagonals(int[,] array, int n)
         {
-            int[,] newArray = new int[n, n];
-            int[] mainDiagonal = new int[n];
-            int[] sideDiagonal = new int[n];
+            int tmp = 0;
 
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j++)
-                {
-                    if (i == j)
-                    {
-                        mainDiagonal[i] = array[i, j];
-                    }
-                    if (i == n - 1 - j)
-                    {
-                        sideDiagonal[i] = array[i, j];
-                    }
-                }
+                tmp = array[i, i];
+                array[i, i] = array[i, n - i - 1];
+                array[i, n - i - 1] = tmp;
             }
 
-
-            for (int i = 0; i < n; i++)
-                for (int j = 0; j < n; j++)
-                {
-
-                    newArray[i, j] = array[i, j];
-
-                    if (i == n - 1 - j)
-                        newArray[i, j] = mainDiagonal[i];
-
-                    if (i == j)
-                        newArray[i, j] = sideDiagonal[i];
-
-
-                }
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j++)
-                {
-
-                    Console.Write(newArray[i, j] + " ");
-                }
                 Console.WriteLine();
+                //TODO: print changed matrix
             }
-            return newArray;
+
+            Console.ReadLine();
+
+            return array;
         }
         public static int[,] TranspMatrix(int[,] array, int n)
         {
+            //TODO: implement method without using additional array
             int[,] trans = new int[n, n];
             for (int i = 0; i < n; i++)
             {

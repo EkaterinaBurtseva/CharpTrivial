@@ -17,16 +17,19 @@ namespace LetterCounter
             {
                 var count = enteredValue.Count(chr => chr == letter);
                 Console.WriteLine("Number of characters {0} = {1}", letter, count);
+                //TODO: Add to dictionary
             }
             Console.ReadLine();
-            NumberCalculation(enteredValue);
+
+            //NumberCalculation(enteredValue);
+            var test = CountLetters(enteredValue);
         }
 
         public static void NumberCalculation(string enteredString)
         {
             int count = 0;
             char prevValue = '&';
-            foreach (char c in enteredString)
+            foreach (char c in enteredString.Distinct())
             {
                 foreach (char ch in enteredString)
                 {
@@ -45,6 +48,23 @@ namespace LetterCounter
             }
 
             Console.ReadLine();
+        }
+        public static Dictionary <char, int> CountLetters(string enteredString)
+        {
+            Dictionary<char, int> results = new Dictionary<char, int>();
+            foreach(char c in enteredString)
+            {
+                if (results.Keys.Contains(c))
+                {
+                    results[c] ++;
+                }
+                else
+                {
+                    results.Add(c,1);
+                }
+            }
+
+            return results;
         }
     }
 }
