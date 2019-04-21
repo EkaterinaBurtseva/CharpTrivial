@@ -12,16 +12,21 @@ namespace LetterCounter
         {
             Console.WriteLine("Enter a string");
             string enteredValue = Console.ReadLine();
-
+            Dictionary<char, int> results = new Dictionary<char, int>();
             foreach (var letter in enteredValue.Distinct().ToArray())
             {
                 var count = enteredValue.Count(chr => chr == letter);
-                Console.WriteLine("Number of characters {0} = {1}", letter, count);
-                //TODO: Add to dictionary
+                results.Add(letter, count);
+
+            }
+
+            foreach (KeyValuePair<char, int> kvp in results)
+            {
+                Console.WriteLine("Letter = {0}, Count = {1}", kvp.Key, kvp.Value);
             }
             Console.ReadLine();
 
-            //NumberCalculation(enteredValue);
+            NumberCalculation(enteredValue);
             var test = CountLetters(enteredValue);
         }
 
@@ -49,18 +54,18 @@ namespace LetterCounter
 
             Console.ReadLine();
         }
-        public static Dictionary <char, int> CountLetters(string enteredString)
+        public static Dictionary<char, int> CountLetters(string enteredString)
         {
             Dictionary<char, int> results = new Dictionary<char, int>();
-            foreach(char c in enteredString)
+            foreach (char c in enteredString)
             {
                 if (results.Keys.Contains(c))
                 {
-                    results[c] ++;
+                    results[c]++;
                 }
                 else
                 {
-                    results.Add(c,1);
+                    results.Add(c, 1);
                 }
             }
 

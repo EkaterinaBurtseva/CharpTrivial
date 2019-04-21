@@ -25,7 +25,8 @@ namespace Matrix
             Console.WriteLine("Matrix with switched diagonals");
             int[,] newArray = ReplaceDiagonals(array, matrixRow);
             Console.WriteLine("Transposition Matrix");
-            int[,] transArray = TranspMatrix(array, matrixRow);
+            int[,] transArray = TranspMatrixAdditionalMatrix(array, matrixRow);
+            int[,] transArray2 = TranspMatrixWithoutAdditionalMatrix(array, matrixRow);
             Console.ReadLine();
 
         }
@@ -77,17 +78,16 @@ namespace Matrix
 
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine();
-                //TODO: print changed matrix
-            }
 
+                Console.Write(" {0}", array[i, i]);
+            }
+            Console.WriteLine();
             Console.ReadLine();
 
             return array;
         }
-        public static int[,] TranspMatrix(int[,] array, int n)
+        public static int[,] TranspMatrixAdditionalMatrix(int[,] array, int n)
         {
-            //TODO: implement method without using additional array
             int[,] trans = new int[n, n];
             for (int i = 0; i < n; i++)
             {
@@ -99,6 +99,30 @@ namespace Matrix
                 Console.WriteLine();
             }
             return trans;
+        }
+
+        public static int[,] TranspMatrixWithoutAdditionalMatrix(int[,] array, int n)
+        {
+            int tmp;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    tmp = array[i, j];
+                    array[i, j] = array[j, i];
+                    array[j, i] = tmp;
+                }
+            }
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Console.Write(" {0}", array[i, j]);
+                }
+                Console.WriteLine();
+            }
+
+            return array;
         }
     }
 }
