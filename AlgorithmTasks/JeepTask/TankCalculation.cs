@@ -19,40 +19,40 @@ namespace JeepTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter n");
-            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter distance");
+            int distance = Convert.ToInt32(Console.ReadLine());
 
 
-            Console.WriteLine("Enter m");
-            int m = Convert.ToInt32(Console.ReadLine());
-            if (n < 0 && n <= 5m && n > 32000)
+            Console.WriteLine("Enter tank volume");
+            int tank = Convert.ToInt32(Console.ReadLine());
+            if (distance < 0 && distance <= 5 * tank && distance > 32000)
             {
                 Console.WriteLine("Entered value n is wrong. Please try again");
 
             }
-            int result = m;
-            int[] way = new int[n];
-            int[] gas = new int[n];
-            way[1] = m;
-            gas[1] = m;
-            int k = 2;
-            while (way[k - 1] + m / (2 * k - 1) < n)
+            int result = 0;
+            int passWay = 0;
+            int stations = 0;
+
+            while (passWay <= distance)
             {
-                way[k] = way[k - 1] + m / (2 * k - 1);
-                gas[k] = k * m;
-                k++;
-                }
-            result = (n - way[k - 1])*(2 * k - 1) + gas[k - 1];
-            if (result < 1e-8)
-            {
-                Console.WriteLine(result);
+                stations++;
+                passWay += tank / (2 * stations - 1);
             }
-            else
-            {
-                Console.WriteLine(result + 1);
-            }
+
+            stations--;
+            passWay = 0;
+
+            for (int i = 1; i <= stations; i++)
+                passWay += tank / (2 * i - 1);
+            double spentFuel = stations * tank;
+
+
+            int restOfDistance = distance - passWay;
+            result += restOfDistance * (2 * stations + 1);
+
+            Console.WriteLine($"Minimum count of fuel to cross the desert is {result}");
         }
-        
     }
 }
 
